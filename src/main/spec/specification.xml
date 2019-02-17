@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project cid="49" version="1.2">
+<project cid="50" version="1.2">
 <projectproperties>
 <projectproperty id="extfolder" module="IDK"  name="Extension Module Folder" value="ext"  tooltip="Folder where the IDE will find its new modules" />
  <openeddiagram>organization</openeddiagram> <openeddiagram>brainstorming workflow</openeddiagram> <openeddiagram>resources</openeddiagram> <openeddiagram>specialization</openeddiagram> <openeddiagram>deployment</openeddiagram> <openeddiagram>agent to role assignments</openeddiagram> <openeddiagram>initial mental state</openeddiagram> <openeddiagram>code</openeddiagram> <openeddiagram>organization of resources</openeddiagram></projectproperties>
@@ -807,28 +807,45 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="49" type="ingenias.editor.entities.WFConsumes">
-<object id="49" type="ingenias.editor.entities.WFConsumes">
+<relationship id="38" type="ingenias.editor.entities.WFConsumes">
+<object id="38" type="ingenias.editor.entities.WFConsumes">
 <objectproperty id="Condition">
 </objectproperty>
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="ConceptSketch" class="ingenias.editor.entities.FrameFact" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="244093275">
+<role idEntity="SketchIsReady" class="ingenias.editor.entities.ApplicationEventSlots" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="1387718058">
 <mapproperties>
-<key id="Cardinality">1..*</key>
+<key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="CollectDrawings" class="ingenias.editor.entities.TaskByRole" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="1200745186">
+</role><role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="514761922">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="5" type="ingenias.editor.entities.PConnects">
-<object id="5" type="ingenias.editor.entities.PConnects">
+<relationship id="10" type="ingenias.editor.entities.WFParticipates">
+<object id="10" type="ingenias.editor.entities.WFParticipates">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="WFParticipatessource" type="ingenias.editor.entities.WFParticipatessourceRole" dgcid="1513835163">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="WFParticipatestarget" type="ingenias.editor.entities.WFParticipatestargetRole" dgcid="271292993">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="6" type="ingenias.editor.entities.PConnects">
+<object id="6" type="ingenias.editor.entities.PConnects">
 <objectproperty id="Transfers" collection="true">
 </objectproperty>
 <mapproperties>
@@ -836,14 +853,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="GenerationLabel"></key>
 </mapproperties>
 </object>
-<role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectstarget" type="ingenias.editor.entities.PConnectstargetRole" dgcid="492106898">
+<role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectstarget" type="ingenias.editor.entities.PConnectstargetRole" dgcid="514761922">
 <objectproperty id="TaskInput" collection="true">
 </objectproperty>
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="DefineGoal" class="ingenias.editor.entities.TaskByRole" roleName="PConnectssource" type="ingenias.editor.entities.PConnectssourceRole" dgcid="1400906140">
+</role><role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectssource" type="ingenias.editor.entities.PConnectssourceRole" dgcid="492106898">
 <objectproperty id="TaskOutput" collection="true">
 </objectproperty>
 <mapproperties>
@@ -851,40 +868,54 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="13" type="ingenias.editor.entities.WFConsumes">
-<object id="13" type="ingenias.editor.entities.WFConsumes">
-<objectproperty id="Condition">
-</objectproperty>
+<relationship id="33" type="ingenias.editor.entities.WFUses">
+<object id="33" type="ingenias.editor.entities.WFUses">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="DefineGoal" class="ingenias.editor.entities.TaskByRole" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="1400906140">
+<role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="WFUsestarget" type="ingenias.editor.entities.WFUsestargetRole" dgcid="1441220682">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
+<key id="Label"></key>
 </mapproperties>
-</role><role idEntity="GoalDescription" class="ingenias.editor.entities.FrameFact" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="1013413947">
+</role><role idEntity="CollectDrawings" class="ingenias.editor.entities.TaskByRole" roleName="WFUsessource" type="ingenias.editor.entities.WFUsessourceRole" dgcid="252797696">
 <mapproperties>
-<key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="26" type="ingenias.editor.entities.GTSatisfies">
-<object id="26" type="ingenias.editor.entities.GTSatisfies">
-<objectproperty id="SatisfactionCondition">
-</objectproperty>
+<relationship id="30" type="ingenias.editor.entities.WFUses">
+<object id="30" type="ingenias.editor.entities.WFUses">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="Design a chair" class="ingenias.editor.entities.Goal" roleName="GTSatisfiestarget" type="ingenias.editor.entities.GTSatisfiestargetRole" dgcid="1758219204">
+<role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="WFUsessource" type="ingenias.editor.entities.WFUsessourceRole" dgcid="492106898">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="GTSatisfiessource" type="ingenias.editor.entities.GTSatisfiessourceRole" dgcid="271292993">
+</role><role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="WFUsestarget" type="ingenias.editor.entities.WFUsestargetRole" dgcid="3227681">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+<key id="Label"></key>
+</mapproperties>
+</role></relationship>
+<relationship id="21" type="ingenias.editor.entities.WFParticipates">
+<object id="21" type="ingenias.editor.entities.WFParticipates">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="WFParticipatestarget" type="ingenias.editor.entities.WFParticipatestargetRole" dgcid="271292993">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="WFParticipatessource" type="ingenias.editor.entities.WFParticipatessourceRole" dgcid="92371351">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -943,61 +974,47 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="21" type="ingenias.editor.entities.WFParticipates">
-<object id="21" type="ingenias.editor.entities.WFParticipates">
+<relationship id="26" type="ingenias.editor.entities.GTSatisfies">
+<object id="26" type="ingenias.editor.entities.GTSatisfies">
+<objectproperty id="SatisfactionCondition">
+</objectproperty>
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="WFParticipatestarget" type="ingenias.editor.entities.WFParticipatestargetRole" dgcid="271292993">
+<role idEntity="Design a chair" class="ingenias.editor.entities.Goal" roleName="GTSatisfiestarget" type="ingenias.editor.entities.GTSatisfiestargetRole" dgcid="1758219204">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="WFParticipatessource" type="ingenias.editor.entities.WFParticipatessourceRole" dgcid="92371351">
+</role><role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="GTSatisfiessource" type="ingenias.editor.entities.GTSatisfiessourceRole" dgcid="271292993">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="30" type="ingenias.editor.entities.WFUses">
-<object id="30" type="ingenias.editor.entities.WFUses">
+<relationship id="13" type="ingenias.editor.entities.WFConsumes">
+<object id="13" type="ingenias.editor.entities.WFConsumes">
+<objectproperty id="Condition">
+</objectproperty>
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="WFUsessource" type="ingenias.editor.entities.WFUsessourceRole" dgcid="492106898">
+<role idEntity="DefineGoal" class="ingenias.editor.entities.TaskByRole" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="1400906140">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="WFUsestarget" type="ingenias.editor.entities.WFUsestargetRole" dgcid="3227681">
+</role><role idEntity="GoalDescription" class="ingenias.editor.entities.FrameFact" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="1013413947">
 <mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-<key id="Label"></key>
-</mapproperties>
-</role></relationship>
-<relationship id="33" type="ingenias.editor.entities.WFUses">
-<object id="33" type="ingenias.editor.entities.WFUses">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="WFUsestarget" type="ingenias.editor.entities.WFUsestargetRole" dgcid="1441220682">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-<key id="Label"></key>
-</mapproperties>
-</role><role idEntity="CollectDrawings" class="ingenias.editor.entities.TaskByRole" roleName="WFUsessource" type="ingenias.editor.entities.WFUsessourceRole" dgcid="252797696">
-<mapproperties>
+<key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="6" type="ingenias.editor.entities.PConnects">
-<object id="6" type="ingenias.editor.entities.PConnects">
+<relationship id="5" type="ingenias.editor.entities.PConnects">
+<object id="5" type="ingenias.editor.entities.PConnects">
 <objectproperty id="Transfers" collection="true">
 </objectproperty>
 <mapproperties>
@@ -1005,14 +1022,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="GenerationLabel"></key>
 </mapproperties>
 </object>
-<role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectstarget" type="ingenias.editor.entities.PConnectstargetRole" dgcid="514761922">
+<role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectstarget" type="ingenias.editor.entities.PConnectstargetRole" dgcid="492106898">
 <objectproperty id="TaskInput" collection="true">
 </objectproperty>
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectssource" type="ingenias.editor.entities.PConnectssourceRole" dgcid="492106898">
+</role><role idEntity="DefineGoal" class="ingenias.editor.entities.TaskByRole" roleName="PConnectssource" type="ingenias.editor.entities.PConnectssourceRole" dgcid="1400906140">
 <objectproperty id="TaskOutput" collection="true">
 </objectproperty>
 <mapproperties>
@@ -1020,38 +1037,21 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="10" type="ingenias.editor.entities.WFParticipates">
-<object id="10" type="ingenias.editor.entities.WFParticipates">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="WFParticipatessource" type="ingenias.editor.entities.WFParticipatessourceRole" dgcid="1513835163">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="WFParticipatestarget" type="ingenias.editor.entities.WFParticipatestargetRole" dgcid="271292993">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="38" type="ingenias.editor.entities.WFConsumes">
-<object id="38" type="ingenias.editor.entities.WFConsumes">
+<relationship id="49" type="ingenias.editor.entities.WFConsumes">
+<object id="49" type="ingenias.editor.entities.WFConsumes">
 <objectproperty id="Condition">
 </objectproperty>
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="SketchIsReady" class="ingenias.editor.entities.ApplicationEventSlots" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="1387718058">
+<role idEntity="ConceptSketch" class="ingenias.editor.entities.FrameFact" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="244093275">
 <mapproperties>
-<key id="Cardinality"></key>
+<key id="Cardinality">1..*</key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="514761922">
+</role><role idEntity="CollectDrawings" class="ingenias.editor.entities.TaskByRole" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="1200745186">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -2046,14 +2046,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	<graph>
 			
-	<node id="ConceptSketch" nid="node25" type="FrameFact">
-		<attr name="bounds">
-			<rectangle x="1103" y="319" width="97" height="32"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="5" nid="node14" type="PConnects">
+	<node id="5" nid="node12" type="PConnects">
 		<attr name="bounds">
 			<rectangle x="396" y="97" width="68" height="19"></rectangle>		</attr>
 		<attr name="view">
@@ -2062,7 +2055,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
-	<connected id="node5">		<attr name="labelposition">
+	<connected id="node21">		<attr name="labelposition">
 			<point x="500.0" y="-20.0"></point>
 		</attr>
 
@@ -2084,7 +2077,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 </attr>
 
 	</connected>
-	<connected id="node10">
+	<connected id="node16">
 
 
 
@@ -2102,9 +2095,16 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="CollectDrawings" nid="node24" type="TaskByRole">
+	<node id="ConceptSketch" nid="node1" type="FrameFact">
 		<attr name="bounds">
-			<rectangle x="763" y="331" width="134" height="40"></rectangle>		</attr>
+			<rectangle x="1138" y="204" width="97" height="32"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="CollectDrawings" nid="node2" type="TaskByRole">
+		<attr name="bounds">
+			<rectangle x="757" y="304" width="134" height="40"></rectangle>		</attr>
 
 
 	</node>
@@ -2116,7 +2116,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="6" nid="node21" type="PConnects">
+	<node id="GoalDescription" nid="node17" type="FrameFact">
+		<attr name="bounds">
+			<rectangle x="18" y="22" width="101" height="32"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="6" nid="node5" type="PConnects">
 		<attr name="bounds">
 			<rectangle x="412" y="143" width="68" height="19"></rectangle>		</attr>
 		<attr name="view">
@@ -2125,7 +2132,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
-	<connected id="node11">
+	<connected id="node15">
 
 
 
@@ -2142,7 +2149,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 	</connected>
-	<connected id="node5">
+	<connected id="node21">
 
 
 
@@ -2160,14 +2167,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="GoalDescription" nid="node9" type="FrameFact">
+	<node id="SketchPainter" nid="node22" type="InternalApplication">
 		<attr name="bounds">
-			<rectangle x="18" y="22" width="101" height="32"></rectangle>		</attr>
+			<rectangle x="784" y="198" width="88" height="46"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="21" nid="node18" type="WFParticipates">
+	<node id="21" nid="node8" type="WFParticipates">
 		<attr name="bounds">
 			<rectangle x="95" y="240" width="85" height="15"></rectangle>		</attr>
 		<attr name="view">
@@ -2211,21 +2218,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="SketchPainter" nid="node4" type="InternalApplication">
-		<attr name="bounds">
-			<rectangle x="784" y="198" width="88" height="46"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="Moderator" nid="node2" type="Role">
+	<node id="Moderator" nid="node24" type="Role">
 		<attr name="bounds">
 			<rectangle x="81" y="329" width="65" height="43"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="13" nid="node15" type="WFConsumes">
+	<node id="13" nid="node11" type="WFConsumes">
 		<attr name="bounds">
 			<rectangle x="130" y="54" width="80" height="15"></rectangle>		</attr>
 		<attr name="view">
@@ -2234,7 +2234,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
-	<connected id="node10">
+	<connected id="node16">
 
 
 
@@ -2250,7 +2250,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 	</connected>
-	<connected id="node9">
+	<connected id="node17">
 
 
 
@@ -2269,7 +2269,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="30" nid="node19" type="WFUses">
+	<node id="30" nid="node7" type="WFUses">
 		<attr name="bounds">
 			<rectangle x="691" y="78" width="52" height="15"></rectangle>		</attr>
 		<attr name="view">
@@ -2278,7 +2278,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
-	<connected id="node5">
+	<connected id="node21">
 
 
 
@@ -2294,7 +2294,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 	</connected>
-	<connected id="node3">
+	<connected id="node23">
 
 
 
@@ -2313,14 +2313,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="DefineGoal" nid="node10" type="TaskByRole">
+	<node id="DefineGoal" nid="node16" type="TaskByRole">
 		<attr name="bounds">
 			<rectangle x="230" y="86" width="103" height="40"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="26" nid="node16" type="GTSatisfies">
+	<node id="26" nid="node10" type="GTSatisfies">
 		<attr name="bounds">
 			<rectangle x="553" y="298" width="70" height="15"></rectangle>		</attr>
 		<attr name="view">
@@ -2345,7 +2345,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 	</connected>
-	<connected id="node7">
+	<connected id="node19">
 
 
 
@@ -2364,14 +2364,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="SketchConcept" nid="node5" type="TaskByRole">
+	<node id="SketchConcept" nid="node21" type="TaskByRole">
 		<attr name="bounds">
 			<rectangle x="528" y="86" width="130" height="40"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="38" nid="node23" type="WFConsumes">
+	<node id="38" nid="node3" type="WFConsumes">
 		<attr name="bounds">
 			<rectangle x="159" y="170" width="80" height="15"></rectangle>		</attr>
 		<attr name="view">
@@ -2380,7 +2380,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
-	<connected id="node11">
+	<connected id="node15">
 
 
 
@@ -2396,7 +2396,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 	</connected>
-	<connected id="node8">
+	<connected id="node18">
 
 
 
@@ -2415,7 +2415,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="CollectDrawings" nid="node6" type="TaskByRole">
+	<node id="CollectDrawings" nid="node20" type="TaskByRole">
 		<attr name="bounds">
 			<rectangle x="563" y="215" width="134" height="40"></rectangle>		</attr>
 
@@ -2429,16 +2429,23 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="7" nid="node17" type="PConnects">
+	<node id="ShareConcept" nid="node15" type="TaskByRole">
 		<attr name="bounds">
-			<rectangle x="386" y="229" width="120" height="47"></rectangle>		</attr>
+			<rectangle x="240" y="179" width="124" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="7" nid="node9" type="PConnects">
+		<attr name="bounds">
+			<rectangle x="429" y="207" width="120" height="47"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
 
-	<connected id="node6">		<attr name="labelposition">
+	<connected id="node20">		<attr name="labelposition">
 			<point x="500.0" y="-20.0"></point>
 		</attr>
 
@@ -2460,7 +2467,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 </attr>
 
 	</connected>
-	<connected id="node11">
+	<connected id="node15">
 
 
 
@@ -2478,21 +2485,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="ShareConcept" nid="node11" type="TaskByRole">
-		<attr name="bounds">
-			<rectangle x="240" y="179" width="124" height="40"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="Design a chair" nid="node7" type="Goal">
+	<node id="Design a chair" nid="node19" type="Goal">
 		<attr name="bounds">
 			<rectangle x="587" y="330" width="96" height="56"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="SketchIsReady" nid="node8" type="ApplicationEventSlots">
+	<node id="SketchIsReady" nid="node18" type="ApplicationEventSlots">
 		<attr name="bounds">
 			<rectangle x="6" y="90" width="173" height="70"></rectangle>		</attr>
 		<attr name="view">
@@ -2503,60 +2503,16 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="10" nid="node22" type="WFParticipates">
-		<attr name="bounds">
-			<rectangle x="147" y="299" width="85" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node2">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node0">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="49" nid="node1" type="WFConsumes">
+	<node id="49" nid="node25" type="WFConsumes">
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 		<attr name="bounds">
-			<rectangle x="960" y="335" width="80" height="15"></rectangle>		</attr>
+			<rectangle x="974" y="262" width="80" height="15"></rectangle>		</attr>
 
 
-	<connected id="node24"><attr name="extraLabels">
+	<connected id="node2"><attr name="extraLabels">
 			<array>
 
 </array>
@@ -2568,7 +2524,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 	</connected>
-	<connected id="node25">
+	<connected id="node1">
 
 
 
@@ -2593,7 +2549,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="SketchPainter" nid="node3" type="InternalApplication">
+	<node id="SketchPainter" nid="node23" type="InternalApplication">
 		<attr name="bounds">
 			<rectangle x="774" y="65" width="104" height="40"></rectangle>		</attr>
 		<attr name="view">
@@ -2604,16 +2560,16 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="33" nid="node20" type="WFUses">
+	<node id="10" nid="node4" type="WFParticipates">
 		<attr name="bounds">
-			<rectangle x="714" y="220" width="52" height="15"></rectangle>		</attr>
+			<rectangle x="147" y="299" width="85" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
 
-	<connected id="node6">
+	<connected id="node24">
 
 
 
@@ -2629,7 +2585,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 	</connected>
-	<connected id="node4">
+	<connected id="node0">
 
 
 
@@ -2648,23 +2604,67 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="WorkflowCardinality0" nid="node12" type="WorkflowCardinality">
+	<node id="33" nid="node6" type="WFUses">
+		<attr name="bounds">
+			<rectangle x="714" y="220" width="52" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node20">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node22">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="WorkflowCardinality0" nid="node14" type="WorkflowCardinality">
 		<attr name="bounds">
 			<rectangle x="362" y="305" width="137" height="85"></rectangle>		</attr>
 
 
 	</node><parentship>
-<child id="node6" parent="node0"/>
-<child id="node5" parent="node0"/>
-<child id="node10" parent="node0"/>
-<child id="node11" parent="node0"/>
+<child id="node20" parent="node0"/>
+<child id="node21" parent="node0"/>
+<child id="node16" parent="node0"/>
+<child id="node15" parent="node0"/>
 </parentship>
 <entityconstraints>
-<cellconstraint id="node8:INGENIAS">
-<currentcell id="node8" height="83" width="91"/>
+<cellconstraint id="node18:INGENIAS">
+<currentcell id="node18" height="83" width="91"/>
 </cellconstraint>
-<cellconstraint id="node3:INGENIAS">
-<currentcell id="node3" height="46" width="88"/>
+<cellconstraint id="node23:INGENIAS">
+<currentcell id="node23" height="46" width="88"/>
 </cellconstraint>
 </entityconstraints>
 
@@ -2674,14 +2674,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	<layout>
 			
-	<node id="node25">
-		<attr name="bounds">
-			<rectangle x="1103" y="319" width="97" height="32"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node14">
+	<node id="node12">
 		<attr name="bounds">
 			<rectangle x="396" y="97" width="68" height="19"></rectangle>		</attr>
 		<attr name="view">
@@ -2692,9 +2685,16 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node24">
+	<node id="node1">
 		<attr name="bounds">
-			<rectangle x="763" y="331" width="134" height="40"></rectangle>		</attr>
+			<rectangle x="1138" y="204" width="97" height="32"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node2">
+		<attr name="bounds">
+			<rectangle x="757" y="304" width="134" height="40"></rectangle>		</attr>
 
 
 	</node>
@@ -2706,7 +2706,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node21">
+	<node id="node17">
+		<attr name="bounds">
+			<rectangle x="18" y="22" width="101" height="32"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node5">
 		<attr name="bounds">
 			<rectangle x="412" y="143" width="68" height="19"></rectangle>		</attr>
 		<attr name="view">
@@ -2717,14 +2724,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node9">
+	<node id="node22">
 		<attr name="bounds">
-			<rectangle x="18" y="22" width="101" height="32"></rectangle>		</attr>
+			<rectangle x="784" y="198" width="88" height="46"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="node18">
+	<node id="node8">
 		<attr name="bounds">
 			<rectangle x="95" y="240" width="85" height="15"></rectangle>		</attr>
 		<attr name="view">
@@ -2735,21 +2742,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node4">
-		<attr name="bounds">
-			<rectangle x="784" y="198" width="88" height="46"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node2">
+	<node id="node24">
 		<attr name="bounds">
 			<rectangle x="81" y="329" width="65" height="43"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="node15">
+	<node id="node11">
 		<attr name="bounds">
 			<rectangle x="130" y="54" width="80" height="15"></rectangle>		</attr>
 		<attr name="view">
@@ -2760,7 +2760,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node19">
+	<node id="node7">
 		<attr name="bounds">
 			<rectangle x="691" y="78" width="52" height="15"></rectangle>		</attr>
 		<attr name="view">
@@ -2771,14 +2771,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node10">
+	<node id="node16">
 		<attr name="bounds">
 			<rectangle x="230" y="86" width="103" height="40"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="node16">
+	<node id="node10">
 		<attr name="bounds">
 			<rectangle x="553" y="298" width="70" height="15"></rectangle>		</attr>
 		<attr name="view">
@@ -2789,14 +2789,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node5">
+	<node id="node21">
 		<attr name="bounds">
 			<rectangle x="528" y="86" width="130" height="40"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="node23">
+	<node id="node3">
 		<attr name="bounds">
 			<rectangle x="159" y="170" width="80" height="15"></rectangle>		</attr>
 		<attr name="view">
@@ -2807,7 +2807,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node6">
+	<node id="node20">
 		<attr name="bounds">
 			<rectangle x="563" y="215" width="134" height="40"></rectangle>		</attr>
 
@@ -2821,9 +2821,16 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node17">
+	<node id="node15">
 		<attr name="bounds">
-			<rectangle x="386" y="229" width="120" height="47"></rectangle>		</attr>
+			<rectangle x="240" y="179" width="124" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node9">
+		<attr name="bounds">
+			<rectangle x="429" y="207" width="120" height="47"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
@@ -2832,21 +2839,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node11">
-		<attr name="bounds">
-			<rectangle x="240" y="179" width="124" height="40"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node7">
+	<node id="node19">
 		<attr name="bounds">
 			<rectangle x="587" y="330" width="96" height="56"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="node8">
+	<node id="node18">
 		<attr name="bounds">
 			<rectangle x="6" y="90" width="173" height="70"></rectangle>		</attr>
 		<attr name="view">
@@ -2857,29 +2857,18 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node22">
-		<attr name="bounds">
-			<rectangle x="147" y="299" width="85" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node1">
+	<node id="node25">
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 		<attr name="bounds">
-			<rectangle x="960" y="335" width="80" height="15"></rectangle>		</attr>
+			<rectangle x="974" y="262" width="80" height="15"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="node3">
+	<node id="node23">
 		<attr name="bounds">
 			<rectangle x="774" y="65" width="104" height="40"></rectangle>		</attr>
 		<attr name="view">
@@ -2890,7 +2879,18 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node20">
+	<node id="node4">
+		<attr name="bounds">
+			<rectangle x="147" y="299" width="85" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node6">
 		<attr name="bounds">
 			<rectangle x="714" y="220" width="52" height="15"></rectangle>		</attr>
 		<attr name="view">
@@ -2901,7 +2901,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node12">
+	<node id="node14">
 		<attr name="bounds">
 			<rectangle x="362" y="305" width="137" height="85"></rectangle>		</attr>
 
