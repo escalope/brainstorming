@@ -36,8 +36,8 @@ import ingenias.editor.entities.*;
 * 
 * <p>The Task  ShareConceptNT has the following inputs, sets of possible outputs, and available applications:</p>
 * Inputs:<ul>
-*  <li>fake_SketchConceptNT_output_for_task_ShareConceptNT</li>
 *  <li>SketchIsReady</li>
+*  <li>fake_SketchConceptNT_output_for_task_ShareConceptNT</li>
 
 
 
@@ -71,9 +71,9 @@ public class ShareConceptNTTask extends Task{
  public void execute() throws TaskException{
     YellowPages yp=null; // only available for initiators of interactions
 
-        fake_SketchConceptNT_output_for_task_ShareConceptNT  eifake_SketchConceptNT_output_for_task_ShareConceptNT=(fake_SketchConceptNT_output_for_task_ShareConceptNT)this.getFirstInputOfType("fake_SketchConceptNT_output_for_task_ShareConceptNT");             
-
         SketchIsReady  eiSketchIsReady=(SketchIsReady)this.getFirstInputOfType("SketchIsReady");             
+
+        fake_SketchConceptNT_output_for_task_ShareConceptNT  eifake_SketchConceptNT_output_for_task_ShareConceptNT=(fake_SketchConceptNT_output_for_task_ShareConceptNT)this.getFirstInputOfType("fake_SketchConceptNT_output_for_task_ShareConceptNT");             
 
 
 

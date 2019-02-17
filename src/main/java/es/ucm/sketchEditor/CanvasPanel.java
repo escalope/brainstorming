@@ -20,7 +20,7 @@ MouseListener,MouseMotionListener,KeyListener,Serializable,MouseWheelListener
 
 	public boolean translatemode=false,rotatemode=false;
 
-	protected static Vector 
+	protected  Vector 
 	vLine,vSquare,vOval,vPolygon,vRoundRect,vFreeHand,
 	vSolidSquare,vSolidOval,vSolidPolygon,vSolidRoundRect,vFile,
 	xPolygon, yPolygon;						 	

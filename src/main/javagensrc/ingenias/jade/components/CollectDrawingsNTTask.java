@@ -36,8 +36,8 @@ import ingenias.editor.entities.*;
 * 
 * <p>The Task  CollectDrawingsNT has the following inputs, sets of possible outputs, and available applications:</p>
 * Inputs:<ul>
-*  <li>ConceptSketch</li>
 *  <li>fake_ShareConceptNT_output_for_task_CollectDrawingsNT</li>
+*  <li>ConceptSketch</li>
 
 
 
@@ -61,9 +61,9 @@ public class CollectDrawingsNTTask extends Task{
  public void execute() throws TaskException{
     YellowPages yp=null; // only available for initiators of interactions
 
-        ConceptSketch  eiConceptSketch=(ConceptSketch)this.getFirstInputOfType("ConceptSketch");             
-
         fake_ShareConceptNT_output_for_task_CollectDrawingsNT  eifake_ShareConceptNT_output_for_task_CollectDrawingsNT=(fake_ShareConceptNT_output_for_task_CollectDrawingsNT)this.getFirstInputOfType("fake_ShareConceptNT_output_for_task_CollectDrawingsNT");             
+
+        ConceptSketch  eiConceptSketch=(ConceptSketch)this.getFirstInputOfType("ConceptSketch");             
 
 
 

@@ -318,20 +318,20 @@ public class SampleModeratorJADEAgent
 	     
             
 		
-            expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"ConceptSketch");
-			if (expectedInput.size()==0 && !("1".equals("0..n")))
-				nonExistingInputs.add("ConceptSketch");
-			else {
-			    JADEAgent.addExpectedInputs(tobject, "ConceptSketch","1",expectedInput);
-			    JADEAgent.addConsumedInput(originalTO, "1", expectedInput);
-			}
-	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
-	      
             expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"fake_ShareConceptNT_output_for_task_CollectDrawingsNT");
 			if (expectedInput.size()==0 && !("1".equals("0..n")))
 				nonExistingInputs.add("fake_ShareConceptNT_output_for_task_CollectDrawingsNT");
 			else {
 			    JADEAgent.addExpectedInputs(tobject, "fake_ShareConceptNT_output_for_task_CollectDrawingsNT","1",expectedInput);
+			    JADEAgent.addConsumedInput(originalTO, "1", expectedInput);
+			}
+	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
+	      
+            expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"ConceptSketch");
+			if (expectedInput.size()==0 && !("1".equals("0..n")))
+				nonExistingInputs.add("ConceptSketch");
+			else {
+			    JADEAgent.addExpectedInputs(tobject, "ConceptSketch","1",expectedInput);
 			    JADEAgent.addConsumedInput(originalTO, "1", expectedInput);
 			}
 	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
@@ -390,7 +390,7 @@ public class SampleModeratorJADEAgent
 	     typesOfConversation.add("FirstSessionInt0");
 		 
          
-         if (goalname.equals("CreativeCoCreation")){
+         if (goalname.equals("Design_a_chair")){
          
           {
 		    Task tobject=null;
@@ -400,7 +400,7 @@ public class SampleModeratorJADEAgent
 					tobject=new CollectDrawingsNTTask(ingenias.jade.MentalStateManager.generateMentalEntityID());
 					canbescheduled=initialiseConversationalTask(conversations.elementAt(k),tobject);
 					if (canbescheduled){
-					//	MainInteractionManager.log("Scheduled task "+tobject.getType()+" to achieve goal CreativeCoCreation",getLocalName()+"-"+tobject.getType());
+					//	MainInteractionManager.log("Scheduled task "+tobject.getType()+" to achieve goal Design_a_chair",getLocalName()+"-"+tobject.getType());
 						tasks.add(tobject);
 					}
 					tobject=new DeleteNonUsedEntitiesTask("DeleteNonUsedEntitiesTask","DeleteNonUsedEntitiesTask");
@@ -419,7 +419,7 @@ public class SampleModeratorJADEAgent
          // Non conversational tasks evaluation
          //************************************
          
-         if (goalname.equals("CreativeCoCreation")){
+         if (goalname.equals("Design_a_chair")){
          
          {
          boolean canbescheduled=false;
@@ -428,7 +428,7 @@ public class SampleModeratorJADEAgent
 				 tobject=new DefineGoalNTTask(ingenias.jade.MentalStateManager.generateMentalEntityID());
 				 canbescheduled=initialiseNonConversationalTask(tobject);
 			 	 if (canbescheduled){
-					//MainInteractionManager.log("Scheduled task "+tobject.getType()+" to achieve goal CreativeCoCreation",getLocalName()+"-"+tobject.getType());
+					//MainInteractionManager.log("Scheduled task "+tobject.getType()+" to achieve goal Design_a_chair",getLocalName()+"-"+tobject.getType());
 					tasks.add(tobject);
 				 } 			
 	     }
@@ -482,7 +482,7 @@ public class SampleModeratorJADEAgent
    ObjectSlot oslot=null;
    ingenias.jade.components.Application app=null;	  
    
-   sg= new ingenias.editor.entities.StateGoal("CreativeCoCreation");
+   sg= new ingenias.editor.entities.StateGoal("Design_a_chair");
    sg.setState("pending");
       try {
 	   this.getMSM().addMentalEntity(sg);

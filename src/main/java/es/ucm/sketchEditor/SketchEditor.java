@@ -257,6 +257,7 @@ foreGroundMenuItem, backGroundMenuItem, helpMenuItem;
 		editor.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		editor.setLocationRelativeTo(null);
 		editor.setVisible(true);
+	
 	}
 
 }

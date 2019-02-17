@@ -395,20 +395,20 @@ public class RandomSketchAgentJADEAgent
 	     
             
 		
-            expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"fake_SketchConceptNT_output_for_task_ShareConceptNT");
-			if (expectedInput.size()==0 && !("1".equals("0..n")))
-				nonExistingInputs.add("fake_SketchConceptNT_output_for_task_ShareConceptNT");
-			else {
-			    JADEAgent.addExpectedInputs(tobject, "fake_SketchConceptNT_output_for_task_ShareConceptNT","1",expectedInput);
-			    JADEAgent.addConsumedInput(originalTO, "1", expectedInput);
-			}
-	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
-	      
             expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"SketchIsReady");
 			if (expectedInput.size()==0 && !("1".equals("0..n")))
 				nonExistingInputs.add("SketchIsReady");
 			else {
 			    JADEAgent.addExpectedInputs(tobject, "SketchIsReady","1",expectedInput);
+			    JADEAgent.addConsumedInput(originalTO, "1", expectedInput);
+			}
+	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
+	      
+            expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"fake_SketchConceptNT_output_for_task_ShareConceptNT");
+			if (expectedInput.size()==0 && !("1".equals("0..n")))
+				nonExistingInputs.add("fake_SketchConceptNT_output_for_task_ShareConceptNT");
+			else {
+			    JADEAgent.addExpectedInputs(tobject, "fake_SketchConceptNT_output_for_task_ShareConceptNT","1",expectedInput);
 			    JADEAgent.addConsumedInput(originalTO, "1", expectedInput);
 			}
 	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
@@ -500,7 +500,7 @@ public class RandomSketchAgentJADEAgent
 	     typesOfConversation.add("FirstSessionInt0");
 		 
          
-         if (goalname.equals("CreativeCoCreation")){
+         if (goalname.equals("Design_a_chair")){
          
           {
 		    Task tobject=null;
@@ -510,7 +510,7 @@ public class RandomSketchAgentJADEAgent
 					tobject=new SketchConceptNTTask(ingenias.jade.MentalStateManager.generateMentalEntityID());
 					canbescheduled=initialiseConversationalTask(conversations.elementAt(k),tobject);
 					if (canbescheduled){
-					//	MainInteractionManager.log("Scheduled task "+tobject.getType()+" to achieve goal CreativeCoCreation",getLocalName()+"-"+tobject.getType());
+					//	MainInteractionManager.log("Scheduled task "+tobject.getType()+" to achieve goal Design_a_chair",getLocalName()+"-"+tobject.getType());
 						tasks.add(tobject);
 					}
 					tobject=new DeleteNonUsedEntitiesTask("DeleteNonUsedEntitiesTask","DeleteNonUsedEntitiesTask");
@@ -530,7 +530,7 @@ public class RandomSketchAgentJADEAgent
 	     typesOfConversation.add("FirstSessionInt0");
 		 
          
-         if (goalname.equals("CreativeCoCreation")){
+         if (goalname.equals("Design_a_chair")){
          
           {
 		    Task tobject=null;
@@ -540,7 +540,7 @@ public class RandomSketchAgentJADEAgent
 					tobject=new ShareConceptNTTask(ingenias.jade.MentalStateManager.generateMentalEntityID());
 					canbescheduled=initialiseConversationalTask(conversations.elementAt(k),tobject);
 					if (canbescheduled){
-					//	MainInteractionManager.log("Scheduled task "+tobject.getType()+" to achieve goal CreativeCoCreation",getLocalName()+"-"+tobject.getType());
+					//	MainInteractionManager.log("Scheduled task "+tobject.getType()+" to achieve goal Design_a_chair",getLocalName()+"-"+tobject.getType());
 						tasks.add(tobject);
 					}
 					tobject=new DeleteNonUsedEntitiesTask("DeleteNonUsedEntitiesTask","DeleteNonUsedEntitiesTask");
@@ -559,7 +559,7 @@ public class RandomSketchAgentJADEAgent
          // Non conversational tasks evaluation
          //************************************
          
-         if (goalname.equals("RandomThought")){
+         if (goalname.equals("RandomIdea")){
          
          {
          boolean canbescheduled=false;
@@ -568,7 +568,7 @@ public class RandomSketchAgentJADEAgent
 				 tobject=new MyVersionTask(ingenias.jade.MentalStateManager.generateMentalEntityID());
 				 canbescheduled=initialiseNonConversationalTask(tobject);
 			 	 if (canbescheduled){
-					//MainInteractionManager.log("Scheduled task "+tobject.getType()+" to achieve goal RandomThought",getLocalName()+"-"+tobject.getType());
+					//MainInteractionManager.log("Scheduled task "+tobject.getType()+" to achieve goal RandomIdea",getLocalName()+"-"+tobject.getType());
 					tasks.add(tobject);
 				 } 			
 	     }
@@ -628,7 +628,7 @@ public class RandomSketchAgentJADEAgent
    ObjectSlot oslot=null;
    ingenias.jade.components.Application app=null;	  
    
-   sg= new ingenias.editor.entities.StateGoal("CreativeCoCreation");
+   sg= new ingenias.editor.entities.StateGoal("RandomIdea");
    sg.setState("pending");
       try {
 	   this.getMSM().addMentalEntity(sg);
@@ -637,7 +637,7 @@ public class RandomSketchAgentJADEAgent
 	   e1.printStackTrace();
    }
    
-   sg= new ingenias.editor.entities.StateGoal("RandomThought");
+   sg= new ingenias.editor.entities.StateGoal("Design_a_chair");
    sg.setState("pending");
       try {
 	   this.getMSM().addMentalEntity(sg);
