@@ -26,6 +26,10 @@
 
 package ingenias.jade.components;
 
+import java.awt.Color;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.*;
 import ingenias.jade.exception.*;
 import ingenias.jade.comm.*;
@@ -37,8 +41,8 @@ import ingenias.editor.entities.*;
 * <p>The Task  CollectDrawingsNT has the following inputs, sets of possible outputs, and available applications:</p>
 * Inputs:<ul>
 *  <li>fake_ShareConceptNT_output_for_task_CollectDrawingsNT</li>
-*  <li>ConceptSketch</li>
 
+*  <li>Collection<ConceptSketch> </li>           
 
 
 *</ul>
@@ -63,9 +67,9 @@ public class CollectDrawingsNTTask extends Task{
 
         fake_ShareConceptNT_output_for_task_CollectDrawingsNT  eifake_ShareConceptNT_output_for_task_CollectDrawingsNT=(fake_ShareConceptNT_output_for_task_CollectDrawingsNT)this.getFirstInputOfType("fake_ShareConceptNT_output_for_task_CollectDrawingsNT");             
 
-        ConceptSketch  eiConceptSketch=(ConceptSketch)this.getFirstInputOfType("ConceptSketch");             
 
 
+        Collection<ConceptSketch>  eiConceptSketch=new Vector(this.getAllInputsOfType("ConceptSketch"));             
 
 
 
@@ -100,7 +104,55 @@ public class CollectDrawingsNTTask extends Task{
 //#start_node:INGENIASCodeComponent4 <--- DO NOT REMOVE THIS	
 //REPLACE THIS COMMENT WITH YOUR CODE
 System.out.println(getAgentID()+" executing -> "+getID()+":"+getType());
-eaSketchPainter.launchEditor(eiConceptSketch.getsketch());
+System.out.println(getAgentID()+" received "+eiConceptSketch.size()+ " designs");
+Vector v=new Vector();
+
+Vector vFreeHand=new Vector();
+Vector vLine=new Vector();
+Vector vOval=new Vector();
+Vector vPolygon=new Vector(); 
+Vector vRoundRect=new Vector(); 
+Vector vSolidOval=new Vector(); 
+Vector vSolidPolygon=new Vector();
+Vector vSolidRoundRect=new Vector(); 
+Vector vSolidSquare=new Vector(); 
+Vector vSquare=new Vector();
+Color backGroundColor=Color.WHITE;
+v.removeAllElements();
+v.addElement(vFreeHand);
+v.addElement(vLine);
+v.addElement(vOval);
+v.addElement(vPolygon);
+v.addElement(vRoundRect);
+v.addElement(vSolidOval);
+v.addElement(vSolidPolygon);
+v.addElement(vSolidRoundRect);
+v.addElement(vSolidSquare);
+v.addElement(vSquare);	
+v.addElement(new Color(backGroundColor.getRGB()));
+
+for (ConceptSketch sketch:eiConceptSketch) {
+	try {
+		ObjectInputStream oos=new ObjectInputStream(new ByteArrayInputStream(sketch.getsketch()));
+		Vector vFile2 = (Vector)oos.readObject();		
+		 vFreeHand .addAll( (Vector)vFile2.elementAt(0));
+		 vLine.addAll( (Vector)vFile2.elementAt(1));
+		vOval			.addAll((Vector)vFile2.elementAt(2));
+		vPolygon		.addAll( (Vector)vFile2.elementAt(3));
+		vRoundRect		.addAll( (Vector)vFile2.elementAt(4));
+		vSolidOval		.addAll( (Vector)vFile2.elementAt(5));
+		vSolidPolygon	.addAll( (Vector)vFile2.elementAt(6));
+		vSolidRoundRect.addAll( (Vector)vFile2.elementAt(7));
+		vSolidSquare	.addAll( (Vector)vFile2.elementAt(8));
+		vSquare			.addAll( (Vector)vFile2.elementAt(9));
+		backGroundColor =( (Color)vFile2.elementAt(10));
+	} catch (ClassNotFoundException | IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}		
+}
+
+eaSketchPainter.launchEditor(v);
 //#end_node:INGENIASCodeComponent4 <--- DO NOT REMOVE THIS
 
  }

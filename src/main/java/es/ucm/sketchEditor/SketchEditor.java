@@ -147,6 +147,12 @@ foreGroundMenuItem, backGroundMenuItem, helpMenuItem;
 		this.setTitle(header+": Sketch Editor");
 	}
 	
+	public SketchEditor(String header,Vector content, NotifyResultSketch nrs) {
+		this(header,nrs);			
+		canvasPanel.initiate(content);	
+		this.setTitle(header+": Sketch Editor");
+	}
+	
 	public SketchEditor(String header, byte[] content, NotifyResultSketch nrs) {
 		this(header,nrs);		
 		Vector v;

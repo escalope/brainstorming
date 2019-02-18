@@ -48,7 +48,7 @@ public abstract class SketchPainterApp extends Application{
  
  public abstract void sketchIsReady(byte[] sketch) ;
 
-public abstract void launchEditor(byte[] getsketch) ;
+public abstract void launchEditor(Vector getsketch) ;
 
  
 }

@@ -35,12 +35,11 @@ public  class SketchPainterAppImp extends SketchPainterApp  implements NotifyRes
  }
  
  @Override
- public void launchEditor(byte[] getsketch) {
+ public void launchEditor(Vector getsketch) {
 	 SketchEditor se=new SketchEditor(
 			 this.getOwner().getAID().getLocalName(),
 			 getsketch,
-			 this);
- 	
+			 this);	
  }
 
 @Override

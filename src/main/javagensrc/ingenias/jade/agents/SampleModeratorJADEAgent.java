@@ -328,11 +328,11 @@ public class SampleModeratorJADEAgent
 	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
 	      
             expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"ConceptSketch");
-			if (expectedInput.size()==0 && !("1".equals("0..n")))
+			if (expectedInput.size()==0 && !("n".equals("0..n")))
 				nonExistingInputs.add("ConceptSketch");
 			else {
-			    JADEAgent.addExpectedInputs(tobject, "ConceptSketch","1",expectedInput);
-			    JADEAgent.addConsumedInput(originalTO, "1", expectedInput);
+			    JADEAgent.addExpectedInputs(tobject, "ConceptSketch","n",expectedInput);
+			    JADEAgent.addConsumedInput(originalTO, "n", expectedInput);
 			}
 	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
 	      
