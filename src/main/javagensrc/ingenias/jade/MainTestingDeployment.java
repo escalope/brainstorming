@@ -88,7 +88,7 @@ public class MainTestingDeployment {
         final jade.wrapper.AgentController agcSampleModerator_0DeploymentUnitByTypeEnumInitMS0 = ac.createNewAgent("SampleModerator_0DeploymentUnitByTypeEnumInitMS0",
             "ingenias.jade.agents.SampleModeratorJADEAgent", new Object[0]);	
 	
-	{ GoalDescription ment=new GoalDescription();
+	{ InitiateBrainstorming ment=new InitiateBrainstorming();
 	   	   
 	   agcSampleModerator_0DeploymentUnitByTypeEnumInitMS0.putO2AObject(ment, false);
 	}

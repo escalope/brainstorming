@@ -36,7 +36,7 @@ import ingenias.editor.entities.*;
 * 
 * <p>The Task  MyVersion has the following inputs, sets of possible outputs, and available applications:</p>
 * Inputs:<ul>
-*  <li>FrameFact0</li>
+*  <li>GoalDefinition</li>
 
 
 
@@ -59,7 +59,7 @@ public class MyVersionTask extends Task{
  public void execute() throws TaskException{
     YellowPages yp=null; // only available for initiators of interactions
 
-        FrameFact0  eiFrameFact0=(FrameFact0)this.getFirstInputOfType("FrameFact0");             
+        GoalDefinition  eiGoalDefinition=(GoalDefinition)this.getFirstInputOfType("GoalDefinition");             
 
 
 

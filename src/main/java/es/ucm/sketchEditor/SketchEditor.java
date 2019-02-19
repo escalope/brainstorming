@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Vector;
 
+
 import javax.swing.*;
 
 import ingenias.jade.components.SketchPainterAppImp;
@@ -38,8 +39,7 @@ foreGroundMenuItem, backGroundMenuItem, helpMenuItem;
 		this.notifyTo=notifyTo;
 		
 		mainBar = new JMenuBar();
-		setJMenuBar(mainBar);
-/*----------------------------------------------------------------------------*/		
+		setJMenuBar(mainBar);	
 		fileMenu  		= new JMenu("File");
 		fileMenu.setMnemonic('F');
 		
@@ -65,8 +65,7 @@ foreGroundMenuItem, backGroundMenuItem, helpMenuItem;
 		fileMenu.add(saveMenuItem);
 		fileMenu.add(saveAsMenuItem);
 		fileMenu.addSeparator();
-		fileMenu.add(exitMenuItem);
-/*----------------------------------------------------------------------------*/			
+		fileMenu.add(exitMenuItem);		
 		editMenu = new JMenu("Edit");
 		editMenu.setMnemonic('E');
 		
@@ -89,20 +88,17 @@ foreGroundMenuItem, backGroundMenuItem, helpMenuItem;
 		editMenu.add(redoMenuItem);
 		editMenu.addSeparator();
 		editMenu.add(setColorMenuItem);
-
-/*----------------------------------------------------------------------------*/			
+		
 		aboutMenu	= new JMenu("Help");
 		aboutMenu.setMnemonic('A');
 		
 		helpMenuItem = new JMenuItem("Help");
 		helpMenuItem.addActionListener(new MenuButtonListener());
 		
-		aboutMenu.add(helpMenuItem);
-/*----------------------------------------------------------------------------*/				
+		aboutMenu.add(helpMenuItem);			
 		mainBar.add(fileMenu);
 		mainBar.add(editMenu);
 		mainBar.add(aboutMenu);
-/*----------------------------------------------------------------------------*/
 
 		canvasPanel 	  = new CanvasPanel();
 		toolButtonPanel   = new ToolButtonPanel(canvasPanel);
@@ -117,11 +113,14 @@ foreGroundMenuItem, backGroundMenuItem, helpMenuItem;
 		
 		setSize(700,500);
 		this.setResizable(true);
+		setFocusable(true);
+		canvasPanel.setFocusable(true);
 		setVisible(true);
 		
+		
 /*----------------------------------------------------------------------------*/
-		MouseHandler handler = new MouseHandler();
- 		this.addMouseListener(handler);
+		
+ 	
 /*----------------------------------------------------------------------------*/
 		addWindowListener (
       		new WindowAdapter () 
@@ -140,17 +139,20 @@ foreGroundMenuItem, backGroundMenuItem, helpMenuItem;
       			}
       		}
       	);
+		
 	}
 	
 	public SketchEditor(String header, File fichero) {		
 		canvasPanel.openFile(fichero);
 		this.setTitle(header+": Sketch Editor");
+		
 	}
 	
 	public SketchEditor(String header,Vector content, NotifyResultSketch nrs) {
 		this(header,nrs);			
 		canvasPanel.initiate(content);	
 		this.setTitle(header+": Sketch Editor");
+		
 	}
 	
 	public SketchEditor(String header, byte[] content, NotifyResultSketch nrs) {
@@ -165,29 +167,13 @@ foreGroundMenuItem, backGroundMenuItem, helpMenuItem;
 			e.printStackTrace();
 		}		
 		this.setTitle(header+": Sketch Editor");
+		
 	}
 
 
 
 /*----------------------------------------------------------------------------*/
-	private class MouseHandler implements MouseListener
-	{
-		
-		public void mousePressed (MouseEvent event)	{
-		}
-		
-		public void mouseClicked (MouseEvent event)	{
-		}
-		
-		public void mouseReleased (MouseEvent event){
-		}
-		
-		public void mouseEntered (MouseEvent event)	{
-		}
-		
-		public void mouseExited (MouseEvent event)	{
-		}
-	}
+
 
 	protected void endSketchEdit() {
 	
@@ -262,6 +248,7 @@ foreGroundMenuItem, backGroundMenuItem, helpMenuItem;
 		});
 		editor.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		editor.setLocationRelativeTo(null);
+
 		editor.setVisible(true);
 	
 	}

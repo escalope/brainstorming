@@ -36,7 +36,7 @@ import ingenias.editor.entities.*;
 * 
 * <p>The Task  DefineGoalNT has the following inputs, sets of possible outputs, and available applications:</p>
 * Inputs:<ul>
-*  <li>GoalDescription</li>
+*  <li>InitiateBrainstorming</li>
 
 
 
@@ -45,7 +45,7 @@ import ingenias.editor.entities.*;
 
 *<li> 	Set  "default":<ul>
 *<li>      Created  entities in the main mental state:<ul>
-*<li>           RuntimeConversation </li>
+*<li>           RuntimeConversation *<li>           GoalDefinition </li>
 *</ul></li>
 *<li>	   Created entities only in the workflow:<ul>
 *<li>           fake_DefineGoalNT_output_for_task_SketchConceptNT </li>
@@ -56,6 +56,7 @@ import ingenias.editor.entities.*;
 
 *</ul>
 * Available apps:<ul>
+*<li>          BrainstormingGUIApp</li>
 
 *</ul>
 */
@@ -70,12 +71,14 @@ public class DefineGoalNTTask extends Task{
  public void execute() throws TaskException{
     YellowPages yp=null; // only available for initiators of interactions
 
-        GoalDescription  eiGoalDescription=(GoalDescription)this.getFirstInputOfType("GoalDescription");             
+        InitiateBrainstorming  eiInitiateBrainstorming=(InitiateBrainstorming)this.getFirstInputOfType("InitiateBrainstorming");             
 
 
 
 
 
+			
+        BrainstormingGUIApp eaBrainstormingGUI=(BrainstormingGUIApp)this.getApplication("BrainstormingGUI");
 
 
 
@@ -107,6 +110,12 @@ public class DefineGoalNTTask extends Task{
 		
 			
 		
+		GoalDefinition outputsdefaultGoalDefinition=
+			(GoalDefinition)
+				outputsdefault.getEntityByType("GoalDefinition");				
+		
+			
+		
 		
 		
 		fake_DefineGoalNT_output_for_task_SketchConceptNT outputsdefaultfake_DefineGoalNT_output_for_task_SketchConceptNT=
@@ -124,7 +133,7 @@ public class DefineGoalNTTask extends Task{
 		// =================================================
 		// Alternative "default":
 		//     Created  entities in the main mental state:
-//           -outputsdefaultFirstSessionInt0 
+//           -outputsdefaultFirstSessionInt0 //           -outputsdefaultGoalDefinition 
 		//	   Created entities only in the workflow:
 //           -outputsdefaultfake_DefineGoalNT_output_for_task_SketchConceptNT 
 		//     Created interactions: 
@@ -133,6 +142,7 @@ public class DefineGoalNTTask extends Task{
 
 
 		// Available apps:
+//           BrainstormingGUIApp</li>
 
 
 		// Summary of alternatives available to this task

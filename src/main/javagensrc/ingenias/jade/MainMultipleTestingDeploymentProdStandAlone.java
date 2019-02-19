@@ -125,7 +125,7 @@ public class MainMultipleTestingDeploymentProdStandAlone {
         final jade.wrapper.AgentController agcSampleModerator_0DeploymentUnitByTypeEnumInitMS0 = ac.createNewAgent("SampleModerator_0DeploymentUnitByTypeEnumInitMS0",
             "ingenias.jade.agents.SampleModeratorJADEAgent", new Object[0]);	
 	
-	{ GoalDescription ment=new GoalDescription();
+	{ InitiateBrainstorming ment=new InitiateBrainstorming();
 	   	   
 	   agcSampleModerator_0DeploymentUnitByTypeEnumInitMS0.putO2AObject(ment, false);
 	}
@@ -147,7 +147,26 @@ public class MainMultipleTestingDeploymentProdStandAlone {
         final jade.wrapper.AgentController agcRandomSketchAgent_0DeploymentUnitByType1 = ac.createNewAgent("RandomSketchAgent_0DeploymentUnitByType1",
             "ingenias.jade.agents.RandomSketchAgentJADEAgent", new Object[0]);	
 	
-
+	
+	{ 	   
+	   OrganizationDescription orgdesc=null;
+	   orgdesc=new OrganizationDescription();
+	   orgdesc.setOrgName("brainstormingInc","SymbolicBrainstorming");
+	   Vector<String> groups=new Vector<String>(); 
+	   
+	    orgdesc.addGroup("facilitatorsInc","Facilitators");	     
+	   
+	    orgdesc.addGroup("participantsInc","Team");	     
+	   	   	 
+	   	   	 
+	   
+	    orgdesc.addMember("facilitatorsInc","SampleModerator_0DeploymentUnitByType2"); 
+	   
+	    orgdesc.addMember("participantsInc","RandomSketchAgent_0DeploymentUnitByType1"); 
+	   	 
+	   agcRandomSketchAgent_0DeploymentUnitByType1.putO2AObject(orgdesc, false);  	 
+	}	
+	
 	
         new Thread(){
           public void run(){
@@ -164,7 +183,26 @@ public class MainMultipleTestingDeploymentProdStandAlone {
         final jade.wrapper.AgentController agcRandomSketchAgent_1DeploymentUnitByType1 = ac.createNewAgent("RandomSketchAgent_1DeploymentUnitByType1",
             "ingenias.jade.agents.RandomSketchAgentJADEAgent", new Object[0]);	
 	
-
+	
+	{ 	   
+	   OrganizationDescription orgdesc=null;
+	   orgdesc=new OrganizationDescription();
+	   orgdesc.setOrgName("brainstormingInc","SymbolicBrainstorming");
+	   Vector<String> groups=new Vector<String>(); 
+	   
+	    orgdesc.addGroup("facilitatorsInc","Facilitators");	     
+	   
+	    orgdesc.addGroup("participantsInc","Team");	     
+	   	   	 
+	   	   	 
+	   
+	    orgdesc.addMember("facilitatorsInc","SampleModerator_0DeploymentUnitByType2"); 
+	   
+	    orgdesc.addMember("participantsInc","RandomSketchAgent_0DeploymentUnitByType1"); 
+	   	 
+	   agcRandomSketchAgent_1DeploymentUnitByType1.putO2AObject(orgdesc, false);  	 
+	}	
+	
 	
         new Thread(){
           public void run(){
@@ -181,7 +219,26 @@ public class MainMultipleTestingDeploymentProdStandAlone {
         final jade.wrapper.AgentController agcRandomSketchAgent_2DeploymentUnitByType1 = ac.createNewAgent("RandomSketchAgent_2DeploymentUnitByType1",
             "ingenias.jade.agents.RandomSketchAgentJADEAgent", new Object[0]);	
 	
-
+	
+	{ 	   
+	   OrganizationDescription orgdesc=null;
+	   orgdesc=new OrganizationDescription();
+	   orgdesc.setOrgName("brainstormingInc","SymbolicBrainstorming");
+	   Vector<String> groups=new Vector<String>(); 
+	   
+	    orgdesc.addGroup("facilitatorsInc","Facilitators");	     
+	   
+	    orgdesc.addGroup("participantsInc","Team");	     
+	   	   	 
+	   	   	 
+	   
+	    orgdesc.addMember("facilitatorsInc","SampleModerator_0DeploymentUnitByType2"); 
+	   
+	    orgdesc.addMember("participantsInc","RandomSketchAgent_0DeploymentUnitByType1"); 
+	   	 
+	   agcRandomSketchAgent_2DeploymentUnitByType1.putO2AObject(orgdesc, false);  	 
+	}	
+	
 	
         new Thread(){
           public void run(){
@@ -198,7 +255,26 @@ public class MainMultipleTestingDeploymentProdStandAlone {
         final jade.wrapper.AgentController agcRandomSketchAgent_3DeploymentUnitByType1 = ac.createNewAgent("RandomSketchAgent_3DeploymentUnitByType1",
             "ingenias.jade.agents.RandomSketchAgentJADEAgent", new Object[0]);	
 	
-
+	
+	{ 	   
+	   OrganizationDescription orgdesc=null;
+	   orgdesc=new OrganizationDescription();
+	   orgdesc.setOrgName("brainstormingInc","SymbolicBrainstorming");
+	   Vector<String> groups=new Vector<String>(); 
+	   
+	    orgdesc.addGroup("facilitatorsInc","Facilitators");	     
+	   
+	    orgdesc.addGroup("participantsInc","Team");	     
+	   	   	 
+	   	   	 
+	   
+	    orgdesc.addMember("facilitatorsInc","SampleModerator_0DeploymentUnitByType2"); 
+	   
+	    orgdesc.addMember("participantsInc","RandomSketchAgent_0DeploymentUnitByType1"); 
+	   	 
+	   agcRandomSketchAgent_3DeploymentUnitByType1.putO2AObject(orgdesc, false);  	 
+	}	
+	
 	
         new Thread(){
           public void run(){

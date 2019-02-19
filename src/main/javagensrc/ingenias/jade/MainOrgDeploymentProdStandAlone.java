@@ -31,7 +31,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.Socket;
 import java.util.*;
+import java.net.UnknownHostException;
 
 import jade.core.*;
 import ingenias.jade.mental.*;
@@ -39,28 +41,13 @@ import ingenias.jade.mental.*;
 import ingenias.jade.graphics.MainInteractionManager;
 
 
-public class MainMultipleTestingDeployment {
+public class MainOrgDeploymentProdStandAlone {
 
 
   public static void main(String args[]) throws Exception{
-
-
-        // Get a hold on JADE runtime
-        jade.core.Runtime rt = jade.core.Runtime.instance();
-
-        // Exit the JVM when there are no more containers around
-        rt.setCloseVM(true);
-
-        // Create a default profile
-        Profile p = new ProfileImpl();
-        p.setParameter("preload","a*");
-        p.setParameter(Profile.MAIN_PORT, "60000");
-	if (args.length==2 && args[1].equalsIgnoreCase("pause")){
- 	  ingenias.jade.graphics.MainInteractionManager.goManual();
-	}
-		if (new File("target/jade").exists() && new File("target/jade").isDirectory())
-			p.setParameter(Profile.FILE_DIR, "target/jade/");
-		else {
+		IAFProperties.setGraphicsOn(false);
+		String jadelogfolder="target/jade";
+		if (!(new File(jadelogfolder).exists() && new File(jadelogfolder).isDirectory())){
 			// from http://stackoverflow.com/questions/617414/create-a-temporary-directory-in-java
 			final File temp;
 			temp = File.createTempFile("jade", Long.toString(System.nanoTime()));
@@ -74,10 +61,60 @@ public class MainMultipleTestingDeployment {
 			{
 				throw new IOException("Could not create temp directory: " + temp.getAbsolutePath());
 			}
-			p.setParameter(Profile.FILE_DIR, temp.getAbsolutePath()+"/");
+			jadelogfolder=temp.getAbsolutePath()+"/";
 		}
+		final String finalJadeLogFolder=jadelogfolder;
+		new Thread(){
+			public void run(){
+				String[] args1=new String[4];
+				args1[0]="-port";
+				args1[1]="60000";
+				args1[2]="-file-dir";
+				args1[3]=finalJadeLogFolder;								 				
+				jade.Boot.main(args1);		
+			}
+		}.start();
 
-         
+        // Get a hold on JADE runtime
+        jade.core.Runtime rt = jade.core.Runtime.instance();
+
+        // Exit the JVM when there are no more containers around
+        rt.setCloseVM(true);
+
+        // Create a default profile
+        Profile p = new ProfileImpl();
+        p.setParameter("preload","a*");
+        p.setParameter(Profile.MAIN_PORT, "60000");
+        p.setParameter(Profile.FILE_DIR, jadelogfolder);
+        
+        
+        // Waits for JADE to start
+        boolean notConnected=true;
+		
+		while (notConnected){			
+				try {
+					Socket s=new Socket("localhost",Integer.parseInt("60000"));
+					notConnected=false;
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (UnknownHostException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					
+					System.err.println("Error: "+e.getMessage());
+					System.err.println("Reconnecting in one second");
+					try {
+						Thread.currentThread().sleep(1000);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+
+		}
 
         // Create a new non-main container, connecting to the default
         // main container (i.e. on this host, port 1099)
@@ -85,22 +122,35 @@ public class MainMultipleTestingDeployment {
 
 {
         // Create a new agent
-        final jade.wrapper.AgentController agcSampleModerator_0DeploymentUnitByTypeEnumInitMS0 = ac.createNewAgent("SampleModerator_0DeploymentUnitByTypeEnumInitMS0",
+        final jade.wrapper.AgentController agcSampleModerator_0DeploymentUnitByType2 = ac.createNewAgent("SampleModerator_0DeploymentUnitByType2",
             "ingenias.jade.agents.SampleModeratorJADEAgent", new Object[0]);	
 	
-	{ InitiateBrainstorming ment=new InitiateBrainstorming();
-	   	   
-	   agcSampleModerator_0DeploymentUnitByTypeEnumInitMS0.putO2AObject(ment, false);
-	}
 	
-	
+	{ 	   
+	   OrganizationDescription orgdesc=null;
+	   orgdesc=new OrganizationDescription();
+	   orgdesc.setOrgName("brainstormingInc","SymbolicBrainstorming");
+	   Vector<String> groups=new Vector<String>(); 
+	   
+	    orgdesc.addGroup("facilitatorsInc","Facilitators");	     
+	   
+	    orgdesc.addGroup("participantsInc","Team");	     
+	   	   	 
+	   	   	 
+	   
+	    orgdesc.addMember("facilitatorsInc","SampleModerator_0DeploymentUnitByType2"); 
+	   
+	    orgdesc.addMember("participantsInc","RandomSketchAgent_0DeploymentUnitByType1"); 
+	   	 
+	   agcSampleModerator_0DeploymentUnitByType2.putO2AObject(orgdesc, false);  	 
+	}	
 	
 	
         new Thread(){
           public void run(){
             try {
-               System.out.println("Starting up SampleModerator_0DeploymentUnitByTypeEnumInitMS0...");
-              agcSampleModerator_0DeploymentUnitByTypeEnumInitMS0.start();
+               System.out.println("Starting up SampleModerator_0DeploymentUnitByType2...");
+              agcSampleModerator_0DeploymentUnitByType2.start();
             } catch (Exception e){
               e.printStackTrace();
             }
@@ -112,7 +162,6 @@ public class MainMultipleTestingDeployment {
             "ingenias.jade.agents.RandomSketchAgentJADEAgent", new Object[0]);	
 	
 	
-		
 	{ 	   
 	   OrganizationDescription orgdesc=null;
 	   orgdesc=new OrganizationDescription();
@@ -149,7 +198,6 @@ public class MainMultipleTestingDeployment {
             "ingenias.jade.agents.RandomSketchAgentJADEAgent", new Object[0]);	
 	
 	
-		
 	{ 	   
 	   OrganizationDescription orgdesc=null;
 	   orgdesc=new OrganizationDescription();
@@ -186,7 +234,6 @@ public class MainMultipleTestingDeployment {
             "ingenias.jade.agents.RandomSketchAgentJADEAgent", new Object[0]);	
 	
 	
-		
 	{ 	   
 	   OrganizationDescription orgdesc=null;
 	   orgdesc=new OrganizationDescription();
@@ -223,7 +270,6 @@ public class MainMultipleTestingDeployment {
             "ingenias.jade.agents.RandomSketchAgentJADEAgent", new Object[0]);	
 	
 	
-		
 	{ 	   
 	   OrganizationDescription orgdesc=null;
 	   orgdesc=new OrganizationDescription();
@@ -256,7 +302,7 @@ public class MainMultipleTestingDeployment {
         }.start();
 
 }
-	      MainInteractionManager.getInstance().setTitle("node MultipleTestingDeployment");
+	      MainInteractionManager.getInstance().setTitle("node OrgDeployment");
      }
 }
 

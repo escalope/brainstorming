@@ -147,7 +147,6 @@ public class ShareConceptNTTask extends Task{
 
 // Code Area
 //#start_node:INGENIASCodeComponent3 <--- DO NOT REMOVE THIS	
-//REPLACE THIS COMMENT WITH YOUR CODE
 System.out.println(getAgentID()+" executing -> "+getID()+":"+getType());
 outputsConceptCreationConceptSketch.setsketch(eiSketchIsReady.getsketch());
 //#end_node:INGENIASCodeComponent3 <--- DO NOT REMOVE THIS

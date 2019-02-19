@@ -106,6 +106,17 @@ public class SampleModeratorJADEAgent
              allEntitiesExist=allEntitiesExist || expectedInput.size()!=0;
 		} 
 	      
+		expectedInput=this.getMSM().getMentalEntityByType("GoalDefinition");
+		if (this.getLM().canBeDeleted(expectedInput)){             
+             if (expectedInput.size()==0){
+				nonExistingInputs.add("GoalDefinition");
+			 } else {
+			    JADEAgent.addExpectedInputs(tobject, "GoalDefinition","1",expectedInput);
+             	JADEAgent.addConsumedInput(to,"GoalDefinition",expectedInput);
+			 }
+             allEntitiesExist=allEntitiesExist || expectedInput.size()!=0;
+		} 
+	      
 		 tobject.addOutput(to);
      		   	
 	      initialised= allEntitiesExist;
@@ -141,11 +152,11 @@ public class SampleModeratorJADEAgent
 	      
 	      
 				
-             expectedInput=this.getMSM().getMentalEntityByType("GoalDescription");
+             expectedInput=this.getMSM().getMentalEntityByType("InitiateBrainstorming");
              if (expectedInput.size()==0 && !("1".equals("0..n"))){
-				nonExistingInputs.add("GoalDescription");
+				nonExistingInputs.add("InitiateBrainstorming");
 			 } else {
-			    JADEAgent.addExpectedInputs(tobject, "GoalDescription","1",expectedInput);             
+			    JADEAgent.addExpectedInputs(tobject, "InitiateBrainstorming","1",expectedInput);             
 			 }
              allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
 	      
@@ -153,6 +164,9 @@ public class SampleModeratorJADEAgent
 	     
 	      
 	     
+	     expectedApp=(ingenias.jade.components.Application)getAM().getApplication("BrainstormingGUI");
+             tobject.addApplication("BrainstormingGUI",expectedApp);
+	      
 	      
 	     // Default application for all tasks executed within a conversation
 	     expectedApp=(ingenias.jade.components.Application)getAM().getApplication("YellowPages");
@@ -192,6 +206,34 @@ public class SampleModeratorJADEAgent
             to.add(new OutputEntity(expectedOutputRuntimeConversation,TaskOperations.CreateMS));
             }
 	     
+ 			{
+ 			GoalDefinition expectedOutputGoalDefinition=
+ 				new GoalDefinition(MentalStateManager.generateMentalEntityID());
+ 			if (RuntimeConversation.class.isAssignableFrom(expectedOutputGoalDefinition.getClass())){
+ 			    java.lang.reflect.Method m;
+				try {
+					m = expectedOutputGoalDefinition.getClass().getMethod("setInteraction", new Class[]{Interaction.class});
+					m.invoke(expectedOutputGoalDefinition, new Interaction("")) ;	  
+				} catch (SecurityException e) {
+					
+					e.printStackTrace();
+				} catch (NoSuchMethodException e) {
+					
+					e.printStackTrace();
+				} catch (IllegalArgumentException e) {
+					
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					
+					e.printStackTrace();
+				} catch (InvocationTargetException e) {
+					
+					e.printStackTrace();
+				}
+ 			}	 			
+            to.add(new OutputEntity(expectedOutputGoalDefinition,TaskOperations.CreateMS));
+            }
+	     
 	     
 		    {fake_DefineGoalNT_output_for_task_SketchConceptNT expectedOutputfake_DefineGoalNT_output_for_task_SketchConceptNT=		    
 		     new fake_DefineGoalNT_output_for_task_SketchConceptNT(MentalStateManager.generateMentalEntityID());			
@@ -209,7 +251,7 @@ public class SampleModeratorJADEAgent
          }
 	       for (TaskOutput singleTO:tobject.getOutputs()){
 	      		
-             expectedInput=this.getMSM().getMentalEntityByType("GoalDescription");
+             expectedInput=this.getMSM().getMentalEntityByType("InitiateBrainstorming");
              if (expectedInput.size()==0 && !("1".equals("0..n"))){			
 			 } else {
 			    // to remove the input from whatever alternative
@@ -269,6 +311,17 @@ public class SampleModeratorJADEAgent
              allEntitiesExist=allEntitiesExist|| expectedInput.size()!=0;
 		} 
 	      
+		expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"GoalDefinition");
+		if (this.getLM().canBeDeleted(expectedInput)){                          
+             if (expectedInput.size()==0){
+				nonExistingInputs.add("GoalDefinition");
+			 } else {
+			    JADEAgent.addExpectedInputs(tobject, "GoalDefinition","1",expectedInput);
+             	JADEAgent.addConsumedInput(to,"GoalDefinition",expectedInput);
+			 }
+             allEntitiesExist=allEntitiesExist|| expectedInput.size()!=0;
+		} 
+	      
 		 tobject.addOutput(to);
      		   	
 	      initialised= allEntitiesExist;
@@ -318,21 +371,21 @@ public class SampleModeratorJADEAgent
 	     
             
 		
-            expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"fake_ShareConceptNT_output_for_task_CollectDrawingsNT");
-			if (expectedInput.size()==0 && !("1".equals("0..n")))
-				nonExistingInputs.add("fake_ShareConceptNT_output_for_task_CollectDrawingsNT");
-			else {
-			    JADEAgent.addExpectedInputs(tobject, "fake_ShareConceptNT_output_for_task_CollectDrawingsNT","1",expectedInput);
-			    JADEAgent.addConsumedInput(originalTO, "1", expectedInput);
-			}
-	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
-	      
             expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"ConceptSketch");
 			if (expectedInput.size()==0 && !("n".equals("0..n")))
 				nonExistingInputs.add("ConceptSketch");
 			else {
 			    JADEAgent.addExpectedInputs(tobject, "ConceptSketch","n",expectedInput);
 			    JADEAgent.addConsumedInput(originalTO, "n", expectedInput);
+			}
+	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
+	      
+            expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"fake_ShareConceptNT_output_for_task_CollectDrawingsNT");
+			if (expectedInput.size()==0 && !("1".equals("0..n")))
+				nonExistingInputs.add("fake_ShareConceptNT_output_for_task_CollectDrawingsNT");
+			else {
+			    JADEAgent.addExpectedInputs(tobject, "fake_ShareConceptNT_output_for_task_CollectDrawingsNT","1",expectedInput);
+			    JADEAgent.addConsumedInput(originalTO, "1", expectedInput);
 			}
 	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
 	      
@@ -502,6 +555,25 @@ public class SampleModeratorJADEAgent
 	//Initial applications assigned to the agent	  
 	Vector actions=null;
 	Vector evetns=null;
+
+     //Initial applications assigned to the agent	  
+   
+     
+     app=BrainstormingGUIInit.createInstance(this);
+	 //app.registerOwner(this);
+	 	    
+     this.getAM().addApplication("BrainstormingGUI",app);        
+	 events=new Vector();
+	 actions=new Vector();
+		
+	 event= new InitiateBrainstorming();
+	 /* 
+	 */ 
+	 events.add(event);
+	 actions.add(generateActionListener(InitiateBrainstorming.class));		
+
+	 if (getGraphics()!=null)
+	  getGraphics().addApplication("BrainstormingGUI", events,actions);    
 
      //Initial applications assigned to the agent	  
    

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project cid="50" version="1.2">
+<project cid="46" version="1.2">
 <projectproperties>
 <projectproperty id="extfolder" module="IDK"  name="Extension Module Folder" value="ext"  tooltip="Folder where the IDE will find its new modules" />
- <openeddiagram>organization</openeddiagram> <openeddiagram>brainstorming workflow</openeddiagram> <openeddiagram>resources</openeddiagram> <openeddiagram>specialization</openeddiagram> <openeddiagram>deployment</openeddiagram> <openeddiagram>agent to role assignments</openeddiagram> <openeddiagram>initial mental state</openeddiagram> <openeddiagram>code</openeddiagram> <openeddiagram>organization of resources</openeddiagram></projectproperties>
+ <openeddiagram>organization</openeddiagram> <openeddiagram>brainstorming workflow</openeddiagram> <openeddiagram>resources</openeddiagram> <openeddiagram>specialization</openeddiagram> <openeddiagram>deployment</openeddiagram> <openeddiagram>agent to role assignments</openeddiagram> <openeddiagram>initial mental state</openeddiagram> <openeddiagram>code</openeddiagram> <openeddiagram>organization deployment</openeddiagram></projectproperties>
 <leafpackages>
    <path>
     <package id="Project"/>
@@ -18,10 +18,6 @@
    </path>
    <path>
     <package id="Project"/>
-    <package id="organization of resources"/>
-   </path>
-   <path>
-    <package id="Project"/>
     <package id="agent to role assignments"/>
    </path>
    <path>
@@ -30,19 +26,44 @@
    </path>
    <path>
     <package id="Project"/>
-    <package id="initial mental state"/>
+    <package id="organization deployment"/>
    </path>
    <path>
     <package id="Project"/>
+    <package id="fordevel"/>
+    <package id="specialization"/>
+   </path>
+   <path>
+    <package id="Project"/>
+    <package id="fordevel"/>
     <package id="deployment"/>
    </path>
    <path>
     <package id="Project"/>
-    <package id="specialization"/>
+    <package id="fordevel"/>
+    <package id="initial mental state"/>
    </path>
 </leafpackages>
 <objects>
 <object id="SketchPainter" type="ingenias.editor.entities.InternalApplication">
+<objectproperty id="Methods" collection="true">
+<object id="44" type="ingenias.editor.entities.Method">
+<objectproperty id="Parameter" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Name">launchEditor</key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+<key id="Result">void</key>
+</mapproperties>
+</object>
+</objectproperty>
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="BrainstormingGUI" type="ingenias.editor.entities.InternalApplication">
 <objectproperty id="Methods" collection="true">
 </objectproperty>
 <mapproperties>
@@ -185,11 +206,31 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
+<object id="OrgDeployment" type="ingenias.editor.entities.DeploymentPackage">
+<objectproperty id="Parameters" collection="true">
+</objectproperty>
+<objectproperty id="AgentsDeployed" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
 <object id="DeploymentUnitByTypeEnumInitMS0" type="ingenias.editor.entities.DeploymentUnitByTypeEnumInitMS">
 <objectproperty id="InitialState" collection="true">
 <object id="DefiningInitialGoal" type="ingenias.editor.entities.MentalInstanceSpecification">
 <objectproperty id="InstanceType">
-<object id="GoalDescription" type="ingenias.editor.entities.FrameFact">
+<object id="InitiateBrainstorming" type="ingenias.editor.entities.ApplicationEventSlots">
+<objectproperty id="Source">
+<object id="BrainstormingGUI" type="ingenias.editor.entities.InternalApplication">
+<objectproperty id="Methods" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+</objectproperty>
 <objectproperty id="Slots" collection="true">
 </objectproperty>
 <mapproperties>
@@ -251,6 +292,51 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
+<object id="DeploymentUnitByType2" type="ingenias.editor.entities.DeploymentUnitByType">
+<objectproperty id="AgentTypeDeployed">
+<object id="SampleModerator" type="ingenias.editor.entities.Agent">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+</objectproperty>
+<mapproperties>
+<key id="NumberInstances">1</key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="GroupDeploymentUnit0" type="ingenias.editor.entities.GroupDeploymentUnit">
+<objectproperty id="InstGroup">
+<object id="Facilitators" type="ingenias.editor.entities.OrganizationGroup">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+</objectproperty>
+<mapproperties>
+<key id="InstanceName">facilitatorsInc</key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="GroupDeploymentUnit1" type="ingenias.editor.entities.GroupDeploymentUnit">
+<objectproperty id="InstGroup">
+<object id="Team" type="ingenias.editor.entities.OrganizationGroup">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+</objectproperty>
+<mapproperties>
+<key id="InstanceName">participantsInc</key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
 <object id="INGENIASCodeComponent0" type="ingenias.editor.entities.INGENIASCodeComponent">
 <mapproperties>
 <key id="Language"></key>
@@ -282,8 +368,7 @@ eaSketchPainter.launchEditor();</key>
 <object id="INGENIASCodeComponent3" type="ingenias.editor.entities.INGENIASCodeComponent">
 <mapproperties>
 <key id="Language"></key>
-<key id="Code">//REPLACE THIS COMMENT WITH YOUR CODE
-System.out.println(getAgentID()+&quot; executing -&gt; &quot;+getID()+&quot;:&quot;+getType());
+<key id="Code">System.out.println(getAgentID()+&quot; executing -&gt; &quot;+getID()+&quot;:&quot;+getType());
 outputsConceptCreationConceptSketch.setsketch(eiSketchIsReady.getsketch());</key>
 <key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
@@ -292,9 +377,56 @@ outputsConceptCreationConceptSketch.setsketch(eiSketchIsReady.getsketch());</key
 <object id="INGENIASCodeComponent4" type="ingenias.editor.entities.INGENIASCodeComponent">
 <mapproperties>
 <key id="Language"></key>
-<key id="Code">//REPLACE THIS COMMENT WITH YOUR CODE
-System.out.println(getAgentID()+&quot; executing -&gt; &quot;+getID()+&quot;:&quot;+getType());
-eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
+<key id="Code">System.out.println(getAgentID()+&quot; executing -&gt; &quot;+getID()+&quot;:&quot;+getType());
+System.out.println(getAgentID()+&quot; received &quot;+eiConceptSketch.size()+ &quot; designs&quot;);
+Vector v=new Vector();
+
+Vector vFreeHand=new Vector();
+Vector vLine=new Vector();
+Vector vOval=new Vector();
+Vector vPolygon=new Vector(); 
+Vector vRoundRect=new Vector(); 
+Vector vSolidOval=new Vector(); 
+Vector vSolidPolygon=new Vector();
+Vector vSolidRoundRect=new Vector(); 
+Vector vSolidSquare=new Vector(); 
+Vector vSquare=new Vector();
+java.awt.Color backGroundColor=java.awt.Color.WHITE;
+v.removeAllElements();
+v.addElement(vFreeHand);
+v.addElement(vLine);
+v.addElement(vOval);
+v.addElement(vPolygon);
+v.addElement(vRoundRect);
+v.addElement(vSolidOval);
+v.addElement(vSolidPolygon);
+v.addElement(vSolidRoundRect);
+v.addElement(vSolidSquare);
+v.addElement(vSquare);	
+v.addElement(new java.awt.Color(backGroundColor.getRGB()));
+
+for (ConceptSketch sketch:eiConceptSketch) {
+	try {
+		java.io.ObjectInputStream oos=new java.io.ObjectInputStream(new java.io.ByteArrayInputStream(sketch.getsketch()));
+		Vector vFile2 = (Vector)oos.readObject();		
+		 vFreeHand .addAll( (Vector)vFile2.elementAt(0));
+		 vLine.addAll( (Vector)vFile2.elementAt(1));
+		vOval			.addAll((Vector)vFile2.elementAt(2));
+		vPolygon		.addAll( (Vector)vFile2.elementAt(3));
+		vRoundRect		.addAll( (Vector)vFile2.elementAt(4));
+		vSolidOval		.addAll( (Vector)vFile2.elementAt(5));
+		vSolidPolygon	.addAll( (Vector)vFile2.elementAt(6));
+		vSolidRoundRect.addAll( (Vector)vFile2.elementAt(7));
+		vSolidSquare	.addAll( (Vector)vFile2.elementAt(8));
+		vSquare			.addAll( (Vector)vFile2.elementAt(9));
+		backGroundColor =( (java.awt.Color)vFile2.elementAt(10));
+	} catch (ClassNotFoundException | java.io.IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}		
+}
+
+eaSketchPainter.launchEditor(v);</key>
 <key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
@@ -313,16 +445,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="ExecutionContext"></key>
 </mapproperties>
 </object>
-<object id="GoalDescription" type="ingenias.editor.entities.FrameFact">
-<objectproperty id="Slots" collection="true">
-</objectproperty>
+<object id="CreativeCoCreation" type="ingenias.editor.entities.Goal">
 <mapproperties>
 <key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
 <key id="ExecutionContext"></key>
 </mapproperties>
 </object>
-<object id="FrameFact0" type="ingenias.editor.entities.FrameFact">
+<object id="GoalDefinition" type="ingenias.editor.entities.FrameFact">
 <objectproperty id="Slots" collection="true">
 </objectproperty>
 <mapproperties>
@@ -350,10 +480,39 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="ExecutionContext"></key>
 </mapproperties>
 </object>
+<object id="InitiateBrainstorming" type="ingenias.editor.entities.ApplicationEventSlots">
+<objectproperty id="Source">
+<object id="BrainstormingGUI" type="ingenias.editor.entities.InternalApplication">
+<objectproperty id="Methods" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+</objectproperty>
+<objectproperty id="Slots" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+<key id="ExecutionContext"></key>
+</mapproperties>
+</object>
 <object id="SketchIsReady" type="ingenias.editor.entities.ApplicationEventSlots">
 <objectproperty id="Source">
 <object id="SketchPainter" type="ingenias.editor.entities.InternalApplication">
 <objectproperty id="Methods" collection="true">
+<object id="44" type="ingenias.editor.entities.Method">
+<objectproperty id="Parameter" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Name">launchEditor</key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+<key id="Result">void</key>
+</mapproperties>
+</object>
 </objectproperty>
 <mapproperties>
 <key id="Description"></key>
@@ -381,7 +540,17 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 </object>
 <object id="DefiningInitialGoal" type="ingenias.editor.entities.MentalInstanceSpecification">
 <objectproperty id="InstanceType">
-<object id="GoalDescription" type="ingenias.editor.entities.FrameFact">
+<object id="InitiateBrainstorming" type="ingenias.editor.entities.ApplicationEventSlots">
+<objectproperty id="Source">
+<object id="BrainstormingGUI" type="ingenias.editor.entities.InternalApplication">
+<objectproperty id="Methods" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+</objectproperty>
 <objectproperty id="Slots" collection="true">
 </objectproperty>
 <mapproperties>
@@ -404,13 +573,38 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<object id="Team" type="ingenias.editor.entities.OrganizationGroup">
+<object id="44" type="ingenias.editor.entities.Method">
+<objectproperty id="Parameter" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Name">launchEditor</key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+<key id="Result">void</key>
+</mapproperties>
+</object>
+<object id="SampleOrg" type="ingenias.editor.entities.OrgDeploymentUnit">
+<objectproperty id="InstOrganization">
+<object id="SymbolicBrainstorming" type="ingenias.editor.entities.Organization">
 <mapproperties>
 <key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
+</objectproperty>
+<mapproperties>
+<key id="InstanceName">brainstormingInc</key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
 <object id="Facilitators" type="ingenias.editor.entities.OrganizationGroup">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="Team" type="ingenias.editor.entities.OrganizationGroup">
 <mapproperties>
 <key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
@@ -476,7 +670,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 </object>
 <object id="11" type="ingenias.editor.entities.TaskTransferDefinition">
 <objectproperty id="AffectedElement">
-<object id="FrameFact0" type="ingenias.editor.entities.FrameFact">
+<object id="GoalDefinition" type="ingenias.editor.entities.FrameFact">
 <objectproperty id="Slots" collection="true">
 </objectproperty>
 <mapproperties>
@@ -517,6 +711,35 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 </objectproperty>
 <mapproperties>
 <key id="JoinOutputs">yes</key>
+<key id="Operation">++/-</key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="45" type="ingenias.editor.entities.TaskTransferDefinition">
+<objectproperty id="AffectedElement">
+</objectproperty>
+<mapproperties>
+<key id="JoinOutputs"></key>
+<key id="Operation"></key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="46" type="ingenias.editor.entities.TaskTransferDefinition">
+<objectproperty id="AffectedElement">
+<object id="GoalDefinition" type="ingenias.editor.entities.FrameFact">
+<objectproperty id="Slots" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+<key id="ExecutionContext"></key>
+</mapproperties>
+</object>
+</objectproperty>
+<mapproperties>
+<key id="JoinOutputs">no</key>
 <key id="Operation">++/-</key>
 <key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
@@ -714,19 +937,19 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 </object>
 </objects>
 <relationships>
-<relationship id="0" type="ingenias.editor.entities.OHasGroup">
-<object id="0" type="ingenias.editor.entities.OHasGroup">
+<relationship id="3" type="ingenias.editor.entities.OHasMember">
+<object id="3" type="ingenias.editor.entities.OHasMember">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="SymbolicBrainstorming" class="ingenias.editor.entities.Organization" roleName="OHasGroupsource" type="ingenias.editor.entities.OHasGroupsourceRole" dgcid="978253647">
+<role idEntity="Team" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasMembersource" type="ingenias.editor.entities.OHasMembersourceRole" dgcid="317499180">
 <mapproperties>
 <key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Facilitators" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasGrouptarget" type="ingenias.editor.entities.OHasGrouptargetRole" dgcid="1380535677">
+</role><role idEntity="Secretary" class="ingenias.editor.entities.Role" roleName="OHasMembertarget" type="ingenias.editor.entities.OHasMembertargetRole" dgcid="761160724">
 <mapproperties>
 <key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
@@ -739,32 +962,32 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="OHasMembertarget" type="ingenias.editor.entities.OHasMembertargetRole" dgcid="112232411">
+<role idEntity="Team" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasMembersource" type="ingenias.editor.entities.OHasMembersourceRole" dgcid="317499180">
 <mapproperties>
 <key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Team" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasMembersource" type="ingenias.editor.entities.OHasMembersourceRole" dgcid="1284343257">
+</role><role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="OHasMembertarget" type="ingenias.editor.entities.OHasMembertargetRole" dgcid="1416539162">
 <mapproperties>
 <key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="3" type="ingenias.editor.entities.OHasMember">
-<object id="3" type="ingenias.editor.entities.OHasMember">
+<relationship id="0" type="ingenias.editor.entities.OHasGroup">
+<object id="0" type="ingenias.editor.entities.OHasGroup">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="Secretary" class="ingenias.editor.entities.Role" roleName="OHasMembertarget" type="ingenias.editor.entities.OHasMembertargetRole" dgcid="239440313">
+<role idEntity="SymbolicBrainstorming" class="ingenias.editor.entities.Organization" roleName="OHasGroupsource" type="ingenias.editor.entities.OHasGroupsourceRole" dgcid="1560537787">
 <mapproperties>
 <key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Team" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasMembersource" type="ingenias.editor.entities.OHasMembersourceRole" dgcid="1284343257">
+</role><role idEntity="Facilitators" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasGrouptarget" type="ingenias.editor.entities.OHasGrouptargetRole" dgcid="111934307">
 <mapproperties>
 <key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
@@ -777,13 +1000,13 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="OHasMembertarget" type="ingenias.editor.entities.OHasMembertargetRole" dgcid="961992381">
+<role idEntity="Facilitators" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasMembersource" type="ingenias.editor.entities.OHasMembersourceRole" dgcid="111934307">
 <mapproperties>
 <key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Facilitators" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasMembersource" type="ingenias.editor.entities.OHasMembersourceRole" dgcid="1380535677">
+</role><role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="OHasMembertarget" type="ingenias.editor.entities.OHasMembertargetRole" dgcid="1515201500">
 <mapproperties>
 <key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
@@ -796,35 +1019,116 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="SymbolicBrainstorming" class="ingenias.editor.entities.Organization" roleName="OHasGroupsource" type="ingenias.editor.entities.OHasGroupsourceRole" dgcid="978253647">
+<role idEntity="SymbolicBrainstorming" class="ingenias.editor.entities.Organization" roleName="OHasGroupsource" type="ingenias.editor.entities.OHasGroupsourceRole" dgcid="1560537787">
 <mapproperties>
 <key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Team" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasGrouptarget" type="ingenias.editor.entities.OHasGrouptargetRole" dgcid="1284343257">
+</role><role idEntity="Team" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasGrouptarget" type="ingenias.editor.entities.OHasGrouptargetRole" dgcid="317499180">
 <mapproperties>
 <key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="33" type="ingenias.editor.entities.WFUses">
-<object id="33" type="ingenias.editor.entities.WFUses">
+<relationship id="13" type="ingenias.editor.entities.WFConsumes">
+<object id="13" type="ingenias.editor.entities.WFConsumes">
+<objectproperty id="Condition">
+</objectproperty>
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="CollectDrawings" class="ingenias.editor.entities.TaskByRole" roleName="WFUsessource" type="ingenias.editor.entities.WFUsessourceRole" dgcid="349453027">
+<role idEntity="DefineGoal" class="ingenias.editor.entities.TaskByRole" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="1116631838">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="WFUsestarget" type="ingenias.editor.entities.WFUsestargetRole" dgcid="1809546309">
+</role><role idEntity="InitiateBrainstorming" class="ingenias.editor.entities.ApplicationEventSlots" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="1837594924">
+<mapproperties>
+<key id="Cardinality"></key>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="30" type="ingenias.editor.entities.WFUses">
+<object id="30" type="ingenias.editor.entities.WFUses">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="WFUsessource" type="ingenias.editor.entities.WFUsessourceRole" dgcid="271033428">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="WFUsestarget" type="ingenias.editor.entities.WFUsestargetRole" dgcid="1617107867">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 <key id="Label"></key>
+</mapproperties>
+</role></relationship>
+<relationship id="5" type="ingenias.editor.entities.PConnects">
+<object id="5" type="ingenias.editor.entities.PConnects">
+<objectproperty id="Transfers" collection="true">
+<object id="46" type="ingenias.editor.entities.TaskTransferDefinition">
+<objectproperty id="AffectedElement">
+<object id="GoalDefinition" type="ingenias.editor.entities.FrameFact">
+<objectproperty id="Slots" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+<key id="ExecutionContext"></key>
+</mapproperties>
+</object>
+</objectproperty>
+<mapproperties>
+<key id="JoinOutputs">no</key>
+<key id="Operation">++/-</key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+</objectproperty>
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+<key id="Label"></key>
+<key id="GenerationLabel"></key>
+</mapproperties>
+</object>
+<role idEntity="DefineGoal" class="ingenias.editor.entities.TaskByRole" roleName="PConnectssource" type="ingenias.editor.entities.PConnectssourceRole" dgcid="1116631838">
+<objectproperty id="TaskOutput" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectstarget" type="ingenias.editor.entities.PConnectstargetRole" dgcid="271033428">
+<objectproperty id="TaskInput" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="21" type="ingenias.editor.entities.WFParticipates">
+<object id="21" type="ingenias.editor.entities.WFParticipates">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="WFParticipatestarget" type="ingenias.editor.entities.WFParticipatestargetRole" dgcid="232927491">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="WFParticipatessource" type="ingenias.editor.entities.WFParticipatessourceRole" dgcid="2137854221">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
 <relationship id="10" type="ingenias.editor.entities.WFParticipates">
@@ -833,35 +1137,57 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="WFParticipatestarget" type="ingenias.editor.entities.WFParticipatestargetRole" dgcid="551322051">
+<role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="WFParticipatestarget" type="ingenias.editor.entities.WFParticipatestargetRole" dgcid="232927491">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="WFParticipatessource" type="ingenias.editor.entities.WFParticipatessourceRole" dgcid="394635825">
+</role><role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="WFParticipatessource" type="ingenias.editor.entities.WFParticipatessourceRole" dgcid="497338552">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="49" type="ingenias.editor.entities.WFConsumes">
-<object id="49" type="ingenias.editor.entities.WFConsumes">
-<objectproperty id="Condition">
+<relationship id="6" type="ingenias.editor.entities.PConnects">
+<object id="6" type="ingenias.editor.entities.PConnects">
+<objectproperty id="Transfers" collection="true">
 </objectproperty>
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+<key id="GenerationLabel"></key>
+</mapproperties>
+</object>
+<role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectstarget" type="ingenias.editor.entities.PConnectstargetRole" dgcid="1893013832">
+<objectproperty id="TaskInput" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectssource" type="ingenias.editor.entities.PConnectssourceRole" dgcid="271033428">
+<objectproperty id="TaskOutput" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="47" type="ingenias.editor.entities.WFUses">
+<object id="47" type="ingenias.editor.entities.WFUses">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="CollectDrawings" class="ingenias.editor.entities.TaskByRole" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="256449343">
+<role idEntity="DefineGoal" class="ingenias.editor.entities.TaskByRole" roleName="WFUsessource" type="ingenias.editor.entities.WFUsessourceRole" dgcid="1116631838">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="ConceptSketch" class="ingenias.editor.entities.FrameFact" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="196048167">
+</role><role idEntity="BrainstormingGUI" class="ingenias.editor.entities.InternalApplication" roleName="WFUsestarget" type="ingenias.editor.entities.WFUsestargetRole" dgcid="278960768">
 <mapproperties>
-<key id="Cardinality">1..*</key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
+<key id="Label"></key>
 </mapproperties>
 </role></relationship>
 <relationship id="7" type="ingenias.editor.entities.PConnects">
@@ -903,14 +1229,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="GenerationLabel">ConceptCreation</key>
 </mapproperties>
 </object>
-<role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectssource" type="ingenias.editor.entities.PConnectssourceRole" dgcid="1047000198">
+<role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectssource" type="ingenias.editor.entities.PConnectssourceRole" dgcid="1893013832">
 <objectproperty id="TaskOutput" collection="true">
 </objectproperty>
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="CollectDrawings" class="ingenias.editor.entities.TaskByRole" roleName="PConnectstarget" type="ingenias.editor.entities.PConnectstargetRole" dgcid="349453027">
+</role><role idEntity="CollectDrawings" class="ingenias.editor.entities.TaskByRole" roleName="PConnectstarget" type="ingenias.editor.entities.PConnectstargetRole" dgcid="1579542365">
 <objectproperty id="TaskInput" collection="true">
 </objectproperty>
 <mapproperties>
@@ -926,14 +1252,32 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="1047000198">
+<role idEntity="SketchIsReady" class="ingenias.editor.entities.ApplicationEventSlots" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="856259445">
+<mapproperties>
+<key id="Cardinality"></key>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="1893013832">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="SketchIsReady" class="ingenias.editor.entities.ApplicationEventSlots" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="732600401">
+</role></relationship>
+<relationship id="33" type="ingenias.editor.entities.WFUses">
+<object id="33" type="ingenias.editor.entities.WFUses">
 <mapproperties>
-<key id="Cardinality"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="WFUsestarget" type="ingenias.editor.entities.WFUsestargetRole" dgcid="298108293">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+<key id="Label"></key>
+</mapproperties>
+</role><role idEntity="CollectDrawings" class="ingenias.editor.entities.TaskByRole" roleName="WFUsessource" type="ingenias.editor.entities.WFUsessourceRole" dgcid="1579542365">
+<mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
@@ -946,149 +1290,12 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="GTSatisfiessource" type="ingenias.editor.entities.GTSatisfiessourceRole" dgcid="551322051">
+<role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="GTSatisfiessource" type="ingenias.editor.entities.GTSatisfiessourceRole" dgcid="232927491">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Design a chair" class="ingenias.editor.entities.Goal" roleName="GTSatisfiestarget" type="ingenias.editor.entities.GTSatisfiestargetRole" dgcid="798835644">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="30" type="ingenias.editor.entities.WFUses">
-<object id="30" type="ingenias.editor.entities.WFUses">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="WFUsessource" type="ingenias.editor.entities.WFUsessourceRole" dgcid="746251162">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="WFUsestarget" type="ingenias.editor.entities.WFUsestargetRole" dgcid="1568352006">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-<key id="Label"></key>
-</mapproperties>
-</role></relationship>
-<relationship id="13" type="ingenias.editor.entities.WFConsumes">
-<object id="13" type="ingenias.editor.entities.WFConsumes">
-<objectproperty id="Condition">
-</objectproperty>
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="GoalDescription" class="ingenias.editor.entities.FrameFact" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="740864605">
-<mapproperties>
-<key id="Cardinality"></key>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="DefineGoal" class="ingenias.editor.entities.TaskByRole" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="1394832422">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="21" type="ingenias.editor.entities.WFParticipates">
-<object id="21" type="ingenias.editor.entities.WFParticipates">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="FirstSession" class="ingenias.editor.entities.Workflow" roleName="WFParticipatestarget" type="ingenias.editor.entities.WFParticipatestargetRole" dgcid="551322051">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="WFParticipatessource" type="ingenias.editor.entities.WFParticipatessourceRole" dgcid="719129464">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="6" type="ingenias.editor.entities.PConnects">
-<object id="6" type="ingenias.editor.entities.PConnects">
-<objectproperty id="Transfers" collection="true">
-</objectproperty>
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-<key id="GenerationLabel"></key>
-</mapproperties>
-</object>
-<role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectssource" type="ingenias.editor.entities.PConnectssourceRole" dgcid="746251162">
-<objectproperty id="TaskOutput" collection="true">
-</objectproperty>
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectstarget" type="ingenias.editor.entities.PConnectstargetRole" dgcid="1047000198">
-<objectproperty id="TaskInput" collection="true">
-</objectproperty>
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="5" type="ingenias.editor.entities.PConnects">
-<object id="5" type="ingenias.editor.entities.PConnects">
-<objectproperty id="Transfers" collection="true">
-</objectproperty>
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-<key id="GenerationLabel"></key>
-</mapproperties>
-</object>
-<role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="PConnectstarget" type="ingenias.editor.entities.PConnectstargetRole" dgcid="746251162">
-<objectproperty id="TaskInput" collection="true">
-</objectproperty>
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="DefineGoal" class="ingenias.editor.entities.TaskByRole" roleName="PConnectssource" type="ingenias.editor.entities.PConnectssourceRole" dgcid="1394832422">
-<objectproperty id="TaskOutput" collection="true">
-</objectproperty>
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="20" type="ingenias.editor.entities.ApplicationBelongsTo">
-<object id="20" type="ingenias.editor.entities.ApplicationBelongsTo">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="ApplicationBelongsTosource" type="ingenias.editor.entities.ApplicationBelongsTosourceRole" dgcid="1309550341">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="ApplicationBelongsTotarget" type="ingenias.editor.entities.ApplicationBelongsTotargetRole" dgcid="1458850559">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="37" type="ingenias.editor.entities.ApplicationBelongsTo">
-<object id="37" type="ingenias.editor.entities.ApplicationBelongsTo">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="ApplicationBelongsTosource" type="ingenias.editor.entities.ApplicationBelongsTosourceRole" dgcid="1346563347">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="ApplicationBelongsTotarget" type="ingenias.editor.entities.ApplicationBelongsTotargetRole" dgcid="1458850559">
+</role><role idEntity="CreativeCoCreation" class="ingenias.editor.entities.Goal" roleName="GTSatisfiestarget" type="ingenias.editor.entities.GTSatisfiestargetRole" dgcid="793233756">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -1101,6 +1308,16 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <objectproperty id="Source">
 <object id="SketchPainter" type="ingenias.editor.entities.InternalApplication">
 <objectproperty id="Methods" collection="true">
+<object id="44" type="ingenias.editor.entities.Method">
+<objectproperty id="Parameter" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Name">launchEditor</key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+<key id="Result">void</key>
+</mapproperties>
+</object>
 </objectproperty>
 <mapproperties>
 <key id="Description"></key>
@@ -1134,12 +1351,12 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="Label"></key>
 </mapproperties>
 </object>
-<role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="EPerceivessource" type="ingenias.editor.entities.EPerceivessourceRole" dgcid="1309550341">
+<role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="EPerceivestarget" type="ingenias.editor.entities.EPerceivestargetRole" dgcid="236620487">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="EPerceivestarget" type="ingenias.editor.entities.EPerceivestargetRole" dgcid="1458850559">
+</role><role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="EPerceivessource" type="ingenias.editor.entities.EPerceivessourceRole" dgcid="1413729928">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -1152,6 +1369,16 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <objectproperty id="Source">
 <object id="SketchPainter" type="ingenias.editor.entities.InternalApplication">
 <objectproperty id="Methods" collection="true">
+<object id="44" type="ingenias.editor.entities.Method">
+<objectproperty id="Parameter" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Name">launchEditor</key>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+<key id="Result">void</key>
+</mapproperties>
+</object>
 </objectproperty>
 <mapproperties>
 <key id="Description"></key>
@@ -1185,119 +1412,121 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="Label"></key>
 </mapproperties>
 </object>
-<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="EPerceivessource" type="ingenias.editor.entities.EPerceivessourceRole" dgcid="1346563347">
+<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="EPerceivessource" type="ingenias.editor.entities.EPerceivessourceRole" dgcid="1788453950">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="EPerceivestarget" type="ingenias.editor.entities.EPerceivestargetRole" dgcid="1458850559">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="48" type="ingenias.editor.entities.EResourceBelongsTo">
-<object id="48" type="ingenias.editor.entities.EResourceBelongsTo">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-<key id="Label">View</key>
-</mapproperties>
-</object>
-<role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="EResourceBelongsTosource" type="ingenias.editor.entities.EResourceBelongsTosourceRole" dgcid="662333354">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="Blackboard" class="ingenias.editor.entities.Resource" roleName="EResourceBelongsTotarget" type="ingenias.editor.entities.EResourceBelongsTotargetRole" dgcid="29032152">
+</role><role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="EPerceivestarget" type="ingenias.editor.entities.EPerceivestargetRole" dgcid="236620487">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="47" type="ingenias.editor.entities.EResourceBelongsTo">
-<object id="47" type="ingenias.editor.entities.EResourceBelongsTo">
+<relationship id="37" type="ingenias.editor.entities.ApplicationBelongsTo">
+<object id="37" type="ingenias.editor.entities.ApplicationBelongsTo">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
-<key id="Label">Write notes</key>
 </mapproperties>
 </object>
-<role idEntity="Brainstorming report" class="ingenias.editor.entities.Resource" roleName="EResourceBelongsTotarget" type="ingenias.editor.entities.EResourceBelongsTotargetRole" dgcid="2018692072">
+<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="ApplicationBelongsTosource" type="ingenias.editor.entities.ApplicationBelongsTosourceRole" dgcid="1788453950">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Secretary" class="ingenias.editor.entities.Role" roleName="EResourceBelongsTosource" type="ingenias.editor.entities.EResourceBelongsTosourceRole" dgcid="210478653">
+</role><role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="ApplicationBelongsTotarget" type="ingenias.editor.entities.ApplicationBelongsTotargetRole" dgcid="236620487">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="44" type="ingenias.editor.entities.EResourceBelongsTo">
-<object id="44" type="ingenias.editor.entities.EResourceBelongsTo">
+<relationship id="20" type="ingenias.editor.entities.ApplicationBelongsTo">
+<object id="20" type="ingenias.editor.entities.ApplicationBelongsTo">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
-<key id="Label">Create and Share</key>
 </mapproperties>
 </object>
-<role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="EResourceBelongsTosource" type="ingenias.editor.entities.EResourceBelongsTosourceRole" dgcid="662333354">
+<role idEntity="SketchPainter" class="ingenias.editor.entities.InternalApplication" roleName="ApplicationBelongsTotarget" type="ingenias.editor.entities.ApplicationBelongsTotargetRole" dgcid="236620487">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Drawing" class="ingenias.editor.entities.Resource" roleName="EResourceBelongsTotarget" type="ingenias.editor.entities.EResourceBelongsTotargetRole" dgcid="337260227">
+</role><role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="ApplicationBelongsTosource" type="ingenias.editor.entities.ApplicationBelongsTosourceRole" dgcid="1413729928">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="46" type="ingenias.editor.entities.EResourceBelongsTo">
-<object id="46" type="ingenias.editor.entities.EResourceBelongsTo">
+<relationship id="49" type="ingenias.editor.entities.ApplicationBelongsTo">
+<object id="49" type="ingenias.editor.entities.ApplicationBelongsTo">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
-<key id="Label">View</key>
 </mapproperties>
 </object>
-<role idEntity="Blackboard" class="ingenias.editor.entities.Resource" roleName="EResourceBelongsTotarget" type="ingenias.editor.entities.EResourceBelongsTotargetRole" dgcid="29032152">
+<role idEntity="BrainstormingGUI" class="ingenias.editor.entities.InternalApplication" roleName="ApplicationBelongsTotarget" type="ingenias.editor.entities.ApplicationBelongsTotargetRole" dgcid="488486947">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Secretary" class="ingenias.editor.entities.Role" roleName="EResourceBelongsTosource" type="ingenias.editor.entities.EResourceBelongsTosourceRole" dgcid="210478653">
+</role><role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="ApplicationBelongsTosource" type="ingenias.editor.entities.ApplicationBelongsTosourceRole" dgcid="1788453950">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="45" type="ingenias.editor.entities.EResourceBelongsTo">
-<object id="45" type="ingenias.editor.entities.EResourceBelongsTo">
+<relationship id="48" type="ingenias.editor.entities.EPerceivesNotification">
+<object id="48" type="ingenias.editor.entities.EPerceivesNotification">
+<objectproperty id="Event">
+<object id="InitiateBrainstorming" type="ingenias.editor.entities.ApplicationEventSlots">
+<objectproperty id="Source">
+<object id="BrainstormingGUI" type="ingenias.editor.entities.InternalApplication">
+<objectproperty id="Methods" collection="true">
+</objectproperty>
 <mapproperties>
+<key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
-<key id="Label">Write</key>
 </mapproperties>
 </object>
-<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="EResourceBelongsTosource" type="ingenias.editor.entities.EResourceBelongsTosourceRole" dgcid="1246025762">
+</objectproperty>
+<objectproperty id="Slots" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+<key id="ExecutionContext"></key>
+</mapproperties>
+</object>
+</objectproperty>
+<objectproperty id="ApplicationMethod">
+</objectproperty>
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+<key id="Label"></key>
+</mapproperties>
+</object>
+<role idEntity="BrainstormingGUI" class="ingenias.editor.entities.InternalApplication" roleName="EPerceivestarget" type="ingenias.editor.entities.EPerceivestargetRole" dgcid="488486947">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Blackboard" class="ingenias.editor.entities.Resource" roleName="EResourceBelongsTotarget" type="ingenias.editor.entities.EResourceBelongsTotargetRole" dgcid="29032152">
+</role><role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="EPerceivessource" type="ingenias.editor.entities.EPerceivessourceRole" dgcid="1788453950">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="15" type="ingenias.editor.entities.WFPlays">
-<object id="15" type="ingenias.editor.entities.WFPlays">
+<relationship id="55" type="ingenias.editor.entities.GTPursues">
+<object id="55" type="ingenias.editor.entities.GTPursues">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="WFPlaystarget" type="ingenias.editor.entities.WFPlaystargetRole" dgcid="951993431">
+<role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="1854198711">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="SampleModerator" class="ingenias.editor.entities.Agent" roleName="WFPlayssource" type="ingenias.editor.entities.WFPlayssourceRole" dgcid="2144291441">
+</role><role idEntity="CreativeCoCreation" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="317020270">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -1309,12 +1538,12 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="Design a chair" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="547210162">
+<role idEntity="Design a chair" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="1382071215">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="1435406035">
+</role><role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="1451937128">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -1326,12 +1555,46 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="WFPlayssource" type="ingenias.editor.entities.WFPlayssourceRole" dgcid="1308661091">
+<role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="WFPlaystarget" type="ingenias.editor.entities.WFPlaystargetRole" dgcid="1854198711">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Participant" class="ingenias.editor.entities.Role" roleName="WFPlaystarget" type="ingenias.editor.entities.WFPlaystargetRole" dgcid="1435406035">
+</role><role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="WFPlayssource" type="ingenias.editor.entities.WFPlayssourceRole" dgcid="1451937128">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="28" type="ingenias.editor.entities.GTPursues">
+<object id="28" type="ingenias.editor.entities.GTPursues">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="499477086">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="RandomIdea" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="946512587">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="15" type="ingenias.editor.entities.WFPlays">
+<object id="15" type="ingenias.editor.entities.WFPlays">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="WFPlaystarget" type="ingenias.editor.entities.WFPlaystargetRole" dgcid="1495521249">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="SampleModerator" class="ingenias.editor.entities.Agent" roleName="WFPlayssource" type="ingenias.editor.entities.WFPlayssourceRole" dgcid="1317141163">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -1343,29 +1606,29 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="951993431">
+<role idEntity="Design a chair" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="1382071215">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Design a chair" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="547210162">
+</role><role idEntity="SampleModerator" class="ingenias.editor.entities.Agent" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="1317141163">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="28" type="ingenias.editor.entities.GTPursues">
-<object id="28" type="ingenias.editor.entities.GTPursues">
+<relationship id="56" type="ingenias.editor.entities.GTPursues">
+<object id="56" type="ingenias.editor.entities.GTPursues">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="2462895">
+<role idEntity="Moderator" class="ingenias.editor.entities.Role" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="1495521249">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="RandomIdea" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="1992998620">
+</role><role idEntity="CreativeCoCreation" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="317020270">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -1377,12 +1640,12 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="INGENIASCodeComponent3" class="ingenias.editor.entities.INGENIASCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="1496254843">
+<role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="1956044781">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="ShareConcept" class="ingenias.editor.entities.TaskByRole" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="1088767742">
+</role><role idEntity="INGENIASCodeComponent3" class="ingenias.editor.entities.INGENIASCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="1715828196">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -1394,46 +1657,12 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="DefineGoal" class="ingenias.editor.entities.TaskByRole" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="1879590467">
+<role idEntity="INGENIASCodeComponent1" class="ingenias.editor.entities.INGENIASCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="119405486">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="INGENIASCodeComponent1" class="ingenias.editor.entities.INGENIASCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="295973649">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="23" type="ingenias.editor.entities.CDUsesCode">
-<object id="23" type="ingenias.editor.entities.CDUsesCode">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="709894291">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="INGENIASCodeComponent2" class="ingenias.editor.entities.INGENIASCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="2118473536">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="17" type="ingenias.editor.entities.CDUsesCode">
-<object id="17" type="ingenias.editor.entities.CDUsesCode">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="MyVersion" class="ingenias.editor.entities.Task" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="775182428">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="INGENIASCodeComponent0" class="ingenias.editor.entities.INGENIASCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="506166876">
+</role><role idEntity="DefineGoal" class="ingenias.editor.entities.TaskByRole" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="1835551531">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -1445,116 +1674,131 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="INGENIASCodeComponent4" class="ingenias.editor.entities.INGENIASCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="834762798">
+<role idEntity="CollectDrawings" class="ingenias.editor.entities.TaskByRole" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="1538294014">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="CollectDrawings" class="ingenias.editor.entities.TaskByRole" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="1161297064">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="19" type="ingenias.editor.entities.AContainsME">
-<object id="19" type="ingenias.editor.entities.AContainsME">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-<key id="Label"></key>
-</mapproperties>
-</object>
-<role idEntity="initial mental state for moderator" class="ingenias.editor.entities.MentalState" roleName="AContainsMEsource" type="ingenias.editor.entities.AContainsMEsourceRole" dgcid="1440054141">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="DefiningInitialGoal" class="ingenias.editor.entities.MentalInstanceSpecification" roleName="AContainsMEtarget" type="ingenias.editor.entities.AContainsMEtargetRole" dgcid="669109619">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-<key id="Label"></key>
-</mapproperties>
-</role></relationship>
-<relationship id="18" type="ingenias.editor.entities.AHasMS">
-<object id="18" type="ingenias.editor.entities.AHasMS">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="initial mental state for moderator" class="ingenias.editor.entities.MentalState" roleName="AHasMStarget" type="ingenias.editor.entities.AHasMStargetRole" dgcid="1440054141">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="SampleModerator" class="ingenias.editor.entities.Agent" roleName="AHasMSsource" type="ingenias.editor.entities.AHasMSsourceRole" dgcid="1151364842">
+</role><role idEntity="INGENIASCodeComponent4" class="ingenias.editor.entities.INGENIASCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="757190006">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="32" type="ingenias.editor.entities.DefinesDeployment">
-<object id="32" type="ingenias.editor.entities.DefinesDeployment">
+<relationship id="23" type="ingenias.editor.entities.CDUsesCode">
+<object id="23" type="ingenias.editor.entities.CDUsesCode">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="TestingDeployment" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="246495381">
+<role idEntity="SketchConcept" class="ingenias.editor.entities.TaskByRole" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="1839828737">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="DeploymentUnitByType0" class="ingenias.editor.entities.DeploymentUnitByType" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="784120338">
+</role><role idEntity="INGENIASCodeComponent2" class="ingenias.editor.entities.INGENIASCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="469188777">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="31" type="ingenias.editor.entities.DefinesDeployment">
-<object id="31" type="ingenias.editor.entities.DefinesDeployment">
+<relationship id="17" type="ingenias.editor.entities.CDUsesCode">
+<object id="17" type="ingenias.editor.entities.CDUsesCode">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="TestingDeployment" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="246495381">
+<role idEntity="INGENIASCodeComponent0" class="ingenias.editor.entities.INGENIASCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="2096190776">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="DeploymentUnitByTypeEnumInitMS0" class="ingenias.editor.entities.DeploymentUnitByTypeEnumInitMS" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="48166804">
+</role><role idEntity="MyVersion" class="ingenias.editor.entities.Task" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="943104261">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="43" type="ingenias.editor.entities.DefinesDeployment">
-<object id="43" type="ingenias.editor.entities.DefinesDeployment">
+<relationship id="52" type="ingenias.editor.entities.OrgDplmnt">
+<object id="52" type="ingenias.editor.entities.OrgDplmnt">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="MultipleTestingDeployment" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="1193832842">
+<role idEntity="SampleOrg" class="ingenias.editor.entities.OrgDeploymentUnit" roleName="OrgDplmntsource" type="ingenias.editor.entities.OrgDplmntsourceRole" dgcid="1249583433">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="DeploymentUnitByTypeEnumInitMS0" class="ingenias.editor.entities.DeploymentUnitByTypeEnumInitMS" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="48166804">
+</role><role idEntity="GroupDeploymentUnit1" class="ingenias.editor.entities.GroupDeploymentUnit" roleName="OrgDplmnttarget" type="ingenias.editor.entities.OrgDplmnttargetRole" dgcid="425681167">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
-<relationship id="42" type="ingenias.editor.entities.DefinesDeployment">
-<object id="42" type="ingenias.editor.entities.DefinesDeployment">
+<relationship id="51" type="ingenias.editor.entities.MemberDplmnt">
+<object id="51" type="ingenias.editor.entities.MemberDplmnt">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="MultipleTestingDeployment" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="1193832842">
+<role idEntity="DeploymentUnitByType1" class="ingenias.editor.entities.DeploymentUnitByType" roleName="MemberDplmnttarget" type="ingenias.editor.entities.MemberDplmnttargetRole" dgcid="665630785">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="DeploymentUnitByType1" class="ingenias.editor.entities.DeploymentUnitByType" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="239934889">
+</role><role idEntity="GroupDeploymentUnit1" class="ingenias.editor.entities.GroupDeploymentUnit" roleName="MemberDplmntsource" type="ingenias.editor.entities.MemberDplmntsourceRole" dgcid="425681167">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="54" type="ingenias.editor.entities.DefinesDeployment">
+<object id="54" type="ingenias.editor.entities.DefinesDeployment">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="OrgDeployment" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="36953678">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="SampleOrg" class="ingenias.editor.entities.OrgDeploymentUnit" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="1249583433">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="53" type="ingenias.editor.entities.OrgDplmnt">
+<object id="53" type="ingenias.editor.entities.OrgDplmnt">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="GroupDeploymentUnit0" class="ingenias.editor.entities.GroupDeploymentUnit" roleName="OrgDplmnttarget" type="ingenias.editor.entities.OrgDplmnttargetRole" dgcid="576363347">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="SampleOrg" class="ingenias.editor.entities.OrgDeploymentUnit" roleName="OrgDplmntsource" type="ingenias.editor.entities.OrgDplmntsourceRole" dgcid="1249583433">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="50" type="ingenias.editor.entities.MemberDplmnt">
+<object id="50" type="ingenias.editor.entities.MemberDplmnt">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="DeploymentUnitByType2" class="ingenias.editor.entities.DeploymentUnitByType" roleName="MemberDplmnttarget" type="ingenias.editor.entities.MemberDplmnttargetRole" dgcid="1584221215">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="GroupDeploymentUnit0" class="ingenias.editor.entities.GroupDeploymentUnit" roleName="MemberDplmntsource" type="ingenias.editor.entities.MemberDplmntsourceRole" dgcid="576363347">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -1566,65 +1810,12 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="2462895">
+<role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="499477086">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Design a chair" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="2095146720">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="28" type="ingenias.editor.entities.GTPursues">
-<object id="28" type="ingenias.editor.entities.GTPursues">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="2462895">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="RandomIdea" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="1992998620">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="14" type="ingenias.editor.entities.WFResponsable">
-<object id="14" type="ingenias.editor.entities.WFResponsable">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="WFResponsablesource" type="ingenias.editor.entities.WFResponsablesourceRole" dgcid="2462895">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="MyVersion" class="ingenias.editor.entities.Task" roleName="WFResponsabletarget" type="ingenias.editor.entities.WFResponsabletargetRole" dgcid="237616698">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="16" type="ingenias.editor.entities.GTSatisfies">
-<object id="16" type="ingenias.editor.entities.GTSatisfies">
-<objectproperty id="SatisfactionCondition">
-</objectproperty>
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="RandomIdea" class="ingenias.editor.entities.Goal" roleName="GTSatisfiestarget" type="ingenias.editor.entities.GTSatisfiestargetRole" dgcid="1992998620">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="MyVersion" class="ingenias.editor.entities.Task" roleName="GTSatisfiessource" type="ingenias.editor.entities.GTSatisfiessourceRole" dgcid="237616698">
+</role><role idEntity="Design a chair" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="1640347439">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -1638,16 +1829,173 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="FrameFact0" class="ingenias.editor.entities.FrameFact" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="1653947582">
+<role idEntity="GoalDefinition" class="ingenias.editor.entities.FrameFact" roleName="WFConsumestarget" type="ingenias.editor.entities.WFConsumestargetRole" dgcid="509326146">
 <mapproperties>
 <key id="Cardinality"></key>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="MyVersion" class="ingenias.editor.entities.Task" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="237616698">
+</role><role idEntity="MyVersion" class="ingenias.editor.entities.Task" roleName="WFConsumessource" type="ingenias.editor.entities.WFConsumessourceRole" dgcid="845535107">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="14" type="ingenias.editor.entities.WFResponsable">
+<object id="14" type="ingenias.editor.entities.WFResponsable">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="WFResponsablesource" type="ingenias.editor.entities.WFResponsablesourceRole" dgcid="499477086">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="MyVersion" class="ingenias.editor.entities.Task" roleName="WFResponsabletarget" type="ingenias.editor.entities.WFResponsabletargetRole" dgcid="845535107">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="28" type="ingenias.editor.entities.GTPursues">
+<object id="28" type="ingenias.editor.entities.GTPursues">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="RandomSketchAgent" class="ingenias.editor.entities.Agent" roleName="GTPursuessource" type="ingenias.editor.entities.GTPursuessourceRole" dgcid="499477086">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="RandomIdea" class="ingenias.editor.entities.Goal" roleName="GTPursuestarget" type="ingenias.editor.entities.GTPursuestargetRole" dgcid="946512587">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="16" type="ingenias.editor.entities.GTSatisfies">
+<object id="16" type="ingenias.editor.entities.GTSatisfies">
+<objectproperty id="SatisfactionCondition">
+</objectproperty>
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="RandomIdea" class="ingenias.editor.entities.Goal" roleName="GTSatisfiestarget" type="ingenias.editor.entities.GTSatisfiestargetRole" dgcid="946512587">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="MyVersion" class="ingenias.editor.entities.Task" roleName="GTSatisfiessource" type="ingenias.editor.entities.GTSatisfiessourceRole" dgcid="845535107">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="31" type="ingenias.editor.entities.DefinesDeployment">
+<object id="31" type="ingenias.editor.entities.DefinesDeployment">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="DeploymentUnitByTypeEnumInitMS0" class="ingenias.editor.entities.DeploymentUnitByTypeEnumInitMS" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="1356637003">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="TestingDeployment" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="1576176664">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="42" type="ingenias.editor.entities.DefinesDeployment">
+<object id="42" type="ingenias.editor.entities.DefinesDeployment">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="DeploymentUnitByType1" class="ingenias.editor.entities.DeploymentUnitByType" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="1845769462">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="MultipleTestingDeployment" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="713544537">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="43" type="ingenias.editor.entities.DefinesDeployment">
+<object id="43" type="ingenias.editor.entities.DefinesDeployment">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="DeploymentUnitByTypeEnumInitMS0" class="ingenias.editor.entities.DeploymentUnitByTypeEnumInitMS" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="1356637003">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="MultipleTestingDeployment" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="713544537">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="32" type="ingenias.editor.entities.DefinesDeployment">
+<object id="32" type="ingenias.editor.entities.DefinesDeployment">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="TestingDeployment" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="1576176664">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="DeploymentUnitByType0" class="ingenias.editor.entities.DeploymentUnitByType" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="783494789">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="18" type="ingenias.editor.entities.AHasMS">
+<object id="18" type="ingenias.editor.entities.AHasMS">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="initial mental state for moderator" class="ingenias.editor.entities.MentalState" roleName="AHasMStarget" type="ingenias.editor.entities.AHasMStargetRole" dgcid="568234809">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="SampleModerator" class="ingenias.editor.entities.Agent" roleName="AHasMSsource" type="ingenias.editor.entities.AHasMSsourceRole" dgcid="2147424425">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="19" type="ingenias.editor.entities.AContainsME">
+<object id="19" type="ingenias.editor.entities.AContainsME">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+<key id="Label"></key>
+</mapproperties>
+</object>
+<role idEntity="initial mental state for moderator" class="ingenias.editor.entities.MentalState" roleName="AContainsMEsource" type="ingenias.editor.entities.AContainsMEsourceRole" dgcid="568234809">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="DefiningInitialGoal" class="ingenias.editor.entities.MentalInstanceSpecification" roleName="AContainsMEtarget" type="ingenias.editor.entities.AContainsMEtargetRole" dgcid="1327747460">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+<key id="Label"></key>
 </mapproperties>
 </role></relationship>
 </relationships>
@@ -1666,16 +2014,16 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	<graph>
 			
-	<node id="1" nid="node10" type="OHasGroup">
+	<node id="0" nid="node8" type="OHasGroup">
 		<attr name="bounds">
-			<rectangle x="203" y="93" width="0" height="0"></rectangle>		</attr>
+			<rectangle x="112" y="110" width="0" height="0"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
 
-	<connected id="node1">
+	<connected id="node4">
 
 
 
@@ -1692,7 +2040,102 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 	</connected>
+	<connected id="node2">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="Secretary" nid="node5" type="Role">
+		<attr name="bounds">
+			<rectangle x="166" y="233" width="60" height="43"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="1" nid="node10" type="OHasGroup">
+		<attr name="bounds">
+			<rectangle x="203" y="93" width="0" height="0"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node3">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node2">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="2" nid="node7" type="OHasMember">
+		<attr name="bounds">
+			<rectangle x="306" y="200" width="0" height="0"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
 	<connected id="node0">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node3">
 
 
 
@@ -1712,130 +2155,35 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 			
 	<node id="4" nid="node9" type="OHasMember">
 		<attr name="bounds">
-			<rectangle x="71" y="216" width="0" height="0"></rectangle>		</attr>
+			<rectangle x="71" y="217" width="0" height="0"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
 
-	<connected id="node4">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node2">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="Moderator" nid="node4" type="Role">
-		<attr name="bounds">
-			<rectangle x="42" y="235" width="65" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="0" nid="node6" type="OHasGroup">
-		<attr name="bounds">
-			<rectangle x="112" y="110" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node2">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node0">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="3" nid="node8" type="OHasMember">
-		<attr name="bounds">
-			<rectangle x="221" y="198" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node3">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
 	<connected id="node1">
 
 
 
 
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node4">
+
+
+
+
 		<attr name="labelposition">
 			<point x="500.0" y="-20.0"></point>
 		</attr>
@@ -1849,16 +2197,23 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="Secretary" nid="node3" type="Role">
+	<node id="Participant" nid="node0" type="Role">
 		<attr name="bounds">
-			<rectangle x="166" y="233" width="60" height="43"></rectangle>		</attr>
+			<rectangle x="322" y="233" width="68" height="43"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="2" nid="node7" type="OHasMember">
+	<node id="Team" nid="node3" type="OrganizationGroup">
 		<attr name="bounds">
-			<rectangle x="306" y="200" width="0" height="0"></rectangle>		</attr>
+			<rectangle x="221" y="109" width="56" height="55"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="3" nid="node6" type="OHasMember">
+		<attr name="bounds">
+			<rectangle x="221" y="198" width="0" height="0"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
@@ -1882,7 +2237,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 	</connected>
-	<connected id="node1">
+	<connected id="node3">
 
 
 
@@ -1900,30 +2255,23 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="Facilitators" nid="node2" type="OrganizationGroup">
+	<node id="Moderator" nid="node1" type="Role">
+		<attr name="bounds">
+			<rectangle x="41" y="236" width="65" height="43"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="Facilitators" nid="node4" type="OrganizationGroup">
 		<attr name="bounds">
 			<rectangle x="34" y="143" width="69" height="55"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="SymbolicBrainstorming" nid="node0" type="Organization">
+	<node id="SymbolicBrainstorming" nid="node2" type="Organization">
 		<attr name="bounds">
 			<rectangle x="86" y="21" width="141" height="56"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="Team" nid="node1" type="OrganizationGroup">
-		<attr name="bounds">
-			<rectangle x="221" y="109" width="56" height="55"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="Participant" nid="node5" type="Role">
-		<attr name="bounds">
-			<rectangle x="322" y="233" width="68" height="43"></rectangle>		</attr>
 
 
 	</node><parentship>
@@ -1937,36 +2285,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	<layout>
 			
-	<node id="node10">
-		<attr name="bounds">
-			<rectangle x="203" y="93" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node9">
-		<attr name="bounds">
-			<rectangle x="71" y="216" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node4">
-		<attr name="bounds">
-			<rectangle x="42" y="235" width="65" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node6">
+	<node id="node8">
 		<attr name="bounds">
 			<rectangle x="112" y="110" width="0" height="0"></rectangle>		</attr>
 		<attr name="view">
@@ -1977,20 +2296,20 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node8">
+	<node id="node5">
 		<attr name="bounds">
-			<rectangle x="221" y="198" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
+			<rectangle x="166" y="233" width="60" height="43"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="node3">
+	<node id="node10">
 		<attr name="bounds">
-			<rectangle x="166" y="233" width="60" height="43"></rectangle>		</attr>
+			<rectangle x="203" y="93" width="0" height="0"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
 
 
 	</node>
@@ -2006,30 +2325,59 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node2">
+	<node id="node9">
 		<attr name="bounds">
-			<rectangle x="34" y="143" width="69" height="55"></rectangle>		</attr>
+			<rectangle x="71" y="217" width="0" height="0"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
 
 
 	</node>
 			
 	<node id="node0">
 		<attr name="bounds">
-			<rectangle x="86" y="21" width="141" height="56"></rectangle>		</attr>
+			<rectangle x="322" y="233" width="68" height="43"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="node1">
+	<node id="node3">
 		<attr name="bounds">
 			<rectangle x="221" y="109" width="56" height="55"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="node5">
+	<node id="node6">
 		<attr name="bounds">
-			<rectangle x="322" y="233" width="68" height="43"></rectangle>		</attr>
+			<rectangle x="221" y="198" width="0" height="0"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node1">
+		<attr name="bounds">
+			<rectangle x="41" y="236" width="65" height="43"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node4">
+		<attr name="bounds">
+			<rectangle x="34" y="143" width="69" height="55"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node2">
+		<attr name="bounds">
+			<rectangle x="86" y="21" width="141" height="56"></rectangle>		</attr>
 
 
 	</node>
@@ -2049,1990 +2397,20 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	<graph>
 			
-	<node id="ShareConcept" nid="node16" type="TaskByRole">
+	<node id="CreativeCoCreation" nid="node23" type="Goal">
 		<attr name="bounds">
-			<rectangle x="240" y="179" width="124" height="40"></rectangle>		</attr>
+			<rectangle x="382" y="345" width="126" height="56"></rectangle>		</attr>
 
 
 	</node>
 			
-	<node id="Moderator" nid="node20" type="Role">
+	<node id="38" nid="node21" type="WFConsumes">
 		<attr name="bounds">
-			<rectangle x="81" y="329" width="65" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="Participant" nid="node23" type="Role">
-		<attr name="bounds">
-			<rectangle x="9" y="254" width="68" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="49" nid="node3" type="WFConsumes">
-		<attr name="bounds">
-			<rectangle x="974" y="262" width="80" height="15"></rectangle>		</attr>
+			<rectangle x="153" y="269" width="80" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
-
-
-	<connected id="node24">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node25">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="10" nid="node2" type="WFParticipates">
-		<attr name="bounds">
-			<rectangle x="147" y="299" width="85" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node20">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node0">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="6" nid="node10" type="PConnects">
-		<attr name="bounds">
-			<rectangle x="412" y="143" width="68" height="19"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node16">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node18">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="CollectDrawings" nid="node17" type="TaskByRole">
-		<attr name="bounds">
-			<rectangle x="563" y="215" width="134" height="40"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="GoalDescription" nid="node22" type="FrameFact">
-		<attr name="bounds">
-			<rectangle x="18" y="22" width="101" height="32"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="33" nid="node1" type="WFUses">
-		<attr name="bounds">
-			<rectangle x="714" y="220" width="52" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node17">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node21">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="SketchPainter" nid="node13" type="InternalApplication">
-		<attr name="bounds">
-			<rectangle x="774" y="65" width="104" height="40"></rectangle>		</attr>
-		<attr name="view">
-			<string>UML</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="ConceptSketch" nid="node25" type="FrameFact">
-		<attr name="bounds">
-			<rectangle x="1138" y="204" width="97" height="32"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="DefineGoal" nid="node19" type="TaskByRole">
-		<attr name="bounds">
-			<rectangle x="230" y="86" width="103" height="40"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="SketchIsReady" nid="node14" type="ApplicationEventSlots">
-		<attr name="bounds">
-			<rectangle x="6" y="90" width="173" height="70"></rectangle>		</attr>
-		<attr name="view">
-			<string>UML</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="38" nid="node5" type="WFConsumes">
-		<attr name="bounds">
-			<rectangle x="159" y="170" width="80" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node16">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node14">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="21" nid="node9" type="WFParticipates">
-		<attr name="bounds">
-			<rectangle x="95" y="240" width="85" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node23">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node0">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="13" nid="node8" type="WFConsumes">
-		<attr name="bounds">
-			<rectangle x="130" y="54" width="80" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node19">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node22">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="FirstSession" nid="node0" type="Workflow">
-		<attr name="bounds">
-			<rectangle x="197" y="27" width="514" height="254"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="WorkflowCardinality0" nid="node12" type="WorkflowCardinality">
-		<attr name="bounds">
-			<rectangle x="362" y="305" width="137" height="85"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="30" nid="node7" type="WFUses">
-		<attr name="bounds">
-			<rectangle x="691" y="78" width="52" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node18">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node13">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="7" nid="node4" type="PConnects">
-		<attr name="bounds">
-			<rectangle x="403" y="193" width="120" height="47"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node17">		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-
-
-
-
-
-<attr name="extraLabels">
-			<array>
-
-</array>
-</attr>
-
-	</connected>
-	<connected id="node16">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="SketchPainter" nid="node21" type="InternalApplication">
-		<attr name="bounds">
-			<rectangle x="784" y="198" width="88" height="46"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="SketchConcept" nid="node18" type="TaskByRole">
-		<attr name="bounds">
-			<rectangle x="528" y="86" width="130" height="40"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="5" nid="node11" type="PConnects">
-		<attr name="bounds">
-			<rectangle x="396" y="97" width="68" height="19"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node18">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node19">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="26" nid="node6" type="GTSatisfies">
-		<attr name="bounds">
-			<rectangle x="553" y="298" width="70" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	<connected id="node0">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	<connected id="node15">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="Design a chair" nid="node15" type="Goal">
-		<attr name="bounds">
-			<rectangle x="587" y="330" width="96" height="56"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="CollectDrawings" nid="node24" type="TaskByRole">
-		<attr name="bounds">
-			<rectangle x="757" y="304" width="134" height="40"></rectangle>		</attr>
-
-
-	</node><parentship>
-<child id="node18" parent="node0"/>
-<child id="node19" parent="node0"/>
-<child id="node16" parent="node0"/>
-<child id="node17" parent="node0"/>
-</parentship>
-<entityconstraints>
-<cellconstraint id="node13:INGENIAS">
-<currentcell id="node13" height="46" width="88"/>
-</cellconstraint>
-<cellconstraint id="node14:INGENIAS">
-<currentcell id="node14" height="83" width="91"/>
-</cellconstraint>
-</entityconstraints>
-
-
-	</graph>
-
-
-	<layout>
-			
-	<node id="node16">
-		<attr name="bounds">
-			<rectangle x="240" y="179" width="124" height="40"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node20">
-		<attr name="bounds">
-			<rectangle x="81" y="329" width="65" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node23">
-		<attr name="bounds">
-			<rectangle x="9" y="254" width="68" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node3">
-		<attr name="bounds">
-			<rectangle x="974" y="262" width="80" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node2">
-		<attr name="bounds">
-			<rectangle x="147" y="299" width="85" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node10">
-		<attr name="bounds">
-			<rectangle x="412" y="143" width="68" height="19"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node17">
-		<attr name="bounds">
-			<rectangle x="563" y="215" width="134" height="40"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node22">
-		<attr name="bounds">
-			<rectangle x="18" y="22" width="101" height="32"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node1">
-		<attr name="bounds">
-			<rectangle x="714" y="220" width="52" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node13">
-		<attr name="bounds">
-			<rectangle x="774" y="65" width="104" height="40"></rectangle>		</attr>
-		<attr name="view">
-			<string>UML</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node25">
-		<attr name="bounds">
-			<rectangle x="1138" y="204" width="97" height="32"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node19">
-		<attr name="bounds">
-			<rectangle x="230" y="86" width="103" height="40"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node14">
-		<attr name="bounds">
-			<rectangle x="6" y="90" width="173" height="70"></rectangle>		</attr>
-		<attr name="view">
-			<string>UML</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node5">
-		<attr name="bounds">
-			<rectangle x="159" y="170" width="80" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node9">
-		<attr name="bounds">
-			<rectangle x="95" y="240" width="85" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node8">
-		<attr name="bounds">
-			<rectangle x="130" y="54" width="80" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node0">
-		<attr name="bounds">
-			<rectangle x="197" y="27" width="514" height="254"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node12">
-		<attr name="bounds">
-			<rectangle x="362" y="305" width="137" height="85"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node7">
-		<attr name="bounds">
-			<rectangle x="691" y="78" width="52" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node4">
-		<attr name="bounds">
-			<rectangle x="403" y="193" width="120" height="47"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node21">
-		<attr name="bounds">
-			<rectangle x="784" y="198" width="88" height="46"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node18">
-		<attr name="bounds">
-			<rectangle x="528" y="86" width="130" height="40"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node11">
-		<attr name="bounds">
-			<rectangle x="396" y="97" width="68" height="19"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node6">
-		<attr name="bounds">
-			<rectangle x="553" y="298" width="70" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node15">
-		<attr name="bounds">
-			<rectangle x="587" y="330" width="96" height="56"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node24">
-		<attr name="bounds">
-			<rectangle x="757" y="304" width="134" height="40"></rectangle>		</attr>
-
-
-	</node>
-	</layout>
-</gxl> </model>
- <model id="resources" type="ingenias.editor.models.EnvironmentModelModelJGraph">
-<object id="resources" type="ingenias.editor.entities.EnvironmentModelDataEntity">
-<mapproperties>
-<key id="Description"></key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-  <path>
-    <package id="Project"/>
-   </path>
-<gxl>
-
-	<graph>
-			
-	<node id="40" nid="node6" type="EPerceivesNotification">
-		<attr name="bounds">
-			<rectangle x="162" y="145" width="160" height="30"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node2">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node1">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="Moderator" nid="node1" type="Role">
-		<attr name="bounds">
-			<rectangle x="338" y="217" width="65" height="43"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="39" nid="node5" type="EPerceivesNotification">
-		<attr name="bounds">
-			<rectangle x="226" y="56" width="160" height="30"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node2">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node0">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="20" nid="node3" type="ApplicationBelongsTo">
-		<attr name="bounds">
-			<rectangle x="238" y="86" width="114" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node0">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node2">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="37" nid="node4" type="ApplicationBelongsTo">
-		<attr name="bounds">
-			<rectangle x="168" y="189" width="114" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node1">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node2">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="SketchPainter" nid="node2" type="InternalApplication">
-		<attr name="bounds">
-			<rectangle x="59" y="52" width="88" height="46"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="RandomSketchAgent" nid="node0" type="Agent">
-		<attr name="bounds">
-			<rectangle x="465" y="40" width="131" height="57"></rectangle>		</attr>
-
-	</node><parentship>
-</parentship>
-<entityconstraints>
-</entityconstraints>
-
-
-	</graph>
-
-
-	<layout>
-			
-	<node id="node6">
-		<attr name="bounds">
-			<rectangle x="162" y="145" width="160" height="30"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node1">
-		<attr name="bounds">
-			<rectangle x="338" y="217" width="65" height="43"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node5">
-		<attr name="bounds">
-			<rectangle x="226" y="56" width="160" height="30"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node3">
-		<attr name="bounds">
-			<rectangle x="238" y="86" width="114" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node4">
-		<attr name="bounds">
-			<rectangle x="168" y="189" width="114" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node2">
-		<attr name="bounds">
-			<rectangle x="59" y="52" width="88" height="46"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node0">
-		<attr name="bounds">
-			<rectangle x="465" y="40" width="131" height="57"></rectangle>		</attr>
-
-	</node>
-	</layout>
-</gxl> </model>
- <model id="organization of resources" type="ingenias.editor.models.EnvironmentModelModelJGraph">
-<object id="organization of resources" type="ingenias.editor.entities.EnvironmentModelDataEntity">
-<mapproperties>
-<key id="Description"></key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-  <path>
-    <package id="Project"/>
-   </path>
-<gxl>
-
-	<graph>
-			
-	<node id="48" nid="node6" type="EResourceBelongsTo">
-		<attr name="bounds">
-			<rectangle x="148" y="101" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>label</string>
-		</attr>
-
-
-
-	<connected id="node5">		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-
-
-
-
-<attr name="extraLabelPositions">
-			<array>
-		<attr name="extraLabelPositions0">
-			<point x="875.0" y="-20.0"></point>
-		</attr>
-
-</array>
-</attr>
-<attr name="extraLabels">
-			<array>
-		<attr name="extraLabels0">
-			<string>View</string>
-		</attr>
-
-</array>
-</attr>
-
-	</connected>
-	<connected id="node4">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="46" nid="node9" type="EResourceBelongsTo">
-		<attr name="bounds">
-			<rectangle x="148" y="166" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>label</string>
-		</attr>
-
-
-
-	<connected id="node3">		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-
-
-
-
-<attr name="extraLabelPositions">
-			<array>
-		<attr name="extraLabelPositions0">
-			<point x="875.0" y="-20.0"></point>
-		</attr>
-
-</array>
-</attr>
-<attr name="extraLabels">
-			<array>
-		<attr name="extraLabels0">
-			<string>View</string>
-		</attr>
-
-</array>
-</attr>
-
-	</connected>
-	<connected id="node4">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="Secretary" nid="node3" type="Role">
-		<attr name="bounds">
-			<rectangle x="11" y="155" width="60" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="44" nid="node8" type="EResourceBelongsTo">
-		<attr name="bounds">
-			<rectangle x="145" y="48" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>label</string>
-		</attr>
-
-
-
-	<connected id="node5">		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-
-
-
-
-<attr name="extraLabelPositions">
-			<array>
-		<attr name="extraLabelPositions0">
-			<point x="875.0" y="-20.0"></point>
-		</attr>
-
-</array>
-</attr>
-<attr name="extraLabels">
-			<array>
-		<attr name="extraLabels0">
-			<string>Create and Share</string>
-		</attr>
-
-</array>
-</attr>
-
-	</connected>
-	<connected id="node0">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="45" nid="node10" type="EResourceBelongsTo">
-		<attr name="bounds">
-			<rectangle x="333" y="168" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>label</string>
-		</attr>
-
-
-
-	<connected id="node1">		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-
-
-
-
-<attr name="extraLabelPositions">
-			<array>
-		<attr name="extraLabelPositions0">
-			<point x="875.0" y="-20.0"></point>
-		</attr>
-
-</array>
-</attr>
-<attr name="extraLabels">
-			<array>
-		<attr name="extraLabels0">
-			<string>Write</string>
-		</attr>
-
-</array>
-</attr>
-
-	</connected>
-	<connected id="node4">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="Brainstorming report" nid="node2" type="Resource">
-		<attr name="bounds">
-			<rectangle x="199" y="210" width="130" height="83"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="Blackboard" nid="node4" type="Resource">
-		<attr name="bounds">
-			<rectangle x="225" y="114" width="70" height="83"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="Participant" nid="node5" type="Role">
-		<attr name="bounds">
-			<rectangle x="3" y="26" width="68" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="47" nid="node7" type="EResourceBelongsTo">
-		<attr name="bounds">
-			<rectangle x="135" y="208" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>label</string>
-		</attr>
-
-
-
-	<connected id="node3">		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-
-
-
-
-<attr name="extraLabelPositions">
-			<array>
-		<attr name="extraLabelPositions0">
-			<point x="875.0" y="-20.0"></point>
-		</attr>
-
-</array>
-</attr>
-<attr name="extraLabels">
-			<array>
-		<attr name="extraLabels0">
-			<string>Write notes</string>
-		</attr>
-
-</array>
-</attr>
-
-	</connected>
-	<connected id="node2">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="Moderator" nid="node1" type="Role">
-		<attr name="bounds">
-			<rectangle x="371" y="160" width="65" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="Drawing" nid="node0" type="Resource">
-		<attr name="bounds">
-			<rectangle x="219" y="8" width="64" height="83"></rectangle>		</attr>
-
-
-	</node><parentship>
-</parentship>
-<entityconstraints>
-</entityconstraints>
-
-
-	</graph>
-
-
-	<layout>
-			
-	<node id="node6">
-		<attr name="bounds">
-			<rectangle x="148" y="101" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>label</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node9">
-		<attr name="bounds">
-			<rectangle x="148" y="166" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>label</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node3">
-		<attr name="bounds">
-			<rectangle x="11" y="155" width="60" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node8">
-		<attr name="bounds">
-			<rectangle x="145" y="48" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>label</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node10">
-		<attr name="bounds">
-			<rectangle x="333" y="168" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>label</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node2">
-		<attr name="bounds">
-			<rectangle x="199" y="210" width="130" height="83"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node4">
-		<attr name="bounds">
-			<rectangle x="225" y="114" width="70" height="83"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node5">
-		<attr name="bounds">
-			<rectangle x="3" y="26" width="68" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node7">
-		<attr name="bounds">
-			<rectangle x="135" y="208" width="0" height="0"></rectangle>		</attr>
-		<attr name="view">
-			<string>label</string>
-		</attr>
-
-
-
-	</node>
-			
-	<node id="node1">
-		<attr name="bounds">
-			<rectangle x="371" y="160" width="65" height="43"></rectangle>		</attr>
-
-
-	</node>
-			
-	<node id="node0">
-		<attr name="bounds">
-			<rectangle x="219" y="8" width="64" height="83"></rectangle>		</attr>
-
-
-	</node>
-	</layout>
-</gxl> </model>
- <model id="agent to role assignments" type="ingenias.editor.models.OrganizationModelModelJGraph">
-<object id="agent to role assignments" type="ingenias.editor.entities.OrganizationModelDataEntity">
-<mapproperties>
-<key id="Description"></key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-  <path>
-    <package id="Project"/>
-   </path>
-<gxl>
-
-	<graph>
-			
-	<node id="34" nid="node7" type="GTPursues">
-		<attr name="bounds">
-			<rectangle x="187" y="151" width="65" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node1">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node4">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="28" nid="node10" type="GTPursues">
-		<attr name="bounds">
-			<rectangle x="157" y="60" width="65" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node5">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node3">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="12" nid="node8" type="WFPlays">
-		<attr name="bounds">
-			<rectangle x="286" y="95" width="54" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node5">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node1">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="Moderator" nid="node0" type="Role">
-		<attr name="bounds">
-			<rectangle x="289" y="179" width="65" height="43"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="35" nid="node9" type="GTPursues">
-		<attr name="bounds">
-			<rectangle x="191" y="181" width="65" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node0">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node4">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="SampleModerator" nid="node2" type="Agent">
-		<attr name="bounds">
-			<rectangle x="272" y="258" width="111" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="RandomIdea" nid="node3" type="Goal">
-		<attr name="bounds">
-			<rectangle x="9" y="56" width="124" height="58"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="RandomSketchAgent" nid="node5" type="Agent">
-		<attr name="bounds">
-			<rectangle x="245" y="20" width="131" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="Design a chair" nid="node4" type="Goal">
-		<attr name="bounds">
-			<rectangle x="11" y="143" width="146" height="58"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="15" nid="node6" type="WFPlays">
-		<attr name="bounds">
-			<rectangle x="297" y="233" width="54" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node2">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node0">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="Participant" nid="node1" type="Role">
-		<attr name="bounds">
-			<rectangle x="282" y="128" width="68" height="43"></rectangle>		</attr>
-
-	</node><parentship>
-</parentship>
-<entityconstraints>
-</entityconstraints>
-
-
-	</graph>
-
-
-	<layout>
-			
-	<node id="node7">
-		<attr name="bounds">
-			<rectangle x="187" y="151" width="65" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node10">
-		<attr name="bounds">
-			<rectangle x="157" y="60" width="65" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node8">
-		<attr name="bounds">
-			<rectangle x="286" y="95" width="54" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node0">
-		<attr name="bounds">
-			<rectangle x="289" y="179" width="65" height="43"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node9">
-		<attr name="bounds">
-			<rectangle x="191" y="181" width="65" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node2">
-		<attr name="bounds">
-			<rectangle x="272" y="258" width="111" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node3">
-		<attr name="bounds">
-			<rectangle x="9" y="56" width="124" height="58"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node5">
-		<attr name="bounds">
-			<rectangle x="245" y="20" width="131" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node4">
-		<attr name="bounds">
-			<rectangle x="11" y="143" width="146" height="58"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node6">
-		<attr name="bounds">
-			<rectangle x="297" y="233" width="54" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node1">
-		<attr name="bounds">
-			<rectangle x="282" y="128" width="68" height="43"></rectangle>		</attr>
-
-	</node>
-	</layout>
-</gxl> </model>
- <model id="code" type="ingenias.editor.models.ComponentDiagramModelJGraph">
-<object id="code" type="ingenias.editor.entities.ComponentDiagramDataEntity">
-<mapproperties>
-<key id="Description"></key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-  <path>
-    <package id="Project"/>
-   </path>
-<gxl>
-
-	<graph>
-			
-	<node id="ShareConcept" nid="node5" type="TaskByRole">
-		<attr name="bounds">
-			<rectangle x="543" y="126" width="124" height="40"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="MyVersion" nid="node1" type="Task">
-		<attr name="bounds">
-			<rectangle x="15" y="31" width="63" height="43"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="INGENIASCodeComponent4" nid="node2" type="INGENIASCodeComponent">
-		<attr name="bounds">
-			<rectangle x="832" y="249" width="204" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="CollectDrawings" nid="node0" type="TaskByRole">
-		<attr name="bounds">
-			<rectangle x="537" y="256" width="134" height="40"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="DefineGoal" nid="node9" type="TaskByRole">
-		<attr name="bounds">
-			<rectangle x="43" y="144" width="103" height="40"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="22" nid="node11" type="CDUsesCode">
-		<attr name="bounds">
-			<rectangle x="161" y="151" width="79" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
 
 
 	<connected id="node9">
@@ -4049,8 +2427,9 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
+
 	</connected>
-	<connected id="node3">
+	<connected id="node10">
 
 
 
@@ -4065,15 +2444,205 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
+
 	</connected>
 	</node>
 			
-	<node id="24" nid="node10" type="CDUsesCode">
+	<node id="47" nid="node19" type="WFUses">
 		<attr name="bounds">
-			<rectangle x="699" y="140" width="79" height="15"></rectangle>		</attr>
+			<rectangle x="249" y="70" width="52" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
+
+
+
+	<connected id="node8">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node12">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="21" nid="node16" type="WFParticipates">
+		<attr name="bounds">
+			<rectangle x="27" y="155" width="85" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node4">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node0">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="26" nid="node24" type="GTSatisfies">
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+		<attr name="bounds">
+			<rectangle x="400" y="320" width="70" height="15"></rectangle>		</attr>
+
+
+	<connected id="node0"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node23">
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="SketchConcept" nid="node5" type="TaskByRole">
+		<attr name="bounds">
+			<rectangle x="511" y="136" width="130" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="10" nid="node17" type="WFParticipates">
+		<attr name="bounds">
+			<rectangle x="27" y="187" width="85" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node11">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node0">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="SketchPainter" nid="node6" type="InternalApplication">
+		<attr name="bounds">
+			<rectangle x="528" y="359" width="164" height="55"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="WorkflowCardinality0" nid="node3" type="WorkflowCardinality">
+		<attr name="bounds">
+			<rectangle x="238" y="315" width="137" height="85"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="30" nid="node14" type="WFUses">
+		<attr name="bounds">
+			<rectangle x="557" y="82" width="52" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
 
 
 	<connected id="node5">
@@ -4085,146 +2654,6 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 			<point x="500.0" y="-20.0"></point>
 		</attr>
 
-
-
-
-
-
-	</connected>
-	<connected id="node8">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="25" nid="node14" type="CDUsesCode">
-		<attr name="bounds">
-			<rectangle x="712" y="269" width="79" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node0">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node2">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="INGENIASCodeComponent1" nid="node3" type="INGENIASCodeComponent">
-		<attr name="bounds">
-			<rectangle x="254" y="122" width="204" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="17" nid="node13" type="CDUsesCode">
-		<attr name="bounds">
-			<rectangle x="168" y="41" width="79" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node1">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node4">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="INGENIASCodeComponent0" nid="node4" type="INGENIASCodeComponent">
-		<attr name="bounds">
-			<rectangle x="336" y="15" width="204" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="INGENIASCodeComponent3" nid="node8" type="INGENIASCodeComponent">
-		<attr name="bounds">
-			<rectangle x="810" y="120" width="204" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="23" nid="node12" type="CDUsesCode">
-		<attr name="bounds">
-			<rectangle x="185" y="274" width="79" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node6">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
 
 
 
@@ -4247,170 +2676,31 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
+
 	</connected>
 	</node>
 			
-	<node id="SketchConcept" nid="node6" type="TaskByRole">
+	<node id="BrainstormingGUI" nid="node12" type="InternalApplication">
 		<attr name="bounds">
-			<rectangle x="52" y="268" width="130" height="40"></rectangle>		</attr>
+			<rectangle x="235" y="9" width="110" height="40"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
 
 	</node>
 			
-	<node id="INGENIASCodeComponent2" nid="node7" type="INGENIASCodeComponent">
+	<node id="33" nid="node22" type="WFUses">
 		<attr name="bounds">
-			<rectangle x="266" y="244" width="204" height="57"></rectangle>		</attr>
-
-	</node><parentship>
-</parentship>
-<entityconstraints>
-</entityconstraints>
-
-
-	</graph>
-
-
-	<layout>
-			
-	<node id="node5">
-		<attr name="bounds">
-			<rectangle x="543" y="126" width="124" height="40"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node1">
-		<attr name="bounds">
-			<rectangle x="15" y="31" width="63" height="43"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node2">
-		<attr name="bounds">
-			<rectangle x="832" y="249" width="204" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node0">
-		<attr name="bounds">
-			<rectangle x="537" y="256" width="134" height="40"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node9">
-		<attr name="bounds">
-			<rectangle x="43" y="144" width="103" height="40"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node11">
-		<attr name="bounds">
-			<rectangle x="161" y="151" width="79" height="15"></rectangle>		</attr>
+			<rectangle x="581" y="318" width="52" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
-	</node>
-			
-	<node id="node10">
-		<attr name="bounds">
-			<rectangle x="699" y="140" width="79" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
 
-
-	</node>
-			
-	<node id="node14">
-		<attr name="bounds">
-			<rectangle x="712" y="269" width="79" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node3">
-		<attr name="bounds">
-			<rectangle x="254" y="122" width="204" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node13">
-		<attr name="bounds">
-			<rectangle x="168" y="41" width="79" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node4">
-		<attr name="bounds">
-			<rectangle x="336" y="15" width="204" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node8">
-		<attr name="bounds">
-			<rectangle x="810" y="120" width="204" height="57"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node12">
-		<attr name="bounds">
-			<rectangle x="185" y="274" width="79" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node6">
-		<attr name="bounds">
-			<rectangle x="52" y="268" width="130" height="40"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node7">
-		<attr name="bounds">
-			<rectangle x="266" y="244" width="204" height="57"></rectangle>		</attr>
-
-	</node>
-	</layout>
-</gxl> </model>
- <model id="initial mental state" type="ingenias.editor.models.AgentModelModelJGraph">
-<object id="initial mental state" type="ingenias.editor.entities.AgentModelDataEntity">
-<mapproperties>
-<key id="Description"></key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-  <path>
-    <package id="Project"/>
-   </path>
-<gxl>
-
-	<graph>
-			
-	<node id="initial mental state for moderator" nid="node0" type="MentalState">
-		<attr name="bounds">
-			<rectangle x="205" y="138" width="240" height="42"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="19" nid="node3" type="AContainsME">
-		<attr name="bounds">
-			<rectangle x="469" y="115" width="79" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node0">
+	<connected id="node2">
 
 
 
@@ -4418,6 +2708,113 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 		<attr name="labelposition">
 			<point x="500.0" y="-20.0"></point>
 		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node6">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="CollectDrawings" nid="node2" type="TaskByRole">
+		<attr name="bounds">
+			<rectangle x="542" y="252" width="134" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="SketchPainter" nid="node7" type="InternalApplication">
+		<attr name="bounds">
+			<rectangle x="505" y="2" width="164" height="55"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="7" nid="node20" type="PConnects">
+		<attr name="bounds">
+			<rectangle x="300" y="239" width="167" height="47"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node2">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node9">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="13" nid="node13" type="WFConsumes">
+		<attr name="bounds">
+			<rectangle x="108" y="101" width="80" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node8">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
 
 
 
@@ -4440,12 +2837,573 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
+
 	</connected>
 	</node>
 			
-	<node id="18" nid="node4" type="AHasMS">
+	<node id="InitiateBrainstorming" nid="node1" type="ApplicationEventSlots">
 		<attr name="bounds">
-			<rectangle x="133" y="120" width="55" height="15"></rectangle>		</attr>
+			<rectangle x="23" y="12" width="193" height="55"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="Moderator" nid="node11" type="Role">
+		<attr name="bounds">
+			<rectangle x="20" y="230" width="65" height="43"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="DefineGoal" nid="node8" type="TaskByRole">
+		<attr name="bounds">
+			<rectangle x="209" y="105" width="103" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="5" nid="node15" type="PConnects">
+		<attr name="bounds">
+			<rectangle x="328" y="116" width="156" height="32"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node5">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node8">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="6" nid="node18" type="PConnects">
+		<attr name="bounds">
+			<rectangle x="402" y="187" width="68" height="19"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node9">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node5">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="FirstSession" nid="node0" type="Workflow">
+		<attr name="bounds">
+			<rectangle x="168" y="55" width="514" height="254"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="SketchIsReady" nid="node10" type="ApplicationEventSlots">
+		<attr name="bounds">
+			<rectangle x="16" y="321" width="173" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="ShareConcept" nid="node9" type="TaskByRole">
+		<attr name="bounds">
+			<rectangle x="200" y="179" width="124" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="Participant" nid="node4" type="Role">
+		<attr name="bounds">
+			<rectangle x="7" y="92" width="68" height="43"></rectangle>		</attr>
+
+
+	</node><parentship>
+<child id="node9" parent="node0"/>
+<child id="node5" parent="node0"/>
+<child id="node2" parent="node0"/>
+<child id="node8" parent="node0"/>
+</parentship>
+<entityconstraints>
+<cellconstraint id="node6:INGENIAS">
+<currentcell id="node6" height="46" width="88"/>
+</cellconstraint>
+<cellconstraint id="node12:INGENIAS">
+<currentcell id="node12" height="46" width="108"/>
+</cellconstraint>
+<cellconstraint id="node7:INGENIAS">
+<currentcell id="node7" height="46" width="88"/>
+</cellconstraint>
+<cellconstraint id="node1:INGENIAS">
+<currentcell id="node1" height="83" width="143"/>
+</cellconstraint>
+<cellconstraint id="node10:INGENIAS">
+<currentcell id="node10" height="83" width="91"/>
+</cellconstraint>
+</entityconstraints>
+
+
+	</graph>
+
+
+	<layout>
+			
+	<node id="node23">
+		<attr name="bounds">
+			<rectangle x="382" y="345" width="126" height="56"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node21">
+		<attr name="bounds">
+			<rectangle x="153" y="269" width="80" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node19">
+		<attr name="bounds">
+			<rectangle x="249" y="70" width="52" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node16">
+		<attr name="bounds">
+			<rectangle x="27" y="155" width="85" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node24">
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+		<attr name="bounds">
+			<rectangle x="400" y="320" width="70" height="15"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node5">
+		<attr name="bounds">
+			<rectangle x="511" y="136" width="130" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node17">
+		<attr name="bounds">
+			<rectangle x="27" y="187" width="85" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node6">
+		<attr name="bounds">
+			<rectangle x="528" y="359" width="164" height="55"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node3">
+		<attr name="bounds">
+			<rectangle x="238" y="315" width="137" height="85"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node14">
+		<attr name="bounds">
+			<rectangle x="557" y="82" width="52" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node12">
+		<attr name="bounds">
+			<rectangle x="235" y="9" width="110" height="40"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node22">
+		<attr name="bounds">
+			<rectangle x="581" y="318" width="52" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node2">
+		<attr name="bounds">
+			<rectangle x="542" y="252" width="134" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node7">
+		<attr name="bounds">
+			<rectangle x="505" y="2" width="164" height="55"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node20">
+		<attr name="bounds">
+			<rectangle x="300" y="239" width="167" height="47"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node13">
+		<attr name="bounds">
+			<rectangle x="108" y="101" width="80" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node1">
+		<attr name="bounds">
+			<rectangle x="23" y="12" width="193" height="55"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node11">
+		<attr name="bounds">
+			<rectangle x="20" y="230" width="65" height="43"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node8">
+		<attr name="bounds">
+			<rectangle x="209" y="105" width="103" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node15">
+		<attr name="bounds">
+			<rectangle x="328" y="116" width="156" height="32"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node18">
+		<attr name="bounds">
+			<rectangle x="402" y="187" width="68" height="19"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node0">
+		<attr name="bounds">
+			<rectangle x="168" y="55" width="514" height="254"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node10">
+		<attr name="bounds">
+			<rectangle x="16" y="321" width="173" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node9">
+		<attr name="bounds">
+			<rectangle x="200" y="179" width="124" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node4">
+		<attr name="bounds">
+			<rectangle x="7" y="92" width="68" height="43"></rectangle>		</attr>
+
+
+	</node>
+	</layout>
+</gxl> </model>
+ <model id="resources" type="ingenias.editor.models.EnvironmentModelModelJGraph">
+<object id="resources" type="ingenias.editor.entities.EnvironmentModelDataEntity">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+  <path>
+    <package id="Project"/>
+   </path>
+<gxl>
+
+	<graph>
+			
+	<node id="20" nid="node7" type="ApplicationBelongsTo">
+		<attr name="bounds">
+			<rectangle x="244" y="166" width="114" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	<connected id="node3">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node0">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="40" nid="node5" type="EPerceivesNotification">
+		<attr name="bounds">
+			<rectangle x="197" y="3" width="160" height="30"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	<connected id="node0">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node2">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="39" nid="node4" type="EPerceivesNotification">
+		<attr name="bounds">
+			<rectangle x="227" y="104" width="160" height="30"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	<connected id="node0">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node3">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="BrainstormingGUI" nid="node1" type="InternalApplication">
+		<attr name="bounds">
+			<rectangle x="631" y="49" width="110" height="40"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="37" nid="node6" type="ApplicationBelongsTo">
+		<attr name="bounds">
+			<rectangle x="245" y="74" width="114" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
@@ -4484,15 +3442,974 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="DefiningInitialGoal" nid="node1" type="MentalInstanceSpecification">
+	<node id="48" nid="node9" type="EPerceivesNotification">
 		<attr name="bounds">
-			<rectangle x="572" y="60" width="227" height="55"></rectangle>		</attr>
+			<rectangle x="455" y="0" width="199" height="30"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	<connected id="node1">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node2">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="Participant" nid="node3" type="Role">
+		<attr name="bounds">
+			<rectangle x="419" y="112" width="68" height="43"></rectangle>		</attr>
 
 	</node>
 			
-	<node id="SampleModerator" nid="node2" type="Agent">
+	<node id="49" nid="node8" type="ApplicationBelongsTo">
 		<attr name="bounds">
-			<rectangle x="5" y="80" width="111" height="57"></rectangle>		</attr>
+			<rectangle x="487" y="84" width="114" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	<connected id="node2">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node1">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="Moderator" nid="node2" type="Role">
+		<attr name="bounds">
+			<rectangle x="404" y="35" width="65" height="43"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="SketchPainter" nid="node0" type="InternalApplication">
+		<attr name="bounds">
+			<rectangle x="21" y="68" width="164" height="55"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+	</node><parentship>
+</parentship>
+<entityconstraints>
+<cellconstraint id="node1:INGENIAS">
+<currentcell id="node1" height="46" width="108"/>
+</cellconstraint>
+<cellconstraint id="node0:INGENIAS">
+<currentcell id="node0" height="46" width="88"/>
+</cellconstraint>
+</entityconstraints>
+
+
+	</graph>
+
+
+	<layout>
+			
+	<node id="node7">
+		<attr name="bounds">
+			<rectangle x="244" y="166" width="114" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node5">
+		<attr name="bounds">
+			<rectangle x="197" y="3" width="160" height="30"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node4">
+		<attr name="bounds">
+			<rectangle x="227" y="104" width="160" height="30"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node1">
+		<attr name="bounds">
+			<rectangle x="631" y="49" width="110" height="40"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node6">
+		<attr name="bounds">
+			<rectangle x="245" y="74" width="114" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node9">
+		<attr name="bounds">
+			<rectangle x="455" y="0" width="199" height="30"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node3">
+		<attr name="bounds">
+			<rectangle x="419" y="112" width="68" height="43"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node8">
+		<attr name="bounds">
+			<rectangle x="487" y="84" width="114" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node2">
+		<attr name="bounds">
+			<rectangle x="404" y="35" width="65" height="43"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node0">
+		<attr name="bounds">
+			<rectangle x="21" y="68" width="164" height="55"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+	</node>
+	</layout>
+</gxl> </model>
+ <model id="agent to role assignments" type="ingenias.editor.models.OrganizationModelModelJGraph">
+<object id="agent to role assignments" type="ingenias.editor.entities.OrganizationModelDataEntity">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+  <path>
+    <package id="Project"/>
+   </path>
+<gxl>
+
+	<graph>
+			
+	<node id="RandomIdea" nid="node11" type="Goal">
+		<attr name="bounds">
+			<rectangle x="24" y="28" width="84" height="56"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="Design a chair" nid="node7" type="Goal">
+		<attr name="bounds">
+			<rectangle x="450" y="117" width="96" height="56"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="15" nid="node5" type="WFPlays">
+		<attr name="bounds">
+			<rectangle x="299" y="232" width="54" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node8">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node6">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="56" nid="node13" type="GTPursues">
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+		<attr name="bounds">
+			<rectangle x="198" y="180" width="65" height="15"></rectangle>		</attr>
+
+
+	<connected id="node6"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node1">
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="35" nid="node12" type="GTPursues">
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+		<attr name="bounds">
+			<rectangle x="375" y="214" width="65" height="15"></rectangle>		</attr>
+
+
+	<connected id="node8"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node7">
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="Participant" nid="node9" type="Role">
+		<attr name="bounds">
+			<rectangle x="282" y="128" width="68" height="43"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="RandomSketchAgent" nid="node10" type="Agent">
+		<attr name="bounds">
+			<rectangle x="244" y="10" width="131" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="34" nid="node2" type="GTPursues">
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+		<attr name="bounds">
+			<rectangle x="380" y="89" width="65" height="15"></rectangle>		</attr>
+
+
+	<connected id="node10"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node7">
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="55" nid="node0" type="GTPursues">
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+		<attr name="bounds">
+			<rectangle x="194" y="150" width="65" height="15"></rectangle>		</attr>
+
+
+	<connected id="node9"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node1">
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="SampleModerator" nid="node8" type="Agent">
+		<attr name="bounds">
+			<rectangle x="276" y="257" width="111" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="12" nid="node3" type="WFPlays">
+		<attr name="bounds">
+			<rectangle x="285" y="90" width="54" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node10">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node9">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="Moderator" nid="node6" type="Role">
+		<attr name="bounds">
+			<rectangle x="289" y="179" width="65" height="43"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="CreativeCoCreation" nid="node1" type="Goal">
+		<attr name="bounds">
+			<rectangle x="45" y="141" width="126" height="56"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="28" nid="node4" type="GTPursues">
+		<attr name="bounds">
+			<rectangle x="144" y="41" width="65" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node10">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node11">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node><parentship>
+</parentship>
+<entityconstraints>
+</entityconstraints>
+
+
+	</graph>
+
+
+	<layout>
+			
+	<node id="node11">
+		<attr name="bounds">
+			<rectangle x="24" y="28" width="84" height="56"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node7">
+		<attr name="bounds">
+			<rectangle x="450" y="117" width="96" height="56"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node5">
+		<attr name="bounds">
+			<rectangle x="299" y="232" width="54" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node13">
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+		<attr name="bounds">
+			<rectangle x="198" y="180" width="65" height="15"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node12">
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+		<attr name="bounds">
+			<rectangle x="375" y="214" width="65" height="15"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node9">
+		<attr name="bounds">
+			<rectangle x="282" y="128" width="68" height="43"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node10">
+		<attr name="bounds">
+			<rectangle x="244" y="10" width="131" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node2">
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+		<attr name="bounds">
+			<rectangle x="380" y="89" width="65" height="15"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node0">
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+		<attr name="bounds">
+			<rectangle x="194" y="150" width="65" height="15"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node8">
+		<attr name="bounds">
+			<rectangle x="276" y="257" width="111" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node3">
+		<attr name="bounds">
+			<rectangle x="285" y="90" width="54" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node6">
+		<attr name="bounds">
+			<rectangle x="289" y="179" width="65" height="43"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node1">
+		<attr name="bounds">
+			<rectangle x="45" y="141" width="126" height="56"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node4">
+		<attr name="bounds">
+			<rectangle x="144" y="41" width="65" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+	</layout>
+</gxl> </model>
+ <model id="code" type="ingenias.editor.models.ComponentDiagramModelJGraph">
+<object id="code" type="ingenias.editor.entities.ComponentDiagramDataEntity">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+  <path>
+    <package id="Project"/>
+   </path>
+<gxl>
+
+	<graph>
+			
+	<node id="INGENIASCodeComponent3" nid="node0" type="INGENIASCodeComponent">
+		<attr name="bounds">
+			<rectangle x="810" y="120" width="204" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="INGENIASCodeComponent1" nid="node7" type="INGENIASCodeComponent">
+		<attr name="bounds">
+			<rectangle x="254" y="122" width="204" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="SketchConcept" nid="node5" type="TaskByRole">
+		<attr name="bounds">
+			<rectangle x="52" y="268" width="130" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="23" nid="node13" type="CDUsesCode">
+		<attr name="bounds">
+			<rectangle x="185" y="274" width="79" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node5">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node8">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="INGENIASCodeComponent4" nid="node3" type="INGENIASCodeComponent">
+		<attr name="bounds">
+			<rectangle x="832" y="249" width="204" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="24" nid="node10" type="CDUsesCode">
+		<attr name="bounds">
+			<rectangle x="699" y="140" width="79" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node4">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node0">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="CollectDrawings" nid="node1" type="TaskByRole">
+		<attr name="bounds">
+			<rectangle x="537" y="256" width="134" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="INGENIASCodeComponent0" nid="node2" type="INGENIASCodeComponent">
+		<attr name="bounds">
+			<rectangle x="336" y="15" width="204" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="DefineGoal" nid="node6" type="TaskByRole">
+		<attr name="bounds">
+			<rectangle x="43" y="144" width="103" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="ShareConcept" nid="node4" type="TaskByRole">
+		<attr name="bounds">
+			<rectangle x="543" y="126" width="124" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="25" nid="node12" type="CDUsesCode">
+		<attr name="bounds">
+			<rectangle x="712" y="269" width="79" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node1">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node3">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="22" nid="node11" type="CDUsesCode">
+		<attr name="bounds">
+			<rectangle x="161" y="151" width="79" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node6">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node7">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="MyVersion" nid="node9" type="Task">
+		<attr name="bounds">
+			<rectangle x="15" y="31" width="63" height="43"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="17" nid="node14" type="CDUsesCode">
+		<attr name="bounds">
+			<rectangle x="168" y="41" width="79" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node9">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node2">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="INGENIASCodeComponent2" nid="node8" type="INGENIASCodeComponent">
+		<attr name="bounds">
+			<rectangle x="266" y="244" width="204" height="57"></rectangle>		</attr>
+
 
 	</node><parentship>
 </parentship>
@@ -4507,13 +4424,859 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 			
 	<node id="node0">
 		<attr name="bounds">
-			<rectangle x="205" y="138" width="240" height="42"></rectangle>		</attr>
+			<rectangle x="810" y="120" width="204" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node7">
+		<attr name="bounds">
+			<rectangle x="254" y="122" width="204" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node5">
+		<attr name="bounds">
+			<rectangle x="52" y="268" width="130" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node13">
+		<attr name="bounds">
+			<rectangle x="185" y="274" width="79" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
 
 	</node>
 			
 	<node id="node3">
 		<attr name="bounds">
-			<rectangle x="469" y="115" width="79" height="15"></rectangle>		</attr>
+			<rectangle x="832" y="249" width="204" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node10">
+		<attr name="bounds">
+			<rectangle x="699" y="140" width="79" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node1">
+		<attr name="bounds">
+			<rectangle x="537" y="256" width="134" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node2">
+		<attr name="bounds">
+			<rectangle x="336" y="15" width="204" height="57"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node6">
+		<attr name="bounds">
+			<rectangle x="43" y="144" width="103" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node4">
+		<attr name="bounds">
+			<rectangle x="543" y="126" width="124" height="40"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node12">
+		<attr name="bounds">
+			<rectangle x="712" y="269" width="79" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node11">
+		<attr name="bounds">
+			<rectangle x="161" y="151" width="79" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node9">
+		<attr name="bounds">
+			<rectangle x="15" y="31" width="63" height="43"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node14">
+		<attr name="bounds">
+			<rectangle x="168" y="41" width="79" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node8">
+		<attr name="bounds">
+			<rectangle x="266" y="244" width="204" height="57"></rectangle>		</attr>
+
+
+	</node>
+	</layout>
+</gxl> </model>
+ <model id="organization deployment" type="ingenias.editor.models.DeployDiagramModelJGraph">
+<object id="organization deployment" type="ingenias.editor.entities.DeployDiagramDataEntity">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+  <path>
+    <package id="Project"/>
+   </path>
+<gxl>
+
+	<graph>
+			
+	<node id="GroupDeploymentUnit0" nid="node2" type="GroupDeploymentUnit">
+		<attr name="bounds">
+			<rectangle x="11" y="116" width="213" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="DeploymentUnitByType1" nid="node3" type="DeploymentUnitByType">
+		<attr name="bounds">
+			<rectangle x="369" y="225" width="194" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="GroupDeploymentUnit1" nid="node1" type="GroupDeploymentUnit">
+		<attr name="bounds">
+			<rectangle x="356" y="122" width="222" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="53" nid="node9" type="OrgDplmnt">
+		<attr name="bounds">
+			<rectangle x="161" y="91" width="67" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node4">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node2">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="OrgDeployment" nid="node5" type="DeploymentPackage">
+		<attr name="bounds">
+			<rectangle x="537" y="25" width="116" height="40"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="SampleOrg" nid="node4" type="OrgDeploymentUnit">
+		<attr name="bounds">
+			<rectangle x="155" y="10" width="234" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="52" nid="node6" type="OrgDplmnt">
+		<attr name="bounds">
+			<rectangle x="336" y="94" width="67" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node4">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node1">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="54" nid="node8" type="DefinesDeployment">
+		<attr name="bounds">
+			<rectangle x="408" y="38" width="110" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node4">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node5">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="DeploymentUnitByType2" nid="node0" type="DeploymentUnitByType">
+		<attr name="bounds">
+			<rectangle x="32" y="231" width="174" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="51" nid="node7" type="MemberDplmnt">
+		<attr name="bounds">
+			<rectangle x="421" y="201" width="90" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node1">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node3">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="50" nid="node10" type="MemberDplmnt">
+		<attr name="bounds">
+			<rectangle x="73" y="201" width="90" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node2">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	<connected id="node0">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
+	</node><parentship>
+</parentship>
+<entityconstraints>
+<cellconstraint id="node2:INGENIAS">
+<currentcell id="node2" height="46" width="145"/>
+</cellconstraint>
+<cellconstraint id="node3:INGENIAS">
+<currentcell id="node3" height="46" width="150"/>
+</cellconstraint>
+<cellconstraint id="node1:INGENIAS">
+<currentcell id="node1" height="46" width="145"/>
+</cellconstraint>
+<cellconstraint id="node5:INGENIAS">
+<currentcell id="node5" height="46" width="136"/>
+</cellconstraint>
+<cellconstraint id="node4:INGENIAS">
+<currentcell id="node4" height="46" width="129"/>
+</cellconstraint>
+<cellconstraint id="node0:INGENIAS">
+<currentcell id="node0" height="46" width="150"/>
+</cellconstraint>
+</entityconstraints>
+
+
+	</graph>
+
+
+	<layout>
+			
+	<node id="node2">
+		<attr name="bounds">
+			<rectangle x="11" y="116" width="213" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node3">
+		<attr name="bounds">
+			<rectangle x="369" y="225" width="194" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node1">
+		<attr name="bounds">
+			<rectangle x="356" y="122" width="222" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node9">
+		<attr name="bounds">
+			<rectangle x="161" y="91" width="67" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node5">
+		<attr name="bounds">
+			<rectangle x="537" y="25" width="116" height="40"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node4">
+		<attr name="bounds">
+			<rectangle x="155" y="10" width="234" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node6">
+		<attr name="bounds">
+			<rectangle x="336" y="94" width="67" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node8">
+		<attr name="bounds">
+			<rectangle x="408" y="38" width="110" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node0">
+		<attr name="bounds">
+			<rectangle x="32" y="231" width="174" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node7">
+		<attr name="bounds">
+			<rectangle x="421" y="201" width="90" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+			
+	<node id="node10">
+		<attr name="bounds">
+			<rectangle x="73" y="201" width="90" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	</node>
+	</layout>
+</gxl> </model>
+ <model id="specialization" type="ingenias.editor.models.OrganizationModelModelJGraph">
+<object id="specialization" type="ingenias.editor.entities.OrganizationModelDataEntity">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+  <path>
+    <package id="Project"/>
+    <package id="fordevel"/>
+   </path>
+<gxl>
+
+	<graph>
+			
+	<node id="UMLComment0" nid="node4" type="UMLComment">
+		<attr name="bounds">
+			<rectangle x="539" y="21" width="102" height="67"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="MyVersion" nid="node3" type="Task">
+		<attr name="bounds">
+			<rectangle x="50" y="183" width="63" height="43"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="14" nid="node8" type="WFResponsable">
+		<attr name="bounds">
+			<rectangle x="40" y="152" width="89" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	<connected id="node1">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node3">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="Design a chair" nid="node0" type="Goal">
+		<attr name="bounds">
+			<rectangle x="282" y="4" width="146" height="58"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="27" nid="node7" type="WFConsumes">
+		<attr name="bounds">
+			<rectangle x="49" y="243" width="80" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	<connected id="node3">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node5">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="29" nid="node6" type="GTPursues">
+		<attr name="bounds">
+			<rectangle x="185" y="64" width="65" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	<connected id="node1">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node0">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="16" nid="node10" type="GTSatisfies">
+		<attr name="bounds">
+			<rectangle x="192" y="152" width="70" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	<connected id="node3">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node2">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="RandomIdea" nid="node2" type="Goal">
+		<attr name="bounds">
+			<rectangle x="342" y="77" width="124" height="58"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="28" nid="node9" type="GTPursues">
+		<attr name="bounds">
+			<rectangle x="215" y="99" width="65" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	<connected id="node1">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	<connected id="node2">
+
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+	</connected>
+	</node>
+			
+	<node id="RandomSketchAgent" nid="node1" type="Agent">
+		<attr name="bounds">
+			<rectangle x="22" y="79" width="131" height="57"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="GoalDefinition" nid="node5" type="FrameFact">
+		<attr name="bounds">
+			<rectangle x="59" y="275" width="76" height="32"></rectangle>		</attr>
+
+	</node><parentship>
+</parentship>
+<entityconstraints>
+</entityconstraints>
+
+
+	</graph>
+
+
+	<layout>
+			
+	<node id="node4">
+		<attr name="bounds">
+			<rectangle x="539" y="21" width="102" height="67"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node3">
+		<attr name="bounds">
+			<rectangle x="50" y="183" width="63" height="43"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node8">
+		<attr name="bounds">
+			<rectangle x="40" y="152" width="89" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
@@ -4521,9 +5284,51 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="node4">
+	<node id="node0">
 		<attr name="bounds">
-			<rectangle x="133" y="120" width="55" height="15"></rectangle>		</attr>
+			<rectangle x="282" y="4" width="146" height="58"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node7">
+		<attr name="bounds">
+			<rectangle x="49" y="243" width="80" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node6">
+		<attr name="bounds">
+			<rectangle x="185" y="64" width="65" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node10">
+		<attr name="bounds">
+			<rectangle x="192" y="152" width="70" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node2">
+		<attr name="bounds">
+			<rectangle x="342" y="77" width="124" height="58"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node9">
+		<attr name="bounds">
+			<rectangle x="215" y="99" width="65" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
@@ -4533,13 +5338,13 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 			
 	<node id="node1">
 		<attr name="bounds">
-			<rectangle x="572" y="60" width="227" height="55"></rectangle>		</attr>
+			<rectangle x="22" y="79" width="131" height="57"></rectangle>		</attr>
 
 	</node>
 			
-	<node id="node2">
+	<node id="node5">
 		<attr name="bounds">
-			<rectangle x="5" y="80" width="111" height="57"></rectangle>		</attr>
+			<rectangle x="59" y="275" width="76" height="32"></rectangle>		</attr>
 
 	</node>
 	</layout>
@@ -4553,14 +5358,15 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 </object>
   <path>
     <package id="Project"/>
+    <package id="fordevel"/>
    </path>
 <gxl>
 
 	<graph>
 			
-	<node id="DeploymentUnitByTypeEnumInitMS0" nid="node1" type="DeploymentUnitByTypeEnumInitMS">
+	<node id="DeploymentUnitByType0" nid="node1" type="DeploymentUnitByType">
 		<attr name="bounds">
-			<rectangle x="274" y="33" width="390" height="85"></rectangle>		</attr>
+			<rectangle x="48" y="296" width="194" height="70"></rectangle>		</attr>
 		<attr name="view">
 			<string>UML</string>
 		</attr>
@@ -4570,7 +5376,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 			
 	<node id="MultipleTestingDeployment" nid="node2" type="DeploymentPackage">
 		<attr name="bounds">
-			<rectangle x="533" y="206" width="170" height="40"></rectangle>		</attr>
+			<rectangle x="499" y="221" width="170" height="40"></rectangle>		</attr>
 		<attr name="view">
 			<string>UML</string>
 		</attr>
@@ -4578,9 +5384,9 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="DeploymentUnitByType1" nid="node0" type="DeploymentUnitByType">
+	<node id="DeploymentUnitByTypeEnumInitMS0" nid="node3" type="DeploymentUnitByTypeEnumInitMS">
 		<attr name="bounds">
-			<rectangle x="705" y="42" width="194" height="70"></rectangle>		</attr>
+			<rectangle x="23" y="62" width="390" height="85"></rectangle>		</attr>
 		<attr name="view">
 			<string>UML</string>
 		</attr>
@@ -4588,15 +5394,15 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="43" nid="node7" type="DefinesDeployment">
+	<node id="42" nid="node6" type="DefinesDeployment">
 		<attr name="bounds">
-			<rectangle x="488" y="155" width="110" height="15"></rectangle>		</attr>
+			<rectangle x="530" y="167" width="110" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
-	<connected id="node1">
+	<connected id="node0">
 
 
 
@@ -4629,25 +5435,15 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 	</connected>
 	</node>
 			
-	<node id="DeploymentUnitByType0" nid="node3" type="DeploymentUnitByType">
+	<node id="31" nid="node5" type="DefinesDeployment">
 		<attr name="bounds">
-			<rectangle x="52" y="43" width="194" height="70"></rectangle>		</attr>
-		<attr name="view">
-			<string>UML</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="31" nid="node6" type="DefinesDeployment">
-		<attr name="bounds">
-			<rectangle x="306" y="137" width="110" height="15"></rectangle>		</attr>
+			<rectangle x="121" y="166" width="110" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
-	<connected id="node1">
+	<connected id="node3">
 
 
 
@@ -4682,7 +5478,7 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 			
 	<node id="TestingDeployment" nid="node4" type="DeploymentPackage">
 		<attr name="bounds">
-			<rectangle x="199" y="189" width="122" height="40"></rectangle>		</attr>
+			<rectangle x="88" y="200" width="122" height="40"></rectangle>		</attr>
 		<attr name="view">
 			<string>UML</string>
 		</attr>
@@ -4690,56 +5486,25 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	</node>
 			
-	<node id="32" nid="node5" type="DefinesDeployment">
+	<node id="DeploymentUnitByType1" nid="node0" type="DeploymentUnitByType">
 		<attr name="bounds">
-			<rectangle x="155" y="144" width="110" height="15"></rectangle>		</attr>
+			<rectangle x="489" y="58" width="194" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="43" nid="node7" type="DefinesDeployment">
+		<attr name="bounds">
+			<rectangle x="401" y="186" width="110" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
 	<connected id="node3">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node4">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="42" nid="node8" type="DefinesDeployment">
-		<attr name="bounds">
-			<rectangle x="645" y="152" width="110" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node0">
 
 
 
@@ -4770,199 +5535,17 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 	</connected>
-	</node><parentship>
-</parentship>
-<entityconstraints>
-<cellconstraint id="node1:INGENIAS">
-<currentcell id="node1" height="46" width="222"/>
-</cellconstraint>
-<cellconstraint id="node2:INGENIAS">
-<currentcell id="node2" height="46" width="136"/>
-</cellconstraint>
-<cellconstraint id="node0:INGENIAS">
-<currentcell id="node0" height="46" width="150"/>
-</cellconstraint>
-<cellconstraint id="node3:INGENIAS">
-<currentcell id="node3" height="46" width="150"/>
-</cellconstraint>
-<cellconstraint id="node4:INGENIAS">
-<currentcell id="node4" height="46" width="136"/>
-</cellconstraint>
-</entityconstraints>
-
-
-	</graph>
-
-
-	<layout>
-			
-	<node id="node1">
-		<attr name="bounds">
-			<rectangle x="274" y="33" width="390" height="85"></rectangle>		</attr>
-		<attr name="view">
-			<string>UML</string>
-		</attr>
-
-
 	</node>
 			
-	<node id="node2">
+	<node id="32" nid="node8" type="DefinesDeployment">
 		<attr name="bounds">
-			<rectangle x="533" y="206" width="170" height="40"></rectangle>		</attr>
-		<attr name="view">
-			<string>UML</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node0">
-		<attr name="bounds">
-			<rectangle x="705" y="42" width="194" height="70"></rectangle>		</attr>
-		<attr name="view">
-			<string>UML</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node7">
-		<attr name="bounds">
-			<rectangle x="488" y="155" width="110" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node3">
-		<attr name="bounds">
-			<rectangle x="52" y="43" width="194" height="70"></rectangle>		</attr>
-		<attr name="view">
-			<string>UML</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node6">
-		<attr name="bounds">
-			<rectangle x="306" y="137" width="110" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node4">
-		<attr name="bounds">
-			<rectangle x="199" y="189" width="122" height="40"></rectangle>		</attr>
-		<attr name="view">
-			<string>UML</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node5">
-		<attr name="bounds">
-			<rectangle x="155" y="144" width="110" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node8">
-		<attr name="bounds">
-			<rectangle x="645" y="152" width="110" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-	</layout>
-</gxl> </model>
- <model id="specialization" type="ingenias.editor.models.OrganizationModelModelJGraph">
-<object id="specialization" type="ingenias.editor.entities.OrganizationModelDataEntity">
-<mapproperties>
-<key id="Description"></key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-  <path>
-    <package id="Project"/>
-   </path>
-<gxl>
-
-	<graph>
-			
-	<node id="RandomIdea" nid="node0" type="Goal">
-		<attr name="bounds">
-			<rectangle x="342" y="77" width="124" height="58"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="16" nid="node9" type="GTSatisfies">
-		<attr name="bounds">
-			<rectangle x="192" y="152" width="70" height="15"></rectangle>		</attr>
+			<rectangle x="92" y="261" width="110" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
 	<connected id="node1">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node0">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	</node>
-			
-	<node id="MyVersion" nid="node1" type="Task">
-		<attr name="bounds">
-			<rectangle x="50" y="183" width="63" height="43"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="29" nid="node6" type="GTPursues">
-		<attr name="bounds">
-			<rectangle x="185" y="64" width="65" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node3">
 
 
 
@@ -4993,23 +5576,162 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 	</connected>
-	</node>
+	</node><parentship>
+</parentship>
+<entityconstraints>
+<cellconstraint id="node1:INGENIAS">
+<currentcell id="node1" height="46" width="150"/>
+</cellconstraint>
+<cellconstraint id="node2:INGENIAS">
+<currentcell id="node2" height="46" width="136"/>
+</cellconstraint>
+<cellconstraint id="node3:INGENIAS">
+<currentcell id="node3" height="46" width="222"/>
+</cellconstraint>
+<cellconstraint id="node4:INGENIAS">
+<currentcell id="node4" height="46" width="136"/>
+</cellconstraint>
+<cellconstraint id="node0:INGENIAS">
+<currentcell id="node0" height="46" width="150"/>
+</cellconstraint>
+</entityconstraints>
+
+
+	</graph>
+
+
+	<layout>
 			
-	<node id="Design a chair" nid="node4" type="Goal">
+	<node id="node1">
 		<attr name="bounds">
-			<rectangle x="282" y="4" width="146" height="58"></rectangle>		</attr>
+			<rectangle x="48" y="296" width="194" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
 
 	</node>
 			
-	<node id="27" nid="node10" type="WFConsumes">
+	<node id="node2">
 		<attr name="bounds">
-			<rectangle x="49" y="243" width="80" height="15"></rectangle>		</attr>
+			<rectangle x="499" y="221" width="170" height="40"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node3">
+		<attr name="bounds">
+			<rectangle x="23" y="62" width="390" height="85"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node6">
+		<attr name="bounds">
+			<rectangle x="530" y="167" width="110" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
-	<connected id="node1">
+	</node>
+			
+	<node id="node5">
+		<attr name="bounds">
+			<rectangle x="121" y="166" width="110" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node4">
+		<attr name="bounds">
+			<rectangle x="88" y="200" width="122" height="40"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node0">
+		<attr name="bounds">
+			<rectangle x="489" y="58" width="194" height="70"></rectangle>		</attr>
+		<attr name="view">
+			<string>UML</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node7">
+		<attr name="bounds">
+			<rectangle x="401" y="186" width="110" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+			
+	<node id="node8">
+		<attr name="bounds">
+			<rectangle x="92" y="261" width="110" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+	</node>
+	</layout>
+</gxl> </model>
+ <model id="initial mental state" type="ingenias.editor.models.AgentModelModelJGraph">
+<object id="initial mental state" type="ingenias.editor.entities.AgentModelDataEntity">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+  <path>
+    <package id="Project"/>
+    <package id="fordevel"/>
+   </path>
+<gxl>
+
+	<graph>
+			
+	<node id="initial mental state for moderator" nid="node4" type="MentalState">
+		<attr name="bounds">
+			<rectangle x="205" y="138" width="240" height="42"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="DefiningInitialGoal" nid="node3" type="MentalInstanceSpecification">
+		<attr name="bounds">
+			<rectangle x="570" y="84" width="227" height="55"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="18" nid="node0" type="AHasMS">
+		<attr name="bounds">
+			<rectangle x="133" y="120" width="55" height="15"></rectangle>		</attr>
+		<attr name="view">
+			<string>ingenias</string>
+		</attr>
+
+
+
+	<connected id="node2">
 
 
 
@@ -5023,8 +5745,9 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
+
 	</connected>
-	<connected id="node5">
+	<connected id="node4">
 
 
 
@@ -5039,37 +5762,40 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
+
 	</connected>
 	</node>
 			
-	<node id="28" nid="node7" type="GTPursues">
+	<node id="19" nid="node1" type="AContainsME">
 		<attr name="bounds">
-			<rectangle x="215" y="99" width="65" height="15"></rectangle>		</attr>
+			<rectangle x="468" y="127" width="79" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
+
+	<connected id="node4">
+
+
+
+
+		<attr name="labelposition">
+			<point x="500.0" y="-20.0"></point>
+		</attr>
+
+
+
+
+
+
+
+	</connected>
 	<connected id="node3">
 
 
 
 
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node0">
-
-
-
-
 
 		<attr name="labelposition">
 			<point x="500.0" y="-20.0"></point>
@@ -5080,65 +5806,14 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 
 
-	</connected>
-	</node>
-			
-	<node id="14" nid="node8" type="WFResponsable">
-		<attr name="bounds">
-			<rectangle x="40" y="152" width="89" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	<connected id="node3">
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
-
-	</connected>
-	<connected id="node1">
-
-
-
-
-
-		<attr name="labelposition">
-			<point x="500.0" y="-20.0"></point>
-		</attr>
-
-
-
-
-
 
 	</connected>
 	</node>
 			
-	<node id="FrameFact0" nid="node5" type="FrameFact">
+	<node id="SampleModerator" nid="node2" type="Agent">
 		<attr name="bounds">
-			<rectangle x="59" y="275" width="76" height="32"></rectangle>		</attr>
+			<rectangle x="5" y="80" width="111" height="57"></rectangle>		</attr>
 
-	</node>
-			
-	<node id="UMLComment0" nid="node2" type="UMLComment">
-		<attr name="bounds">
-			<rectangle x="539" y="21" width="102" height="67"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="RandomSketchAgent" nid="node3" type="Agent">
-		<attr name="bounds">
-			<rectangle x="22" y="79" width="131" height="57"></rectangle>		</attr>
 
 	</node><parentship>
 </parentship>
@@ -5151,89 +5826,46 @@ eaSketchPainter.launchEditor(eiConceptSketch.getsketch());</key>
 
 	<layout>
 			
-	<node id="node0">
+	<node id="node4">
 		<attr name="bounds">
-			<rectangle x="342" y="77" width="124" height="58"></rectangle>		</attr>
+			<rectangle x="205" y="138" width="240" height="42"></rectangle>		</attr>
+
 
 	</node>
 			
-	<node id="node9">
+	<node id="node3">
 		<attr name="bounds">
-			<rectangle x="192" y="152" width="70" height="15"></rectangle>		</attr>
+			<rectangle x="570" y="84" width="227" height="55"></rectangle>		</attr>
+
+
+	</node>
+			
+	<node id="node0">
+		<attr name="bounds">
+			<rectangle x="133" y="120" width="55" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
+
 
 
 	</node>
 			
 	<node id="node1">
 		<attr name="bounds">
-			<rectangle x="50" y="183" width="63" height="43"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node6">
-		<attr name="bounds">
-			<rectangle x="185" y="64" width="65" height="15"></rectangle>		</attr>
+			<rectangle x="468" y="127" width="79" height="15"></rectangle>		</attr>
 		<attr name="view">
 			<string>ingenias</string>
 		</attr>
 
 
-	</node>
-			
-	<node id="node4">
-		<attr name="bounds">
-			<rectangle x="282" y="4" width="146" height="58"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node10">
-		<attr name="bounds">
-			<rectangle x="49" y="243" width="80" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node7">
-		<attr name="bounds">
-			<rectangle x="215" y="99" width="65" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node8">
-		<attr name="bounds">
-			<rectangle x="40" y="152" width="89" height="15"></rectangle>		</attr>
-		<attr name="view">
-			<string>ingenias</string>
-		</attr>
-
-
-	</node>
-			
-	<node id="node5">
-		<attr name="bounds">
-			<rectangle x="59" y="275" width="76" height="32"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node2">
 		<attr name="bounds">
-			<rectangle x="539" y="21" width="102" height="67"></rectangle>		</attr>
+			<rectangle x="5" y="80" width="111" height="57"></rectangle>		</attr>
 
-	</node>
-			
-	<node id="node3">
-		<attr name="bounds">
-			<rectangle x="22" y="79" width="131" height="57"></rectangle>		</attr>
 
 	</node>
 	</layout>

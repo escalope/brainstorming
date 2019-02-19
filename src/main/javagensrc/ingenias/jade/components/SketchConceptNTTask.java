@@ -36,6 +36,7 @@ import ingenias.editor.entities.*;
 * 
 * <p>The Task  SketchConceptNT has the following inputs, sets of possible outputs, and available applications:</p>
 * Inputs:<ul>
+*  <li>GoalDefinition</li>
 *  <li>fake_DefineGoalNT_output_for_task_SketchConceptNT</li>
 
 
@@ -70,6 +71,8 @@ public class SketchConceptNTTask extends Task{
 
  public void execute() throws TaskException{
     YellowPages yp=null; // only available for initiators of interactions
+
+        GoalDefinition  eiGoalDefinition=(GoalDefinition)this.getFirstInputOfType("GoalDefinition");             
 
         fake_DefineGoalNT_output_for_task_SketchConceptNT  eifake_DefineGoalNT_output_for_task_SketchConceptNT=(fake_DefineGoalNT_output_for_task_SketchConceptNT)this.getFirstInputOfType("fake_DefineGoalNT_output_for_task_SketchConceptNT");             
 

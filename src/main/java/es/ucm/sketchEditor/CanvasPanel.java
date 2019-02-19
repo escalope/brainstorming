@@ -3,13 +3,15 @@ package es.ucm.sketchEditor;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
+import java.beans.PropertyChangeListener;
 import java.util.*;
 import java.io.*;
 import javax.swing.*;
 import javax.imageio.*;
+import java.awt.event.KeyAdapter;
 
 public class CanvasPanel extends JPanel implements 
-MouseListener,MouseMotionListener,KeyListener,Serializable,MouseWheelListener
+MouseListener,MouseMotionListener,Serializable,MouseWheelListener
 {
 	protected final static int 
 	LINE=1,SQUARE=2,OVAL=3,POLYGON=4,ROUND_RECT=5,FREE_HAND=6,
@@ -58,7 +60,33 @@ MouseListener,MouseMotionListener,KeyListener,Serializable,MouseWheelListener
 		yPolygon		= new Vector();
 
 		addMouseListener(this);
-		addKeyListener(this);
+		this.setFocusable(true);
+		this.addKeyListener(new KeyAdapter() {
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+
+			}
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if (e.getKeyChar()=='a') {
+					selected=0;
+
+				} else
+					if (e.getKeyChar()=='z') {
+						selected=selected+1;
+					}
+
+
+			}
+
+		});
 		addMouseMotionListener(this);
 		addMouseWheelListener(this);
 
@@ -72,7 +100,28 @@ MouseListener,MouseMotionListener,KeyListener,Serializable,MouseWheelListener
 		undoStack = new Stack();
 		redoStack = new Stack();
 
-		repaint();		
+
+
+
+		this.getInputMap().put(KeyStroke.getKeyStroke("F12"), "selectanother");
+		this.getActionMap().put("selectanother", new javax.swing.AbstractAction() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				selected=0;
+				/*	} else
+					if (ipkey.equals("z")) {
+						selected=selected+1;
+					}
+				 */
+				repaint();		
+
+			}
+
+		});
+
+
 	}
 
 
@@ -88,9 +137,6 @@ MouseListener,MouseMotionListener,KeyListener,Serializable,MouseWheelListener
 			z1=zcrd;
 		}
 
-	}
-	/*----------------------------------------------------------------------------*/
-	public void mouseClicked(MouseEvent event){
 	}
 
 	public void mouseMoved(MouseEvent event){
@@ -650,75 +696,79 @@ MouseListener,MouseMotionListener,KeyListener,Serializable,MouseWheelListener
 	}
 
 
-
+	int selected=-1;
 
 	/*----------------------------------------------------------------------------*/
 	public void translate(int xrel,int yrel)
 	{
 
 		{
-			if(drawMode!=0)
-			{
 
+			if(drawMode!=0 && selected!=-1)
+			{ 				
 				StepInfo tempInfo,tempInfo1;
 				tempInfo = (StepInfo)undoStack.pop();
+				Coordinate lastCoord=null;
 				switch(tempInfo.getStepType())
 				{
-				case 1:	vLine.remove(vLine.size()-1);
+				case 1:	if (selected<vLine.size()) lastCoord=(Coordinate)vLine.remove(selected);
 				break;
-				case 2:	vSquare.remove(vSquare.size()-1);
+				case 2:	if (selected<vSquare.size()) lastCoord=(Coordinate)vSquare.remove(selected);
 				break;
-				case 3:	vOval.remove(vOval.size()-1);
+				case 3:	if (selected<vOval.size())lastCoord=(Coordinate)vOval.remove(selected);
 				break;
-				case 4:	vPolygon.remove(vPolygon.size()-1);
+				case 4:	if (selected<vPolygon.size()) lastCoord=(Coordinate)vPolygon.remove(selected);
 				break;	
-				case 5:	vRoundRect.remove(vRoundRect.size()-1);
+				case 5:	if (selected<vRoundRect.size()) lastCoord=(Coordinate)vRoundRect.remove(selected);
 				break;
-				case 6:	vFreeHand.remove(vFreeHand.size()-1);
+				case 6: if (selected<vFreeHand.size())	lastCoord=(Coordinate)vFreeHand.remove(selected);
 				break;
-				case 22:vSolidSquare.remove(vSolidSquare.size()-1);
+				case 22:if (selected<vSolidSquare.size()) lastCoord=(Coordinate)vSolidSquare.remove(selected);
 				break;
-				case 33:vSolidOval.remove(vSolidOval.size()-1);
+				case 33:if (selected<vSolidOval.size()) lastCoord=(Coordinate)vSolidOval.remove(selected);
 				break;
-				case 44:vSolidPolygon.remove(vSolidPolygon.size()-1);
+				case 44: if (selected<vSolidPolygon.size()) lastCoord=(Coordinate)vSolidPolygon.remove(selected);
 				break;
-				case 55:vSolidRoundRect.remove(vSolidRoundRect.size()-1);
+				case 55:if (selected<vSolidRoundRect.size()) lastCoord=(Coordinate)vSolidRoundRect.remove(selected);
 				break;
 				}
 				tempInfo1=tempInfo;
-				Coordinate c1=tempInfo.getStepCoordinate();
-				c1.x1=tempInfo.getStepCoordinate().x1-xrel;
-				c1.x2=tempInfo.getStepCoordinate().x2-xrel;
-				c1.y1=tempInfo.getStepCoordinate().y1-yrel;
-				c1.y2=tempInfo.getStepCoordinate().y2-yrel;
-				tempInfo1.stepCoordinate=c1;
+				if (lastCoord!=null) {					
+					Coordinate c1=lastCoord;
+					c1.x1=c1.x1-xrel;
+					c1.x2=c1.x2-xrel;
+					c1.y1=c1.y1-yrel;
+					c1.y2=c1.y2-yrel;
+					tempInfo1.stepCoordinate=c1;
 
-
-				switch(tempInfo1.getStepType())
-				{
-				case 1:	vLine.add(c1);
-				break;
-				case 2:	vSquare.add(c1);
-				break;
-				case 3:	vOval.add(c1);
-				break;
-				case 4:	vPolygon.add(c1);
-				break;	
-				case 5:	vRoundRect.add(c1);
-				break;
-				case 6:	vFreeHand.add(c1);
-				break;
-				case 22:vSolidSquare.add(c1);
-				break;
-				case 33:vSolidOval.add(c1);
-				break;
-				case 44:vSolidPolygon.add(c1);
-				break;
-				case 55:vSolidRoundRect.add(c1);
-				break;
+					switch(tempInfo1.getStepType())
+					{
+					case 1:	vLine.insertElementAt(c1,selected);
+					break;
+					case 2:		
+						vSquare.insertElementAt(c1,selected);
+		
+					break;
+					case 3:	vOval.insertElementAt(c1,selected);
+					break;
+					case 4: vPolygon.insertElementAt(c1,selected);
+					break;	
+					case 5:	vRoundRect.insertElementAt(c1,selected);
+					break;
+					case 6:	vFreeHand.insertElementAt(c1,selected);
+					break;
+					case 22:vSolidSquare.insertElementAt(c1,selected);
+					break;
+					case 33: vSolidOval.insertElementAt(c1,selected);
+					break;
+					case 44: vSolidPolygon.insertElementAt(c1,selected);
+					break;
+					case 55: vSolidRoundRect.insertElementAt(c1,selected);
+					break;
+					}
 				}
-
-				undoStack.push(tempInfo1);
+					undoStack.push(tempInfo1);
+				
 
 
 				repaint();
@@ -1331,6 +1381,8 @@ MouseListener,MouseMotionListener,KeyListener,Serializable,MouseWheelListener
 		g.setColor(((Coordinate)vSolidPolygon.elementAt(i)).colour());
 		g.fillPolygon(xPos,yPos,xPos.length);
 	}	
+	// if not for this instruction, the key events will not be processed
+	requestFocus(true);
 	}
 
 	private String format( double x)
@@ -1361,22 +1413,6 @@ MouseListener,MouseMotionListener,KeyListener,Serializable,MouseWheelListener
 	}
 
 
-	public void keyTyped(KeyEvent key) {
-		ipkey=key.getKeyText(key.getKeyCode());
-		System.out.println(ipkey);
-	}
-
-
-	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
 
 
 	public void mouseWheelMoved(MouseWheelEvent wheel) {
@@ -1384,6 +1420,13 @@ MouseListener,MouseMotionListener,KeyListener,Serializable,MouseWheelListener
 		zcrd-=wheelrot;
 		z2=zcrd;
 		repaint();
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+
 	}
 
 

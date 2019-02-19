@@ -39,7 +39,7 @@ import ingenias.jade.mental.*;
 import ingenias.jade.graphics.MainInteractionManager;
 
 
-public class MainMultipleTestingDeployment {
+public class MainOrgDeployment {
 
 
   public static void main(String args[]) throws Exception{
@@ -85,22 +85,36 @@ public class MainMultipleTestingDeployment {
 
 {
         // Create a new agent
-        final jade.wrapper.AgentController agcSampleModerator_0DeploymentUnitByTypeEnumInitMS0 = ac.createNewAgent("SampleModerator_0DeploymentUnitByTypeEnumInitMS0",
+        final jade.wrapper.AgentController agcSampleModerator_0DeploymentUnitByType2 = ac.createNewAgent("SampleModerator_0DeploymentUnitByType2",
             "ingenias.jade.agents.SampleModeratorJADEAgent", new Object[0]);	
 	
-	{ InitiateBrainstorming ment=new InitiateBrainstorming();
-	   	   
-	   agcSampleModerator_0DeploymentUnitByTypeEnumInitMS0.putO2AObject(ment, false);
-	}
 	
-	
+		
+	{ 	   
+	   OrganizationDescription orgdesc=null;
+	   orgdesc=new OrganizationDescription();
+	   orgdesc.setOrgName("brainstormingInc","SymbolicBrainstorming");
+	   Vector<String> groups=new Vector<String>(); 
+	   
+	    orgdesc.addGroup("facilitatorsInc","Facilitators");	     
+	   
+	    orgdesc.addGroup("participantsInc","Team");	     
+	   	   	 
+	   	   	 
+	   
+	    orgdesc.addMember("facilitatorsInc","SampleModerator_0DeploymentUnitByType2"); 
+	   
+	    orgdesc.addMember("participantsInc","RandomSketchAgent_0DeploymentUnitByType1"); 
+	   	 
+	   agcSampleModerator_0DeploymentUnitByType2.putO2AObject(orgdesc, false);  	 
+	}	
 	
 	
         new Thread(){
           public void run(){
             try {
-               System.out.println("Starting up SampleModerator_0DeploymentUnitByTypeEnumInitMS0...");
-              agcSampleModerator_0DeploymentUnitByTypeEnumInitMS0.start();
+               System.out.println("Starting up SampleModerator_0DeploymentUnitByType2...");
+              agcSampleModerator_0DeploymentUnitByType2.start();
             } catch (Exception e){
               e.printStackTrace();
             }
@@ -256,7 +270,7 @@ public class MainMultipleTestingDeployment {
         }.start();
 
 }
-	      MainInteractionManager.getInstance().setTitle("node MultipleTestingDeployment");
+	      MainInteractionManager.getInstance().setTitle("node OrgDeployment");
      }
 }
 

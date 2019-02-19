@@ -152,11 +152,11 @@ public class RandomSketchAgentJADEAgent
 	      
 	      
 				
-             expectedInput=this.getMSM().getMentalEntityByType("FrameFact0");
+             expectedInput=this.getMSM().getMentalEntityByType("GoalDefinition");
              if (expectedInput.size()==0 && !("1".equals("0..n"))){
-				nonExistingInputs.add("FrameFact0");
+				nonExistingInputs.add("GoalDefinition");
 			 } else {
-			    JADEAgent.addExpectedInputs(tobject, "FrameFact0","1",expectedInput);             
+			    JADEAgent.addExpectedInputs(tobject, "GoalDefinition","1",expectedInput);             
 			 }
              allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
 	      
@@ -182,7 +182,7 @@ public class RandomSketchAgentJADEAgent
          }
 	       for (TaskOutput singleTO:tobject.getOutputs()){
 	      		
-             expectedInput=this.getMSM().getMentalEntityByType("FrameFact0");
+             expectedInput=this.getMSM().getMentalEntityByType("GoalDefinition");
              if (expectedInput.size()==0 && !("1".equals("0..n"))){			
 			 } else {
 			    // to remove the input from whatever alternative
@@ -302,6 +302,15 @@ public class RandomSketchAgentJADEAgent
 	     
             
 		
+            expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"GoalDefinition");
+			if (expectedInput.size()==0 && !("1".equals("0..n")))
+				nonExistingInputs.add("GoalDefinition");
+			else {
+			    JADEAgent.addExpectedInputs(tobject, "GoalDefinition","1",expectedInput);
+			    JADEAgent.addConsumedInput(originalTO, "1", expectedInput);
+			}
+	      allEntitiesExist=allEntitiesExist&& expectedInput.size()!=0;
+	      
             expectedInput=this.getMSM().obtainConversationalMentalEntityByType(conversation,"fake_DefineGoalNT_output_for_task_SketchConceptNT");
 			if (expectedInput.size()==0 && !("1".equals("0..n")))
 				nonExistingInputs.add("fake_DefineGoalNT_output_for_task_SketchConceptNT");

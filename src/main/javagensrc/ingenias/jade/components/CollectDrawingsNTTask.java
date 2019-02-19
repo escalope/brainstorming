@@ -26,10 +26,6 @@
 
 package ingenias.jade.components;
 
-import java.awt.Color;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.*;
 import ingenias.jade.exception.*;
 import ingenias.jade.comm.*;
@@ -102,7 +98,6 @@ public class CollectDrawingsNTTask extends Task{
 
 // Code Area
 //#start_node:INGENIASCodeComponent4 <--- DO NOT REMOVE THIS	
-//REPLACE THIS COMMENT WITH YOUR CODE
 System.out.println(getAgentID()+" executing -> "+getID()+":"+getType());
 System.out.println(getAgentID()+" received "+eiConceptSketch.size()+ " designs");
 Vector v=new Vector();
@@ -117,7 +112,7 @@ Vector vSolidPolygon=new Vector();
 Vector vSolidRoundRect=new Vector(); 
 Vector vSolidSquare=new Vector(); 
 Vector vSquare=new Vector();
-Color backGroundColor=Color.WHITE;
+java.awt.Color backGroundColor=java.awt.Color.WHITE;
 v.removeAllElements();
 v.addElement(vFreeHand);
 v.addElement(vLine);
@@ -129,11 +124,11 @@ v.addElement(vSolidPolygon);
 v.addElement(vSolidRoundRect);
 v.addElement(vSolidSquare);
 v.addElement(vSquare);	
-v.addElement(new Color(backGroundColor.getRGB()));
+v.addElement(new java.awt.Color(backGroundColor.getRGB()));
 
 for (ConceptSketch sketch:eiConceptSketch) {
 	try {
-		ObjectInputStream oos=new ObjectInputStream(new ByteArrayInputStream(sketch.getsketch()));
+		java.io.ObjectInputStream oos=new java.io.ObjectInputStream(new java.io.ByteArrayInputStream(sketch.getsketch()));
 		Vector vFile2 = (Vector)oos.readObject();		
 		 vFreeHand .addAll( (Vector)vFile2.elementAt(0));
 		 vLine.addAll( (Vector)vFile2.elementAt(1));
@@ -145,8 +140,8 @@ for (ConceptSketch sketch:eiConceptSketch) {
 		vSolidRoundRect.addAll( (Vector)vFile2.elementAt(7));
 		vSolidSquare	.addAll( (Vector)vFile2.elementAt(8));
 		vSquare			.addAll( (Vector)vFile2.elementAt(9));
-		backGroundColor =( (Color)vFile2.elementAt(10));
-	} catch (ClassNotFoundException | IOException e) {
+		backGroundColor =( (java.awt.Color)vFile2.elementAt(10));
+	} catch (ClassNotFoundException | java.io.IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}		

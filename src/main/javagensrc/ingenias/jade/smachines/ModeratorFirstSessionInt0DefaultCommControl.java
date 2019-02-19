@@ -56,6 +56,8 @@ import ingenias.exception.NotFound;
      
      lw.addDeletionLockExpectedType("fake_DefineGoalNT_output_for_task_SketchConceptNT");
      
+     lw.addDeletionLockExpectedType("GoalDefinition");
+     
      
     }
     
@@ -67,6 +69,8 @@ import ingenias.exception.NotFound;
     // Facts that cannot be removed because they must be sent
      
      locks.add("fake_DefineGoalNT_output_for_task_SketchConceptNT");
+     
+     locks.add("GoalDefinition");
      
      
     return locks;
@@ -118,6 +122,8 @@ import ingenias.exception.NotFound;
          
 		 
 		 allexist=allexist && !getMSR().obtainConversationalMentalEntityByType(sb.getConversation(),"fake_DefineGoalNT_output_for_task_SketchConceptNT").isEmpty();
+		 
+		 allexist=allexist && !getMSR().obtainConversationalMentalEntityByType(sb.getConversation(),"GoalDefinition").isEmpty();
 		   
          if (allexist && true){
            sb.clearContentNextMessage();
@@ -130,6 +136,15 @@ import ingenias.exception.NotFound;
 	       getLR().removeDeletionLockType("fake_DefineGoalNT_output_for_task_SketchConceptNT");
 	       lockProcessed("fake_DefineGoalNT_output_for_task_SketchConceptNT");
            //MainInteractionManager.log("Removing lock fake_DefineGoalNT_output_for_task_SketchConceptNT",this.getAgent().getLocalName()+"-"+sb.getConversationID());
+            
+           
+           
+	   	   mfcontent=getMSR().obtainConversationalMentalEntityByType(sb.getConversation(),"GoalDefinition");
+	   	   for (MentalEntity me:mfcontent)             
+             sb.addContentForNextMessage(me);    
+	       getLR().removeDeletionLockType("GoalDefinition");
+	       lockProcessed("GoalDefinition");
+           //MainInteractionManager.log("Removing lock GoalDefinition",this.getAgent().getLocalName()+"-"+sb.getConversationID());
             
              
            
